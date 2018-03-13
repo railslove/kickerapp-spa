@@ -17,6 +17,11 @@ body {
 .aLeagueList {
   padding: 10px; }
 
+.aHeadline {
+  font: 700 24px/30px "Comic Sans", "Helvetica Neue", Helventica, Arial, sans-serif;
+  padding: 0 20px;
+  text-align: center; }
+
 .aHomeLinks {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

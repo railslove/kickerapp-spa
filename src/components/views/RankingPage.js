@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
-import User from '../User/User'
+import User from '../User'
 import gql from 'graphql-tag'
 
 
@@ -11,10 +11,6 @@ class RankingPage extends React.Component {
     if (this.props.rankingQuery.loading) {
       return (
         <div className='aLoading'>
-          <div
-            className='aLink asBack'
-            onClick={this.props.history.goBack}
-          >'Zurück'</div>
           <div>
             Loading
             (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})
@@ -26,7 +22,7 @@ class RankingPage extends React.Component {
     const league = this.props.rankingQuery.leagues[0]
     return (
       <div>
-        <h1 onClick={this.props.history.goBack}>{league.name}</h1>
+        <h1 className='aHeadline' onClick={this.props.history.goBack}>{league.name}</h1>
           <div className='aUserList'>
             {league.ranking && league.ranking.map((user, index) => (
               <User key={user.name} index={index+1} user={user}/>

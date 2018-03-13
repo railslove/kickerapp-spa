@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import League from '../League'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
@@ -21,10 +20,6 @@ class SettingsPage extends React.Component {
     if (this.props.allLeaguesQuery.loading) {
       return (
         <div className='aLoading'>
-          <div
-            className='aLink asBack'
-            onClick={this.props.history.goBack}
-          >'Zurück'</div>
           <div>
             Loading
             (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})

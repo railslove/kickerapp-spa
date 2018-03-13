@@ -21,6 +21,17 @@ body{
   padding: 10px;
 }
 
+.aHeadline{
+  font: 700 24px/30px $font-family;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.aUserList{
+  background: #eee;
+  padding: 10px;
+}
+
 .aHomeLinks{
   display: grid;
   grid-template-columns: repeat(2, 1fr);

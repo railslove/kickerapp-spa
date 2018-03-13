@@ -11,10 +11,6 @@ class TeamsPage extends React.Component {
     if (this.props.teamsQuery.loading) {
       return (
         <div className='aLoading'>
-          <div
-            className='aLink asBack'
-            onClick={this.props.history.goBack}
-          >'Zurück'</div>
           <div>
             Loading
             (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})
@@ -26,13 +22,7 @@ class TeamsPage extends React.Component {
     const league = this.props.teamsQuery.leagues[0]
     return (
       <div>
-        <h1>Teams</h1>
-          <div
-            className='aLink asBack'
-            onClick={this.props.history.goBack}
-          >
-            'Zurück'
-          </div>
+        <h1 className='aHeadline' onClick={this.props.history.goBack}>Teams</h1>
           <div className='aUserList'>
             <Teams teams={league.teams} players={[]} />
           </div>
@@ -69,7 +59,7 @@ const DetailPageWithGraphQL = compose(
     // http://dev.apollodata.com/react/queries.html#options-from-props
     options: ({match}) => ({
       variables: {
-        id: 'railslove-2018',
+        id: localStorage.getItem('slug'),
       },
     }),
   })
