@@ -15,6 +15,8 @@ const Match = (props) => {
     height: 22vw;
     background-position: center center;
     background-size: cover;
+    max-width: 100px;
+    max-height: 100px;
   `
   const Score = styled.div`
     display: flex;

@@ -29,6 +29,9 @@ body{
 .aUserList{
   background: #eee;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .aHomeLinks{
