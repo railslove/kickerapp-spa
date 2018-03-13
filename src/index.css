@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Rubik:400,700);
+
+body{
+  font: 400 16px/21px Rubik, 'Helvetica Neue', Helventica, Arial, sans-serif;
+}
+
+.aLeague, .aUser{
+  display: block;
+  padding: 10px;
+  box-shadow: 0 0 12px #999;
+  margin: 10px 0;
+  color: #232323;
+  text-decoration: none;
+}
+
+.aLeagueList, .aUserList{
+  padding: 10px;
+}
+
+.aHomeLinks{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  padding: 10px;
+}
+
+.aHomeLink{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dedede;
+  text-decoration: none;
+  font-size: 18px;
+  background: #282C34;
+  color: #ECECEC;
+}

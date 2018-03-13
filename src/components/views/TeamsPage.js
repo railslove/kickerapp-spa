@@ -1,0 +1,78 @@
+import React from 'react'
+import { graphql, compose } from 'react-apollo'
+import { withRouter } from 'react-router-dom'
+import Teams from '../Teams'
+import gql from 'graphql-tag'
+
+
+class TeamsPage extends React.Component {
+
+  render() {
+    if (this.props.teamsQuery.loading) {
+      return (
+        <div className='aLoading'>
+          <div
+            className='aLink asBack'
+            onClick={this.props.history.goBack}
+          >'Zurück'</div>
+          <div>
+            Loading
+            (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})
+          </div>
+        </div>
+      )
+    }
+
+    const league = this.props.teamsQuery.leagues[0]
+    return (
+      <div>
+        <h1>Teams</h1>
+          <div
+            className='aLink asBack'
+            onClick={this.props.history.goBack}
+          >
+            'Zurück'
+          </div>
+          <div className='aUserList'>
+            <Teams teams={league.teams} players={[]} />
+          </div>
+      </div>
+    )
+  }
+}
+
+
+const TEAMS_QUERY = gql`
+  query LeagueQuery($id: String!) {
+    leagues(league_slug: $id) {
+      teams{
+        name
+        number_of_wins
+        number_of_losses
+        score
+        percentage
+        player1{
+          name
+        }
+        player2{
+          name
+        }
+      }
+    }
+  }
+`
+
+const DetailPageWithGraphQL = compose(
+  graphql(TEAMS_QUERY, {
+    name: 'teamsQuery',
+    // see documentation on computing query variables from props in wrapper
+    // http://dev.apollodata.com/react/queries.html#options-from-props
+    options: ({match}) => ({
+      variables: {
+        id: 'railslove-2018',
+      },
+    }),
+  })
+)(TeamsPage)
+
+export default withRouter(DetailPageWithGraphQL)
