@@ -1,29 +1,33 @@
+@import 'components/User/User.sass';
 @import url(https://fonts.googleapis.com/css?family=Rubik:400,700);
-.aUserList {
-  background: #eee;
-  padding: 10px; }
+$font-family: 'Comic Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
 
-body {
-  font: 400 16px/21px "Comic Sans", "Helvetica Neue", Helventica, Arial, sans-serif; }
 
-.aLeague {
+
+body{
+  font: 400 16px/21px $font-family;
+}
+
+.aLeague{
   display: block;
   padding: 10px;
   box-shadow: 0 0 12px #999;
   margin: 10px 0;
   color: #232323;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
-.aLeagueList {
-  padding: 10px; }
+.aLeagueList{
+  padding: 10px;
+}
 
-.aHomeLinks {
+.aHomeLinks{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-  padding: 10px; }
-  .aHomeLinks .aHomeLink {
+  padding: 10px;
+  .aHomeLink{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,4 +35,6 @@ body {
     text-decoration: none;
     font-size: 18px;
     background: #282C34;
-    color: #ECECEC; }
+    color: #ECECEC;
+  }
+}

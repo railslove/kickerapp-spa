@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
-import User from '../User'
+import User from '../User/User'
 import gql from 'graphql-tag'
 
 
@@ -26,16 +26,10 @@ class RankingPage extends React.Component {
     const league = this.props.rankingQuery.leagues[0]
     return (
       <div>
-        <h1>{league.name}</h1>
-          <div
-            className='aLink asBack'
-            onClick={this.props.history.goBack}
-          >
-            'Zurück'
-          </div>
+        <h1 onClick={this.props.history.goBack}>{league.name}</h1>
           <div className='aUserList'>
             {league.ranking && league.ranking.map(user => (
-              <User key={user.name} user={user}/>
+              <User key={user.name} index={1} user={user}/>
             ))}
           </div>
       </div>
@@ -44,21 +38,22 @@ class RankingPage extends React.Component {
 }
 
 
-const LEAGUE_QUERY = gql`
-  query LeagueQuery($id: String!) {
+const RANKING_QUERY = gql`
+  query RankingQuery($id: String!) {
     leagues(league_slug: $id) {
       id
       name
       ranking{
         name
         quota
+        image
       }
     }
   }
 `
 
 const RankingPageWithGraphQL = compose(
-  graphql(LEAGUE_QUERY, {
+  graphql(RANKING_QUERY, {
     name: 'rankingQuery',
     // see documentation on computing query variables from props in wrapper
     // http://dev.apollodata.com/react/queries.html#options-from-props
