@@ -1,52 +1,65 @@
 import React from 'react'
+import styled from 'styled-components';
 
 const Team = (props) => {
+  const Wrapper = styled.div`
+    display: flex;
+    width: 100vw;
+    max-width: 400px;
+    margin-bottom: 10px;
+  `
+  const Image = styled.div`
+    width: 30vw;
+    height: 30vw;
+    background-position: center center;
+    background-size: cover;
+    max-width: 100px;
+    max-height: 100px;
+  `
+  const TeamName = styled.div`
+    position: relative;
+    display: flex;
+  `
+
+  const TeamNameValue = styled.div`
+    position: absolute;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    font-size: 12px;
+    width: 100%;
+  `
+
+  const Content = styled.div`
+    background: white;
+    padding: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  `
+
+  const Quota = styled.div`
+    font-size: 26px;
+  `
+
+  const Percentage = styled.div`
+    font-size: 14px;
+    color: #ababcd;
+  `
+
   return (
-    <tr>
-      <td><div className="c-team-table-rank">{props.team.rank}</div></td>
-      <td>
-        <div className="c-team-table-player-image">
-        </div>
-      </td>
-      <td>
-        <div className="c-team-table-player-name">
-          {props.team.player1 && props.team.player1.name}
-        </div>
-      </td>
-      <td>
-        <div className="c-team-table-player-image">
-        </div>
-      </td>
-      <td>
-        <div className="c-team-table-player-name">
-          {props.team.player2 && props.team.player2.name}
-        </div>
-      </td>
-      <td>
-        <div className="c-team-table-stats">
-          <div>{props.team.number_of_wins}</div>
-          <div className="c-team-table-label">{}</div>
-        </div>
-      </td>
-      <td>
-        <div className="c-team-table-stats">
-          <div>{props.team.number_of_losses}</div>
-          <div className="c-team-table-label">{}</div>
-        </div>
-      </td>
-      <td>
-        <div className="c-team-table-stats">
-          <div>{props.team.percentage}%</div>
-          <div className="c-team-table-label">{}</div>
-        </div>
-      </td>
-      <td>
-        <div className="c-team-table-stats">
-          <div><b>{props.team.score}</b></div>
-          <div className="c-team-table-label"><b>{}</b></div>
-        </div>
-      </td>
-    </tr>
+    <Wrapper>
+      <TeamName>
+        { props.team.player1 && <Image style={{backgroundImage: `url(${props.team.player1.image})`}}/> }
+        { props.team.player2 && <Image style={{backgroundImage: `url(${props.team.player2.image})`}}/> }
+        <TeamNameValue>{props.team.name}</TeamNameValue>
+      </TeamName>
+      <Content>
+        <Quota>{props.team.score}</Quota>
+        <Percentage>{props.team.percentage}%</Percentage>
+      </Content>
+    </Wrapper>
   )
 }
 

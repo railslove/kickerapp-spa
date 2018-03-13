@@ -24,7 +24,7 @@ class TeamsPage extends React.Component {
       <div>
         <h1 className='aHeadline' onClick={this.props.history.goBack}>Teams</h1>
           <div className='aUserList'>
-            <Teams teams={league.teams} players={[]} />
+            <Teams teams={league.teams} players={league.users} />
           </div>
       </div>
     )
@@ -35,17 +35,21 @@ class TeamsPage extends React.Component {
 const TEAMS_QUERY = gql`
   query LeagueQuery($id: String!) {
     leagues(league_slug: $id) {
+      users{
+        id
+        name
+      }
       teams{
         name
-        number_of_wins
-        number_of_losses
         score
         percentage
         player1{
-          name
+          id
+          image
         }
         player2{
-          name
+          id
+          image
         }
       }
     }
