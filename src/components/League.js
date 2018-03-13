@@ -1,20 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-export default class Post extends React.Component {
-
-  render() {
-    return (
-      <Link
-        className='aLeague'
-        to={`/leagues/${this.props.league.slug}`}
-      >
-        <div className='aLeague-name'>
-          {this.props.league.name}
-          {` (${this.props.league.matches_count})`}
-        </div>
-      </Link>
-    )
-  }
-
+const League = (props) => {
+  return (
+    <div onClick={() => props.leagueSelected(props.league)}>
+      <div className='aLeague-name'>
+        {props.league.name}
+        {` (${props.league.matches_count})`}
+      </div>
+    </div>
+  )
 }
+
+export default League;

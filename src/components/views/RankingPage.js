@@ -28,8 +28,8 @@ class RankingPage extends React.Component {
       <div>
         <h1 onClick={this.props.history.goBack}>{league.name}</h1>
           <div className='aUserList'>
-            {league.ranking && league.ranking.map(user => (
-              <User key={user.name} index={1} user={user}/>
+            {league.ranking && league.ranking.map((user, index) => (
+              <User key={user.name} index={index+1} user={user}/>
             ))}
           </div>
       </div>
@@ -59,7 +59,7 @@ const RankingPageWithGraphQL = compose(
     // http://dev.apollodata.com/react/queries.html#options-from-props
     options: ({match}) => ({
       variables: {
-        id: 'railslove-2018',
+        id: localStorage.getItem('slug'),
       },
     }),
   })

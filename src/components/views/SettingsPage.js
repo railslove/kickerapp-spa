@@ -12,6 +12,11 @@ class SettingsPage extends React.Component {
     }
   }
 
+  selectLeague(league) {
+    localStorage.setItem('slug', league.slug)
+    this.props.history.push('/')
+  }
+
   render() {
     if (this.props.allLeaguesQuery.loading) {
       return (
@@ -30,17 +35,19 @@ class SettingsPage extends React.Component {
 
     return (
       <div className={'aWrapper'}>
-        <div
+        {localStorage.getItem('slug') && <div
           className='aLink asBack'
           onClick={this.props.history.goBack}
         >
           'Zurück'
-        </div>
+        </div> }
+        <h2>Wähle deine Liga</h2>
         <div className='aLeagueList'>
           {this.props.allLeaguesQuery.leagues && this.props.allLeaguesQuery.leagues.map(league => (
             <League
               key={league.id}
               league={league}
+              leagueSelected={this.selectLeague.bind(this)}
               refresh={() => this.props.allLeaguesQuery.refetch()}
             />
           ))}
