@@ -40,6 +40,7 @@ const TEAMS_QUERY = gql`
         name
       }
       teams{
+        id
         name
         score
         percentage

@@ -16,7 +16,7 @@ class Teams extends React.Component {
   teamList = () => {
     let teamListItems = []
     this.state.teams.forEach( (team) => {
-      teamListItems.push(<Team key={team.name} team={team}/>)
+      teamListItems.push(<Team key={team.id} team={team}/>)
     })
 
     return teamListItems
