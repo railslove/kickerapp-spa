@@ -3,10 +3,7 @@ import styled from 'styled-components'
 
 const PlayerSelect = (props) => {
   const Wrapper = styled.div`
-    padding: 5px 0;
-  `
-  const Label = styled.div`
-    margin-bottom: 10px;
+    padding: 10px 0;
   `
 
   const options = props.players.map((player) => {
@@ -17,9 +14,8 @@ const PlayerSelect = (props) => {
 
   return (
     <Wrapper>
-      <Label>Nach Spieler filtern</Label>
       <select onChange={(event) => { props.filterTeams(parseInt(event.target.value)) }}>
-        <option>Alle Spieler</option>
+        <option>Nach Spieler filtern</option>
         {options}
       </select>
     </Wrapper>

@@ -34,9 +34,9 @@ class SettingsPage extends React.Component {
           className='aLink asBack'
           onClick={this.props.history.goBack}
         >
-          'Zurück'
+          Zurück
         </div> }
-        <h2>Wähle deine Liga</h2>
+        <h1 className='aHeadline withoutBack'>Wähle deine Liga</h1>
         <div className='aLeagueList'>
           {this.props.allLeaguesQuery.leagues && this.props.allLeaguesQuery.leagues.map(league => (
             <League

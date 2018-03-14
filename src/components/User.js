@@ -6,7 +6,7 @@ const User = (props) => {
 
   const Wrapper = styled.div`
     display: flex;
-    width: 100vw;
+    width: 95vw;
     max-width: 400px;
     margin-bottom: 10px;
   `
