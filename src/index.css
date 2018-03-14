@@ -19,7 +19,26 @@ select {
 .aHeadline {
   font: 700 24px/30px "Comic Sans", "Helvetica Neue", Helventica, Arial, sans-serif;
   padding: 0 20px;
-  text-align: center; }
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .aHeadline:before {
+    content: '<';
+    border: 2px solid #cdcdde;
+    color: #cdcdde;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    font-size: 16px;
+    left: 10px;
+    text-align: center;
+    line-height: 20px; }
+  .aHeadline.withoutBack:before {
+    display: none; }
 
 .aUserList {
   background: #eee;
@@ -43,3 +62,6 @@ select {
     font-size: 18px;
     background: #282C34;
     color: #ECECEC; }
+    .aHomeLinks .aHomeLink.asLast {
+      grid-column: 1 / 3;
+      height: 40px; }

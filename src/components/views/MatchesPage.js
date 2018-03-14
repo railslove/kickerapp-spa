@@ -22,7 +22,7 @@ class MatchesPage extends React.Component {
     const league = this.props.matchesQuery.leagues && this.props.matchesQuery.leagues[0]
     return (
       <div>
-        <h1 className='aHeadline' onClick={this.props.history.goBack}>{league && league.name}</h1>
+        <h1 className='aHeadline' onClick={this.props.history.goBack}>Matches</h1>
           { league && <div className='aUserList'>
             {league.matches && league.matches.map(match => (
               <Match key={match.id} match={match}/>

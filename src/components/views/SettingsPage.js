@@ -56,7 +56,7 @@ class SettingsPage extends React.Component {
 
 const ALL_LEAGUES_QUERY = gql`
   query AllLeaguesQuery {
-    leagues {
+    leagues(limit: 100) {
       id
       slug
       name

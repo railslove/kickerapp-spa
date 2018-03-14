@@ -19,7 +19,7 @@ const User = (props) => {
     color: white;
     font-size: 10px;
   `
-  const Image = styled.img`
+  const Image = styled.div`
     height: 66px;
     width: 66px;
     background-image: url(${props.user.image});

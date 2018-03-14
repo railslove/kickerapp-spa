@@ -16,7 +16,7 @@ class HomePage extends React.Component {
   render() {
     const league = this.props.leagueQuery.leagues && this.props.leagueQuery.leagues[0]
     return (<div>
-        <h1 className='aHeadline'>{league && league.name}</h1>
+        <h1 className='aHeadline withoutBack'>{league && league.name}</h1>
         <div className='aHomeLinks'>
           <Link
             className='aHomeLink'
@@ -29,7 +29,10 @@ class HomePage extends React.Component {
             to={'/matches'}>Matches</Link>
           <Link
             className='aHomeLink'
-            to={'/settings'}>Settings</Link>
+            to={'/badges'}>Badges</Link>
+            <Link
+              className='aHomeLink asLast'
+              to={'/settings'}>Settings</Link>
         </div>
       </div>
     )

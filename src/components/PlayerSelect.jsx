@@ -19,7 +19,7 @@ const PlayerSelect = (props) => {
     <Wrapper>
       <Label>Nach Spieler filtern</Label>
       <select onChange={(event) => { props.filterTeams(parseInt(event.target.value)) }}>
-        <option>Alle</option>
+        <option>Alle Spieler</option>
         {options}
       </select>
     </Wrapper>

@@ -5,6 +5,7 @@ import RankingPage from './components/views/RankingPage'
 import TeamsPage from './components/views/TeamsPage'
 import MatchesPage from './components/views/MatchesPage'
 import HomePage from './components/views/HomePage'
+import BadgesPage from './components/views/BadgesPage'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-client'
@@ -30,6 +31,7 @@ ReactDOM.render(
         <Route path='/teams' component={TeamsPage} />
         <Route path='/ranking' component={RankingPage} />
         <Route path='/matches' component={MatchesPage} />
+        <Route path='/badges' component={BadgesPage} />
       </div>
     </Router>
   </ApolloProvider>,

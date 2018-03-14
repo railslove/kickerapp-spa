@@ -22,7 +22,7 @@ class RankingPage extends React.Component {
     const league = this.props.rankingQuery.leagues[0]
     return (
       <div>
-        <h1 className='aHeadline' onClick={this.props.history.goBack}>{league.name}</h1>
+        <h1 className='aHeadline' onClick={this.props.history.goBack}>Ranking</h1>
           <div className='aUserList'>
             {league.ranking && league.ranking.map((user, index) => (
               <User key={user.name} index={index+1} user={user}/>
