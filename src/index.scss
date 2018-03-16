@@ -8,11 +8,13 @@ body{
 }
 
 select{
-  width: 100%;
+  width: 90vw;
 }
 
 input{
-  width: 100%;
+  width: 90vw;
+  display: block;
+  font-size: 16px;
   border: 1px solid #343456;
   padding: 10px;
   margin-bottom: 10px;

@@ -24,7 +24,7 @@ class Leagues extends React.Component {
   }
 
   filter(){
-    let filter = new RegExp(this.symbol.value, 'gi')
+    let filter = new RegExp(this.leagueName.value, 'gi')
     let filteredLeagues = this.props.leagues.filter((league)=> {
       return league.name.match(filter)
     })
@@ -37,7 +37,7 @@ class Leagues extends React.Component {
     return (
       <div>
         <div>
-          <input type='text' placeholder='Filter by name' onChange={() => this.filter()} ref={(input) => { this.symbol = input; }}/>
+          <input type='text' placeholder='Filter by name' onChange={() => this.filter()} ref={(input) => { this.leagueName = input; }}/>
         </div>
         {this.leagueList()}
       </div>
