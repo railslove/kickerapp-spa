@@ -5,6 +5,11 @@ import gql from 'graphql-tag'
 
 class SettingsPage extends React.Component {
 
+  selectLeague(league) {
+    localStorage.setItem('slug', league.slug)
+    this.props.history.push('/')
+  }
+
   render() {
     if (this.props.allLeaguesQuery.loading) {
       return (
@@ -18,15 +23,9 @@ class SettingsPage extends React.Component {
 
     return (
       <div className={'aWrapper'}>
-        {localStorage.getItem('slug') && <div
-          className='aLink asBack'
-          onClick={this.props.history.goBack}
-        >
-          Back
-        </div> }
-        <h1 className='aHeadline withoutBack'>Choose your league</h1>
+        <h1 onClick={this.props.history.goBack} className={`aHeadline ${localStorage.getItem('slug') ? '' : 'withoutBack'}`}>Choose your league</h1>
         <div className='aLeagueList'>
-          {this.props.allLeaguesQuery.leagues && <Leagues leagues={this.props.allLeaguesQuery.leagues}/>}
+          {this.props.allLeaguesQuery.leagues && <Leagues leagues={this.props.allLeaguesQuery.leagues} selectLeague={this.selectLeague.bind(this)}/>}
         </div>
       </div>
     )

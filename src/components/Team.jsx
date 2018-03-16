@@ -37,6 +37,7 @@ const Team = (props) => {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
   `
 
   const Quota = styled.div`
@@ -46,6 +47,13 @@ const Team = (props) => {
   const Percentage = styled.div`
     font-size: 14px;
     color: #ababcd;
+  `
+
+  const Position = styled.div`
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    color: #dedefe;
   `
 
   return (
@@ -58,6 +66,7 @@ const Team = (props) => {
       <Content>
         <Quota>{props.team.score}</Quota>
         <Percentage>{props.team.percentage}%</Percentage>
+        <Position>{props.team.position}</Position>
       </Content>
     </Wrapper>
   )

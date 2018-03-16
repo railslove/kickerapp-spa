@@ -11,17 +11,12 @@ class Leagues extends React.Component {
     }
   }
 
-  selectLeague(league) {
-    localStorage.setItem('slug', league.slug)
-    this.props.history.push('/')
-  }
-
   leagueList = () => {
     let leagueListItems = this.state.leagues.map(league => (
       <League
         key={league.id}
         league={league}
-        leagueSelected={this.selectLeague.bind(this)}
+        leagueSelected={this.props.selectLeague}
         refresh={() => this.props.allLeaguesQuery.refetch()}
       />
     ))
@@ -30,7 +25,6 @@ class Leagues extends React.Component {
 
   filter(){
     let filter = new RegExp(this.symbol.value, 'gi')
-    console.log('Filter: ', filter)
     let filteredLeagues = this.props.leagues.filter((league)=> {
       return league.name.match(filter)
     })

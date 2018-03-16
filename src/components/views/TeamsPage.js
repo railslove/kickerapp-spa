@@ -13,18 +13,23 @@ class TeamsPage extends React.Component {
         <div className='aLoading'>
           <div>
             Loading
-            (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})
           </div>
         </div>
       )
     }
 
     const league = this.props.teamsQuery.leagues[0]
+    let teams = league.teams.map((team, index) => {
+      let newTeam = Object.assign({}, team)
+      newTeam.position = index + 1
+      return newTeam
+    })
+    console.log(teams)
     return (
       <div>
         <h1 className='aHeadline' onClick={this.props.history.goBack}>Teams</h1>
           <div className='aUserList'>
-            <Teams teams={league.teams} players={league.users} />
+            <Teams teams={teams} players={league.users} />
           </div>
       </div>
     )
