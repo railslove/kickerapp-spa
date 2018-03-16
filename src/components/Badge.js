@@ -8,6 +8,7 @@ const Badge = (props) => {
     border: 2px solid #ababcd;
     padding: 10px;
     margin-bottom: 20px;
+    display: flex;
   `
 
   const Image = styled.div`
@@ -21,6 +22,8 @@ const Badge = (props) => {
     background: white;
     padding: 10px;
     flex: 1;
+    display: flex;
+    align-items: center;
   `
 
   return (
@@ -28,7 +31,6 @@ const Badge = (props) => {
       <Image title={props.user.name}/>
       <Content>
         {props.name}
-        <br/>
       </Content>
 
     </Wrapper>

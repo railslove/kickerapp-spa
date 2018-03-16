@@ -1,20 +1,9 @@
 import React from 'react'
-import League from '../League'
+import Leagues from '../Leagues'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 class SettingsPage extends React.Component {
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.location.key !== nextProps.location.key) {
-      this.props.allLeaguesQuery.refetch()
-    }
-  }
-
-  selectLeague(league) {
-    localStorage.setItem('slug', league.slug)
-    this.props.history.push('/')
-  }
 
   render() {
     if (this.props.allLeaguesQuery.loading) {
@@ -22,7 +11,6 @@ class SettingsPage extends React.Component {
         <div className='aLoading'>
           <div>
             Loading
-            (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})
           </div>
         </div>
       )
@@ -34,19 +22,11 @@ class SettingsPage extends React.Component {
           className='aLink asBack'
           onClick={this.props.history.goBack}
         >
-          Zurück
+          Back
         </div> }
-        <h1 className='aHeadline withoutBack'>Wähle deine Liga</h1>
+        <h1 className='aHeadline withoutBack'>Choose your league</h1>
         <div className='aLeagueList'>
-          {this.props.allLeaguesQuery.leagues && this.props.allLeaguesQuery.leagues.map(league => (
-            <League
-              key={league.id}
-              league={league}
-              leagueSelected={this.selectLeague.bind(this)}
-              refresh={() => this.props.allLeaguesQuery.refetch()}
-            />
-          ))}
-
+          {this.props.allLeaguesQuery.leagues && <Leagues leagues={this.props.allLeaguesQuery.leagues}/>}
         </div>
       </div>
     )

@@ -7,11 +7,15 @@ const League = (props) => {
     border-bottom: 1px solid #cdcdef;
     margin-bottom: 10px;
   `
+  const Games = styled.span`
+    font-size: 14px;
+    color: #ababcd;
+  `
   return (
     <div onClick={() => props.leagueSelected(props.league)}>
       <Wrapper>
         {props.league.name}
-        {` (${props.league.matches_count})`}
+        <Games>{` (${props.league.matches_count} Games)`}</Games>
       </Wrapper>
     </div>
   )
