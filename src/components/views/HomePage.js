@@ -30,14 +30,17 @@ class HomePage extends React.Component {
           <Link
             className='aHomeLink'
             to={'/badges'}>Badges</Link>
-            <Link
-              className='aHomeLink'
-              to={'/players/new'}>New Player</Link>
-            <Link
-              className='aHomeLink'
-              to={'/badges'}>New Match</Link>
           <Link
-            className='aHomeLink asLast'
+            className='aHomeLink'
+            to={'/players/new'}>New Player</Link>
+          <Link
+            className='aHomeLink'
+            to={'/badges'}>New Match</Link>
+          <Link
+            className='aHomeLink'
+            to={'/shuffle'}>Shuffle</Link>
+          <Link
+            className='aHomeLink'
             to={'/settings'}>Settings</Link>
         </div>
       </div>

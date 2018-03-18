@@ -7,6 +7,7 @@ import MatchesPage from './components/views/MatchesPage'
 import HomePage from './components/views/HomePage'
 import BadgesPage from './components/views/BadgesPage'
 import NewUserPage from './components/views/NewUserPage'
+import ShufflePage from './components/views/ShufflePage'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-client'
@@ -14,8 +15,8 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import './index.css'
 
-// const httpLink = new HttpLink({ uri: 'https://www.kicker.cool/graphql' })
-const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql' })
+const httpLink = new HttpLink({ uri: 'https://www.kicker.cool/graphql' })
+// const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql' })
 
 const client = new ApolloClient({
   link: httpLink,
@@ -33,6 +34,7 @@ ReactDOM.render(
         <Route path='/matches' component={MatchesPage} />
         <Route path='/players/new' component={NewUserPage} />
         <Route path='/badges' component={BadgesPage} />
+        <Route path='/shuffle' component={ShufflePage} />
       </div>
     </Router>
   </ApolloProvider>,

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Team = (props) => {
   const Wrapper = styled.div`
     display: flex;
-    width: 100vw;
+    width: 100%;
     max-width: 400px;
     margin-bottom: 10px;
   `
@@ -52,7 +52,7 @@ const Team = (props) => {
   const Position = styled.div`
     font-size: 30px;
     position: absolute;
-    right: 10px;
+    right: 20px;
     color: #dedefe;
   `
 

@@ -24,13 +24,10 @@ class TeamsPage extends React.Component {
       newTeam.position = index + 1
       return newTeam
     })
-    console.log(teams)
     return (
       <div>
         <h1 className='aHeadline' onClick={this.props.history.goBack}>Teams</h1>
-          <div className='aUserList'>
-            <Teams teams={teams} players={league.users} />
-          </div>
+        <Teams teams={teams} players={league.users} />
       </div>
     )
   }
@@ -42,6 +39,7 @@ const TEAMS_QUERY = gql`
     leagues(league_slug: $id) {
       users{
         id
+        image
         name
       }
       teams{

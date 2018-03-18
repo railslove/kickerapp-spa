@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:400,700);
 $font-family: 'Comic Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
 
-
-
 body{
   font: 400 16px/21px $font-family;
 }
@@ -12,7 +10,7 @@ select{
 }
 
 input{
-  width: 90vw;
+  width: 90%;
   display: block;
   font-size: 16px;
   border: 1px solid #343456;
@@ -72,7 +70,7 @@ input{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(80px, auto);
   padding: 10px;
   .aHomeLink{
     display: flex;

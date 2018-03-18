@@ -6,7 +6,7 @@ select {
   width: 90vw; }
 
 input {
-  width: 90vw;
+  width: 90%;
   display: block;
   font-size: 16px;
   border: 1px solid #343456;
@@ -59,7 +59,7 @@ input {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(80px, auto);
   padding: 10px; }
   .aHomeLinks .aHomeLink {
     display: flex;
