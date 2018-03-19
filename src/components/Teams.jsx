@@ -6,9 +6,9 @@ import styled from 'styled-components'
 
 const Player = styled.div`
   position: relative;
-  border: 1px solid red;
-  height: 40px;
-  width: 40px;
+  box-shadow: 0 0 6px #bcbcde;
+  height: 20vw;
+  width: 20vw;
   overflow: hidden;
   background-position: center center;
   background-size: cover;
@@ -43,7 +43,6 @@ class Teams extends React.Component {
   }
 
   filterTeams = (player) => {
-    console.log('FLTER', player)
     let teams = this.props.teams
     if (!isNaN(player.id)) {
       teams = this.props.teams.filter((team) => {

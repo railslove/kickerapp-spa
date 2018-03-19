@@ -9,9 +9,8 @@ const Wrapper = styled.div`
 const Players = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   margin-top: -10px;
-  padding: 10px
+  padding: 10px 0;
 `
 
 const Player = styled.div`
@@ -20,6 +19,7 @@ const Player = styled.div`
   height: 20vw;
   width: 20vw;
   margin-bottom: 10px;
+  margin-right: 10px;
   overflow: hidden;
   background-position: center center;
   background-size: cover;
@@ -59,6 +59,7 @@ class PlayerSelect extends React.Component {
     this.playerName.value = ''
     this.setState({searchTerm: ''})
     this.props.filter(player)
+    this.playerName.focus()
   }
 
   playerList(){
