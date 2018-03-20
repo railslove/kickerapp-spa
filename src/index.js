@@ -7,6 +7,7 @@ import MatchesPage from './components/views/MatchesPage'
 import HomePage from './components/views/HomePage'
 import BadgesPage from './components/views/BadgesPage'
 import NewUserPage from './components/views/NewUserPage'
+import NewMatchPage from './components/views/NewMatchPage'
 import ShufflePage from './components/views/ShufflePage'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
@@ -32,7 +33,8 @@ ReactDOM.render(
         <Route path='/teams' component={TeamsPage} />
         <Route path='/ranking' component={RankingPage} />
         <Route path='/matches' component={MatchesPage} />
-        <Route path='/players/new' component={NewUserPage} />
+        <Route path='/player/new' component={NewUserPage} />
+        <Route path='/match/new' component={NewMatchPage} />
         <Route path='/badges' component={BadgesPage} />
         <Route path='/shuffle' component={ShufflePage} />
       </div>

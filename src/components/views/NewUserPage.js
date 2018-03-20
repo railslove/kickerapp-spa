@@ -71,7 +71,7 @@ class NewUserPage extends React.Component {
 }
 
 const newUser = gql`
-  mutation addPlayer($leagueSlug: String!, $name: String!,$ email: String!, $image: String) {
+  mutation addPlayer($leagueSlug: String!, $name: String!,$email: String!, $image: String) {
     addPlayer(leagueSlug: $leagueSlug, name: $name, email: $email, image: $image ) {
       id
       name
