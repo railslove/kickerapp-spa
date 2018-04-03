@@ -20,7 +20,8 @@ const Header = styled.div`
 
 const listProps = {
   open: {
-    staggerChildren: 100
+    delayChildren: 300,
+    staggerChildren: 120
   },
   closed: {
     staggerChildren: 50,
