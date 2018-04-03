@@ -1,15 +1,23 @@
 import React from 'react'
-import styled from 'styled-components';
-
+import styled from 'styled-components'
+import posed from 'react-pose'
 
 const User = (props) => {
 
-  const Wrapper = styled.div`
+  const itemProps = {
+    open: { height: 66 },
+    closed: { height: 0 }
+  }
+
+  const Item = styled(posed.div(itemProps))`
+    height: 0px;
     display: flex;
     width: 95vw;
     max-width: 400px;
     margin-bottom: 10px;
+    overflow: hidden;
   `
+
   const Position = styled.div`
     display: flex;
     align-items: center;
@@ -42,14 +50,14 @@ const User = (props) => {
   `
 
   return (
-    <Wrapper>
+    <Item>
       <Position>{props.index}</Position>
       <Image/>
       <Content>
         <Name>{props.user.name}</Name>
         <Quota>{props.user.quota}</Quota>
       </Content>
-    </Wrapper>
+    </Item>
   )
 }
 

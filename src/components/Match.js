@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 
 const Match = (props) => {
@@ -32,7 +32,7 @@ const Match = (props) => {
     margin-right: -10px;
     box-shadow: 0 0 20px #999;
   `
-  
+
   return (
     <Wrapper>
       <Image style={{backgroundImage: `url(${props.match.winner_team.player1.image})`}}/>

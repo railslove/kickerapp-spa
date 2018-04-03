@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const League = (props) => {
   const Wrapper = styled.div`
@@ -21,4 +21,4 @@ const League = (props) => {
   )
 }
 
-export default League;
+export default League

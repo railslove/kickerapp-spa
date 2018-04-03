@@ -46,8 +46,8 @@ class NewUserPage extends React.Component {
       .then(({ data }) => {
         this.props.history.push('/')
       }).catch((error) => {
-        console.log('there was an error sending the query', error);
-      });
+        console.log('there was an error sending the query', error)
+      })
     }else{
       this.setState({error: true})
     }
@@ -59,9 +59,9 @@ class NewUserPage extends React.Component {
       <div>
         <h1 className='aHeadline' onClick={this.props.history.goBack}>New Player</h1>
         {this.state.error && <Error>Please fill out name and email</Error>}
-        <input required='true' type='text' placeholder='Name*' ref={(input) => { this.name = input; }}/>
-        <input required='true' type='text' placeholder='Email*' ref={(input) => { this.email = input; }}/>
-        <input type='text' placeholder='Image URL' ref={(input) => { this.image = input; }}/>
+        <input required='true' type='text' placeholder='Name*' ref={(input) => { this.name = input }}/>
+        <input required='true' type='text' placeholder='Email*' ref={(input) => { this.email = input }}/>
+        <input type='text' placeholder='Image URL' ref={(input) => { this.image = input }}/>
         <Button onClick={()=> this.addUser()}>
           Add Player
         </Button>
@@ -77,8 +77,8 @@ const newUser = gql`
       name
     }
   }
-`;
+`
 
-const NewUserWithData = graphql(newUser)(NewUserPage);
+const NewUserWithData = graphql(newUser)(NewUserPage)
 
 export default withRouter(NewUserWithData)

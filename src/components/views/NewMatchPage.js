@@ -3,20 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
-import PlayerSelectAndShow from "../PlayerSelectAndShow"
-
-
-const Button = styled.button`
-  background: #ababcd;
-  padding: 10px;
-  width: 50vw;
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 18px;
-  color: white;
-  display: block;
-`
+import AddMatch from '../AddMatch'
 
 const Error = styled.div`
   background: red;
@@ -63,18 +50,12 @@ class NewMatchPage extends React.Component {
   }
 
   render() {
-    console.log(this.props.newMatchQuery)
     const league = !this.props.newMatchQuery.loading && this.props.newMatchQuery.leagues[0]
     return (
       <div>
         <h1 className='aHeadline' onClick={this.props.history.goBack}>New Match</h1>
         {this.state.error && <Error>Please fill out at least on set</Error>}
-        {league && <div> <PlayerSelectAndShow size={2} league={league} playersSelected={this.playersSelected.bind(this)}/>
-        <div>VS</div>
-        <PlayerSelectAndShow size={2} league={league} playersSelected={this.playersSelected.bind(this)}/></div> }
-        <Button onClick={()=> this.addUser()}>
-          Save Match
-        </Button>
+        <AddMatch league={league} />
       </div>
     )
   }
@@ -93,6 +74,7 @@ const NEW_MATCH_QUERY = gql`
     }
   }
 `
+
 
 const NewMatchPageWithGraphQL = graphql(NEW_MATCH_QUERY, {
     name: 'newMatchQuery',

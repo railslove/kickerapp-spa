@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 
 const Badge = (props) => {
@@ -37,4 +37,4 @@ const Badge = (props) => {
   )
 }
 
-export default Badge;
+export default Badge

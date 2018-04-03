@@ -3,7 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import Badge from '../Badge'
 import gql from 'graphql-tag'
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Badges = styled.div`
   background: #eee;

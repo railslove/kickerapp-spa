@@ -27,9 +27,7 @@ class PlayerSelectAndShow extends React.Component {
     if(this.state.players.indexOf(player) < 0){
       let newPlayers = this.state.players
       newPlayers.push(player)
-      if(newPlayers.length >= this.props.size){
-        this.props.playersSelected(newPlayers)
-      }
+      this.props.playersSelected(newPlayers)
       this.setState({players: newPlayers})
     }
   }
@@ -37,6 +35,7 @@ class PlayerSelectAndShow extends React.Component {
   playerClicked(position){
     let newPlayers = this.state.players
     newPlayers.splice(position, 1)
+    this.props.playersSelected(newPlayers)
     this.setState({players: newPlayers})
   }
 

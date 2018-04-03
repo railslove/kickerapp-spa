@@ -48,13 +48,6 @@ input {
   .aHeadline.withoutBack:before {
     display: none; }
 
-.aUserList {
-  background: #eee;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-
 .aHomeLinks {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -3,9 +3,9 @@ import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
-import PlayerSelectAndShow from "./PlayerSelectAndShow"
+import PlayerSelectAndShow from './PlayerSelectAndShow'
 
-import Team from "./Team"
+import Team from './Team'
 
 const Button = styled.button`
   background: #ababcd;
@@ -36,13 +36,13 @@ class Shuffle extends React.Component {
 
   shuffle(){
     this.props.mutate({
-      variables: { player1: this.state.players[0].id, player2: this.state.players[1].id, player3: this.state.players[2].id, player4: this.state.players[3].id }
+      variables: { player1: parseInt(this.state.players[0].id, 10), player2: parseInt(this.state.players[1].id, 10), player3: parseInt(this.state.players[2].id, 10), player4: parseInt(this.state.players[3].id, 10) }
     })
     .then(({ data }) => {
       this.setState({teams: data.shuffle})
     }).catch((error) => {
-      console.log('there was an error sending the query', error);
-    });
+      console.log('there was an error sending the query', error)
+    })
   }
 
   render() {
@@ -80,8 +80,8 @@ const shuffleQuery = gql`
       }
     }
   }
-`;
+`
 
-const shuffleQueryWithData = graphql(shuffleQuery)(Shuffle);
+const shuffleQueryWithData = graphql(shuffleQuery)(Shuffle)
 
 export default withRouter(shuffleQueryWithData)
