@@ -5,12 +5,10 @@ import posed from 'react-pose'
 const Team = (props) => {
   const teamProps = {
     open: {
-      height: 100,
-      marginLeft: 0
+      left: 0
     },
     closed: {
-      height: 100,
-      marginLeft: -100
+      left: -100
     }
   }
 
@@ -19,9 +17,10 @@ const Team = (props) => {
     width: 100%;
     max-width: 400px;
     margin-bottom: 10px;
-    height: 0;
     overflow: hidden;
-    margin-left: -100%
+    position: relative;
+    left: -100%;
+
   `
   const Image = styled.div`
     width: 30vw;
