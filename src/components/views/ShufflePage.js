@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import Shuffle from "../Shuffle"
+import Shuffle from '../Shuffle'
 
 
 class ShufflePage extends React.Component {

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 import PlayerSelectAndShow from './PlayerSelectAndShow'
-
+import posed from 'react-pose'
 import Team from './Team'
 
 const Button = styled.button`
@@ -19,6 +19,8 @@ const Button = styled.button`
   display: block;
   margin-bottom: 20px;
 `
+
+const TeamList = posed.div({})
 
 class Shuffle extends React.Component {
 
@@ -51,11 +53,11 @@ class Shuffle extends React.Component {
         <PlayerSelectAndShow size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
         {this.state.players.length >= 4 && <Button onClick={()=>this.shuffle()}>Shuffle</Button>}
         {
-          this.state.teams.length === 2 && <div>
+          this.state.teams.length === 2 && <TeamList pose='open'>
           <Team team={this.state.teams[0]}/>
           <p>VS</p>
           <Team team={this.state.teams[1]}/>
-        </div>
+        </TeamList>
         }
       </div>
     )

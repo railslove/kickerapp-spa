@@ -27,6 +27,7 @@ const Team = (props) => {
     height: 30vw;
     background-position: center center;
     background-size: cover;
+    background-color: #333333;
     max-width: 100px;
     max-height: 100px;
   `
