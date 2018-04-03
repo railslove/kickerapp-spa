@@ -5,7 +5,6 @@ import User from '../User'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 import posed from 'react-pose'
-import tween from 'react-pose'
 
 
 const listProps = {
@@ -23,6 +22,7 @@ const UserList = styled(posed.div(listProps))`
   background: #eee;
   padding: 10px;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   align-items: center;
 `
@@ -58,7 +58,7 @@ class RankingPage extends React.Component {
     return (
       <div>
         <h1 className='aHeadline' onClick={this.props.history.goBack}>Ranking</h1>
-          <UserList pose={this.state.isOpen ? 'open' : 'close'} onClick={() => this.toggle()}>
+          <UserList pose={this.state.isOpen ? 'open' : 'close'}>
             {league.ranking && league.ranking.map((user, index) => (
               <User key={user.name} index={index+1} user={user}/>
             ))}

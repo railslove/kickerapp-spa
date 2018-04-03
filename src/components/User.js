@@ -5,8 +5,12 @@ import posed from 'react-pose'
 const User = (props) => {
 
   const itemProps = {
-    open: { height: 66 },
-    closed: { height: 0 }
+    open: {
+      height: 66
+    },
+    closed: {
+      height: 0
+    }
   }
 
   const Item = styled(posed.div(itemProps))`

@@ -1,12 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import posed from 'react-pose'
 
 const Team = (props) => {
-  const Wrapper = styled.div`
+  const teamProps = {
+    open: {
+      height: 100,
+      marginLeft: 0
+    },
+    closed: {
+      height: 100,
+      marginLeft: -100
+    }
+  }
+
+  const Wrapper = styled(posed.div(teamProps))`
     display: flex;
     width: 100%;
     max-width: 400px;
     margin-bottom: 10px;
+    height: 0;
+    overflow: hidden;
+    margin-left: -100%
   `
   const Image = styled.div`
     width: 30vw;

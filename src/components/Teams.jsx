@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Team from "./Team"
 import PlayerSelect from "./PlayerSelect"
 import styled from 'styled-components'
+import posed from 'react-pose'
 
 const Player = styled.div`
   position: relative;
@@ -17,6 +18,18 @@ const Header = styled.div`
   display: flex;
 `
 
+const listProps = {
+  open: {
+    staggerChildren: 100
+  },
+  closed: {
+    staggerChildren: 50,
+  },
+  initialPose: 'closed'
+}
+
+const TeamList = posed.div(listProps)
+
 
 class Teams extends React.Component {
 
@@ -25,9 +38,16 @@ class Teams extends React.Component {
     this.state = {
       teams: props.teams,
       player: null,
-      filter_id: null
+      filter_id: null,
+      isOpen: false
     }
   }
+
+  componentDidMount() {
+    setTimeout(this.toggle, 200)
+  }
+
+  toggle = () => this.setState({ isOpen: !this.state.isOpen })
 
   teamList = () => {
     let teamListItems = []
@@ -60,7 +80,7 @@ class Teams extends React.Component {
           <PlayerSelect players={this.props.players} filter={this.filterTeams}/>
           { this.state.player && <Player style={{backgroundImage: `url(${this.state.player.image})`}} onClick={() => this.resetFilter()}/> }
         </Header>
-        {this.teamList()}
+        <TeamList pose={ this.state.isOpen ? 'open' : 'close' }>{this.teamList()}</TeamList>
       </div>
     )
   }
