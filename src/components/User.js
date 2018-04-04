@@ -16,7 +16,7 @@ const User = (props) => {
   const lastProps = {
     open: {
       opacity: 1,
-      height: 16
+      height: 5
     },
     closed: {
       opacity: 0,
@@ -59,12 +59,11 @@ const User = (props) => {
   `
   const Last = styled(posed.div(lastProps))`
     position: absolute;
-    left: 90%;
+    left: 95px;
     margin-top: -22px;
     padding: 8px;
     background: #eee;
     color: #999;
-    border-radius: 50%;
     font-size: 12px;
     width: 16px;
     height: 0px;
