@@ -27,7 +27,7 @@ const User = (props) => {
   const Item = styled(posed.div(itemProps))`
     height: 0px;
     display: flex;
-    width: 95vw;
+    width: 100%;
     max-width: 400px;
     margin-bottom: 10px;
   `
