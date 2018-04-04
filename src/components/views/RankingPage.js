@@ -55,13 +55,18 @@ class RankingPage extends React.Component {
     }
 
     const league = this.props.rankingQuery.leagues[0]
+    let last = 0
+    let userlist = league.ranking && league.ranking.map((user, index) => {
+      let element = <User key={user.name} index={index+1} user={user} last={last}/>
+      last = user.quota
+      return element
+    })
+
     return (
       <div>
         <h1 className='aHeadline' onClick={this.props.history.goBack}>Ranking</h1>
           <UserList pose={this.state.isOpen ? 'open' : 'close'}>
-            {league.ranking && league.ranking.map((user, index) => (
-              <User key={user.name} index={index+1} user={user}/>
-            ))}
+            {userlist}
           </UserList>
       </div>
     )

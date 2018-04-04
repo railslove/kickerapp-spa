@@ -13,13 +13,23 @@ const User = (props) => {
     }
   }
 
+  const lastProps = {
+    open: {
+      opacity: 1,
+      height: 16
+    },
+    closed: {
+      opacity: 0,
+      height: 0
+    }
+  }
+
   const Item = styled(posed.div(itemProps))`
     height: 0px;
     display: flex;
     width: 95vw;
     max-width: 400px;
     margin-bottom: 10px;
-    overflow: hidden;
   `
 
   const Position = styled.div`
@@ -47,6 +57,22 @@ const User = (props) => {
   const Name = styled.div`
     font-size: 18px;
   `
+  const Last = styled(posed.div(lastProps))`
+    position: absolute;
+    left: 90%;
+    margin-top: -22px;
+    padding: 8px;
+    background: #eee;
+    color: #999;
+    border-radius: 50%;
+    font-size: 12px;
+    width: 16px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0
+  `
 
   const Quota = styled.div`
     font-size: 14px;
@@ -61,6 +87,7 @@ const User = (props) => {
         <Name>{props.user.name}</Name>
         <Quota>{props.user.quota}</Quota>
       </Content>
+      {props.last !== 0 && <Last>{props.last - props.user.quota}</Last>}
     </Item>
   )
 }
