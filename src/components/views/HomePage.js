@@ -29,6 +29,9 @@ class HomePage extends React.Component {
             to={'/matches'}>Matches</Link>
           <Link
             className='aHomeLink'
+            to={'/day_matches'}>Day Matches</Link>
+          <Link
+            className='aHomeLink'
             to={'/badges'}>Badges</Link>
           <Link
             className='aHomeLink'

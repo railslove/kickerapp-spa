@@ -4,6 +4,7 @@ import SettingsPage from './components/views/SettingsPage'
 import RankingPage from './components/views/RankingPage'
 import TeamsPage from './components/views/TeamsPage'
 import MatchesPage from './components/views/MatchesPage'
+import DayMatchesPage from './components/views/DayMatchesPage'
 import HomePage from './components/views/HomePage'
 import BadgesPage from './components/views/BadgesPage'
 import NewUserPage from './components/views/NewUserPage'
@@ -17,7 +18,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import './index.css'
 
 const httpLink = new HttpLink({ uri: 'https://www.kicker.cool/graphql' })
-// const httpLink = new HttpLink({ uri: 'http://localhost:3001/graphql' })
+// const httpLink = new HttpLink({ uri: 'http://localhost:3003/graphql' })
 
 const client = new ApolloClient({
   link: httpLink,
@@ -33,6 +34,7 @@ ReactDOM.render(
         <Route path='/teams' component={TeamsPage} />
         <Route path='/ranking' component={RankingPage} />
         <Route path='/matches' component={MatchesPage} />
+        <Route path='/day_matches' component={DayMatchesPage} />
         <Route path='/player/new' component={NewUserPage} />
         <Route path='/match/new' component={NewMatchPage} />
         <Route path='/badges' component={BadgesPage} />
