@@ -1,13 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import MatchUser from './MatchUser'
 
 const DayMatch = (props) => {
 
   const Wrapper = styled.div`
+    margin-bottom: 40px;
+    max-width: 350px;
+  `
+  const Team = styled.div`
     display: flex;
-    margin-bottom: 10px;
     align-items: center;
+  `
+
+  const Difference = styled.div`
+    padding: 0 20px;
+    color: #43BE47;
+    font-weight: bold;
+    font-size: 20px;
+    &.asLost{
+      color: #DB624A;
+    }
   `
 
   const Image = styled.div`
@@ -19,20 +32,8 @@ const DayMatch = (props) => {
     max-height: 100px;
   `
   const Score = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-width: 40px;
-    min-height: 40px;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    padding: 5px 10px;
-    z-index: 1;
-    position: relative;
-    margin-left: -10px;
-    margin-right: -10px;
-    box-shadow: 0 0 20px #999;
   `
+
   let sets = props.match.matches.map((set)=>(
     <div key={set.id}>
       {set.winner_team_id == props.match.winner_team.id ? set.score : set.score.split('').reverse().join('')}
@@ -42,11 +43,17 @@ const DayMatch = (props) => {
 
   return (
     <Wrapper>
-      <Image style={{backgroundImage: `url(${props.match.winner_team.player1.image})`}}/>
-      { props.match.winner_team.player2 && <Image style={{backgroundImage: `url(${props.match.winner_team.player2.image})`}}/> }
+      <Team>
+        <MatchUser user={props.match.winner_team.player1}/>
+        <Difference>{ props.match.difference }</Difference>
+        { props.match.winner_team.player2 && <MatchUser user={props.match.winner_team.player2} reverse={true}/> }
+      </Team>
       <Score>{sets}</Score>
-      <Image style={{backgroundImage: `url(${props.match.loser_team.player1.image})`}}/>
-      { props.match.loser_team.player2 && <Image style={{backgroundImage: `url(${props.match.loser_team.player2.image})`}}/> }
+      <Team>
+        <MatchUser user={props.match.loser_team.player1}/>
+        <Difference className='asLost'>{ props.match.difference }</Difference>
+        { props.match.loser_team.player2 && <MatchUser user={props.match.loser_team.player2} reverse={true}/> }
+      </Team>
     </Wrapper>
   )
 }
