@@ -44,6 +44,7 @@ const User = (props) => {
   const Image = styled.div`
     height: 66px;
     width: 66px;
+    background-color: #999;
     background-image: url(${props.user.image});
     background-position: center center;
     background-size: cover;

@@ -56,4 +56,4 @@ class PlayerSelectAndShow extends React.Component {
   }
 }
 
-export default withRouter(PlayerSelectAndShow)
+export default PlayerSelectAndShow

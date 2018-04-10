@@ -26,6 +26,8 @@ const MatchUser = (props) => {
   const Image = styled.div`
     width: 50px;
     height: 50px;
+    background-color: white;
+    border: 2px solid #585757;
     background-position: center center;
     background-size: cover;
   `

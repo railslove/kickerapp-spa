@@ -13,6 +13,7 @@ const Match = (props) => {
   const Image = styled.div`
     width: 22vw;
     height: 22vw;
+    background-color: #999;
     background-position: center center;
     background-size: cover;
     max-width: 100px;

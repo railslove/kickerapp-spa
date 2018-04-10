@@ -17,8 +17,8 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import './index.css'
 
-const httpLink = new HttpLink({ uri: 'https://www.kicker.cool/graphql' })
-// const httpLink = new HttpLink({ uri: 'http://localhost:3003/graphql' })
+// const httpLink = new HttpLink({ uri: 'https://www.kicker.cool/graphql' })
+const httpLink = new HttpLink({ uri: 'http://localhost:3003/graphql' })
 
 const client = new ApolloClient({
   link: httpLink,

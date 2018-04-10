@@ -21,6 +21,7 @@ const Player = styled.div`
   margin-bottom: 10px;
   margin-right: 10px;
   overflow: hidden;
+  background-color: #999;
   background-position: center center;
   background-size: cover;
 `
