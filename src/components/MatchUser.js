@@ -12,7 +12,11 @@ const MatchUser = (props) => {
     .name{
       color: white;
       flex: 1;
-      padding: 10px;
+      padding: 10px 15px;
+      font-size: 14px;
+      line-height: 120%;
+      max-height: 30px;
+      overflow: hidden;
     }
     &.asReverse{
       flex-direction: row-reverse;

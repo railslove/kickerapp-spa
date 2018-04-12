@@ -27,28 +27,7 @@ class NewMatchPage extends React.Component {
       teams: []
     }
   }
-
-  addMatch() {
-    this.setState({error: false})
-    // if(this.name.checkValidity() && this.email.checkValidity()){
-    //   this.props.mutate({
-    //     variables: { leagueSlug: localStorage.getItem('slug'), name: this.name.value, email: this.email.value, image: this.image.value }
-    //   })
-    //   .then(({ data }) => {
-    //     this.props.history.push('/')
-    //   }).catch((error) => {
-    //     console.log('there was an error sending the query', error);
-    //   });
-    // }else{
-    //   this.setState({error: true})
-    // }
-
-  }
-
-  playersSelected(){
-
-  }
-
+  
   render() {
     const league = !this.props.newMatchQuery.loading && this.props.newMatchQuery.leagues[0]
     return (

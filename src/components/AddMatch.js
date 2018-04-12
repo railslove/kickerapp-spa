@@ -70,9 +70,11 @@ class AddMatch extends React.Component {
   }
 
   saveMatch(){
+    let sets = []
     this.state.sets.forEach( (set) => {
-      this.addSet(set[0], set[1])
+      sets = sets.push(this.addSet(set[0], set[1]))
     })
+    console.log('SETS', sets)
   }
 
 

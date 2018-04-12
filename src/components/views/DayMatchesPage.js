@@ -3,7 +3,16 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import DayMatch from '../DayMatch'
+import styled from 'styled-components'
 
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  > div{
+    margin: 20px;
+  }
+`
 
 class DayMatchesPage extends React.Component {
 
@@ -22,12 +31,12 @@ class DayMatchesPage extends React.Component {
     const league = this.props.matchesQuery.leagues && this.props.matchesQuery.leagues[0]
     return (
       <div>
-        <h1 className='aHeadline' onClick={this.props.history.goBack}>Matches</h1>
-          { league && <div>
+        <h1 className='aHeadline' onClick={this.props.history.goBack}>Matches per day</h1>
+          { league && <Wrapper>
             {league.day_matches && league.day_matches.map((match) => (
               <DayMatch key={match.id} match={match}/>
             ))}
-          </div> }
+          </Wrapper> }
       </div>
     )
   }
@@ -48,7 +57,6 @@ const MATCHES_QUERY = gql`
           id
           score
           difference
-          crawling
           winner_team_id
           loser_team_id
         }
@@ -82,8 +90,6 @@ const MATCHES_QUERY = gql`
 const DayMatchesPageWithGraphQL = compose(
   graphql(MATCHES_QUERY, {
     name: 'matchesQuery',
-    // see documentation on computing query variables from props in wrapper
-    // http://dev.apollodata.com/react/queries.html#options-from-props
     options: ({match}) => ({
       variables: {
         id: localStorage.getItem('slug'),

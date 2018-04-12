@@ -6,7 +6,7 @@ const User = (props) => {
 
   const itemProps = {
     open: {
-      height: 66
+      height: 60
     },
     closed: {
       height: 0
@@ -30,6 +30,7 @@ const User = (props) => {
     width: 100%;
     max-width: 400px;
     margin-bottom: 10px;
+    overflow: hidden;
   `
 
   const Position = styled.div`
