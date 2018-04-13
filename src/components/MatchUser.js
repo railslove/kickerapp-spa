@@ -13,10 +13,10 @@ const MatchUser = (props) => {
     .name{
       color: white;
       flex: 1;
-      padding: 10px 5px 10px 15px;
-      font-size: 14px;
+      padding: 5px 5px 5px 15px;
       line-height: 120%;
-      max-height: 30px;
+      font-size: 12px;
+      max-height: 40px;
       overflow: hidden;
     }
     &.asReverse{
@@ -24,7 +24,7 @@ const MatchUser = (props) => {
       border-radius: 0 30px 30px 0;
       .name{
         text-align: right;
-        padding: 10px 15px 10px 5px;
+        padding: 5px 15px 5px 5px;
       }
     }
   `
