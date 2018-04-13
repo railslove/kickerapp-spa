@@ -14,6 +14,7 @@ const DayMatch = (props) => {
   const Team = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
   `
 
   const Difference = styled.div`
