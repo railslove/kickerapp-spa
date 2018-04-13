@@ -18,6 +18,20 @@ const Wrapper = styled.div`
 
 class DayMatchesPage extends React.Component {
 
+  groupBy(list, keyGetter) {
+    const map = new Map()
+    list.forEach((item) => {
+        const key = keyGetter(item)
+        const collection = map.get(key)
+        if (!collection) {
+            map.set(key, [item])
+        } else {
+            collection.push(item)
+        }
+    });
+    return map
+  }
+
   render() {
     if (this.props.matchesQuery.loading) {
       return (
@@ -31,14 +45,26 @@ class DayMatchesPage extends React.Component {
     }
 
     const league = this.props.matchesQuery.leagues && this.props.matchesQuery.leagues[0]
+    const days = this.groupBy(league.day_matches, (day => day.date))
+
+    let globalMatches = []
+    days.forEach((dayMatches, date) => {
+      const day = new Date(date).toLocaleDateString('de-DE')
+      const matches = dayMatches.map((match) => (
+        <DayMatch key={match.id} match={match}/>
+      ))
+      globalMatches.push(<div key={day}>
+        <h3 className='aHeadline withoutBack'>{day}</h3>
+        <Wrapper>{matches}</Wrapper>
+      </div>)
+    })
+
     return (
       <div>
         <h1 className='aHeadline' onClick={this.props.history.goBack}>Matches per day</h1>
-          { league && <Wrapper>
-            {league.day_matches && league.day_matches.map((match) => (
-              <DayMatch key={match.id} match={match}/>
-            ))}
-          </Wrapper> }
+          { league && league.day_matches && <div>
+            {globalMatches}
+          </div> }
       </div>
     )
   }
@@ -53,6 +79,7 @@ const MATCHES_QUERY = gql`
       day_matches{
         id
         difference
+        date
         winner_team_id
         loser_team_id
         matches{

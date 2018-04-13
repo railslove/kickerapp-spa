@@ -44,6 +44,7 @@ const DayMatch = (props) => {
 
   const Set = styled.div`
     margin: 0 10px;
+    line-height: 100%;
     .score{
       border: 1px solid #999;
       padding: 5px;

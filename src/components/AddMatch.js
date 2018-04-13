@@ -60,9 +60,10 @@ class AddMatch extends React.Component {
 
   addSet(score1, score2){
     this.props.mutate({
-      variables: { leagueSlug: this.props.league.name, player1: parseInt(this.state.team1[0].id, 10), player2: parseInt(this.state.team1[1].id, 10), player3: parseInt(this.state.team2[0].id, 10), player4: parseInt(this.state.team2[1].id, 10), score1: score1, score2: score2 }
+      variables: { leagueSlug: localStorage.getItem('slug'), player1: parseInt(this.state.team1[0].id, 10), player2: parseInt(this.state.team1[1].id, 10), player3: parseInt(this.state.team2[0].id, 10), player4: parseInt(this.state.team2[1].id, 10), score1: score1, score2: score2 }
     })
     .then(({ data }) => {
+      console.log('addSet', data)
       this.setState({teams: data.addMatch})
     }).catch((error) => {
       console.log('there was an error sending the query', error)
@@ -72,7 +73,7 @@ class AddMatch extends React.Component {
   saveMatch(){
     let sets = []
     this.state.sets.forEach( (set) => {
-      sets = sets.push(this.addSet(set[0], set[1]))
+      sets.push(this.addSet(set[0], set[1]))
     })
     console.log('SETS', sets)
   }
