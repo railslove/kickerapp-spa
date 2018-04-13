@@ -27,7 +27,7 @@ class BadgesPage extends React.Component {
     const league = this.props.badgesQuery.leagues[0]
     return (
       <div>
-        <h1 className='aHeadline' onClick={this.props.history.goBack}>Badges</h1>
+        <h1 className='aHeadline' onClick={() => this.props.history.push('/')}>Badges</h1>
         <Badges>
           <Badge user={league.longest_winning_streak} name='Winning streak'/>
           <Badge user={league.longest_winning_streak_ever} name='Winning streak ever'/>

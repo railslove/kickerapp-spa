@@ -61,7 +61,7 @@ class DayMatchesPage extends React.Component {
 
     return (
       <div>
-        <h1 className='aHeadline' onClick={this.props.history.goBack}>Matches per day</h1>
+        <h1 className='aHeadline' onClick={() => this.props.history.push('/')}>Matches per day</h1>
           { league && league.day_matches && <div>
             {globalMatches}
           </div> }
@@ -120,6 +120,7 @@ const DayMatchesPageWithGraphQL = compose(
   graphql(MATCHES_QUERY, {
     name: 'matchesQuery',
     options: ({match}) => ({
+      fetchPolicy: 'network-only',
       variables: {
         id: localStorage.getItem('slug'),
       },

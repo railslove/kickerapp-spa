@@ -57,7 +57,7 @@ class NewUserPage extends React.Component {
   render() {
     return (
       <div>
-        <h1 className='aHeadline' onClick={this.props.history.goBack}>New Player</h1>
+        <h1 className='aHeadline' onClick={() => this.props.history.push('/')}>New Player</h1>
         {this.state.error && <Error>Please fill out name and email</Error>}
         <input required='true' type='text' placeholder='Name*' ref={(input) => { this.name = input }}/>
         <input required='true' type='text' placeholder='Email*' ref={(input) => { this.email = input }}/>

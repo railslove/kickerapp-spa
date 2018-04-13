@@ -26,7 +26,7 @@ class TeamsPage extends React.Component {
     })
     return (
       <div>
-        <h1 className='aHeadline' onClick={this.props.history.goBack}>Teams</h1>
+        <h1 className='aHeadline' onClick={() => this.props.history.push('/')}>Teams</h1>
         <Teams teams={teams} players={league.users} />
       </div>
     )

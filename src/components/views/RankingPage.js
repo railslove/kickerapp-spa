@@ -64,7 +64,7 @@ class RankingPage extends React.Component {
 
     return (
       <div>
-        <h1 className='aHeadline' onClick={this.props.history.goBack}>Ranking</h1>
+        <h1 className='aHeadline' onClick={() => this.props.history.push('/')}>Ranking</h1>
           <UserList pose={this.state.isOpen ? 'open' : 'close'}>
             {userlist}
           </UserList>
@@ -91,8 +91,6 @@ const RANKING_QUERY = gql`
 const RankingPageWithGraphQL = compose(
   graphql(RANKING_QUERY, {
     name: 'rankingQuery',
-    // see documentation on computing query variables from props in wrapper
-    // http://dev.apollodata.com/react/queries.html#options-from-props
     options: ({match}) => ({
       variables: {
         id: localStorage.getItem('slug'),

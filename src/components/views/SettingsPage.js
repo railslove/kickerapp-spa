@@ -23,7 +23,7 @@ class SettingsPage extends React.Component {
 
     return (
       <div className={'aWrapper'}>
-        <h1 onClick={this.props.history.goBack} className={`aHeadline ${localStorage.getItem('slug') ? '' : 'withoutBack'}`}>Choose your league</h1>
+        <h1 onClick={() => this.props.history.push('/')} className={`aHeadline ${localStorage.getItem('slug') ? '' : 'withoutBack'}`}>Choose your league</h1>
         <div className='aLeagueList'>
           {this.props.allLeaguesQuery.leagues && <Leagues leagues={this.props.allLeaguesQuery.leagues} selectLeague={this.selectLeague.bind(this)}/>}
         </div>

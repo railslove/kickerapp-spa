@@ -24,6 +24,7 @@ class AddMatch extends React.Component {
 
   constructor (props) {
     super(props)
+    localStorage.setItem('sets', [])
     this.state = {
       team1: [],
       team2: [],
@@ -58,24 +59,25 @@ class AddMatch extends React.Component {
     this.setState(newState)
   }
 
-  addSet(score1, score2){
+  saveMatch(){
+    let sets = []
+    this.state.sets.forEach( (set) => {
+      let localSet = {}
+      localSet['score1'] = set[0]
+      localSet['score2'] = set[1]
+      sets.push(localSet)
+    })
+    localStorage.setItem('sets', sets)
     this.props.mutate({
-      variables: { leagueSlug: localStorage.getItem('slug'), player1: parseInt(this.state.team1[0].id, 10), player2: parseInt(this.state.team1[1].id, 10), player3: parseInt(this.state.team2[0].id, 10), player4: parseInt(this.state.team2[1].id, 10), score1: score1, score2: score2 }
+      variables: { leagueSlug: localStorage.getItem('slug'), player1: parseInt(this.state.team1[0].id, 10), player2: parseInt(this.state.team1[1].id, 10), player3: parseInt(this.state.team2[0].id, 10), player4: parseInt(this.state.team2[1].id, 10), scores: sets }
     })
     .then(({ data }) => {
-      console.log('addSet', data)
+      console.log('saveMatch', data)
+      this.props.gotoDayMatches()
       this.setState({teams: data.addMatch})
     }).catch((error) => {
       console.log('there was an error sending the query', error)
     })
-  }
-
-  saveMatch(){
-    let sets = []
-    this.state.sets.forEach( (set) => {
-      sets.push(this.addSet(set[0], set[1]))
-    })
-    console.log('SETS', sets)
   }
 
 
@@ -103,10 +105,15 @@ class AddMatch extends React.Component {
 }
 
 const addMatch = gql`
-  mutation($leagueSlug: String!, $player1: Int!, $player2: Int!, $player3: Int!, $player4: Int!, $score1: Int!, $score2: Int!){
-    addMatch(leagueSlug: $leagueSlug, player1_id: $player1, player2_id: $player2, player3_id: $player3, player4_id: $player4, score1: $score1, score2: $score2) {
-      score
-      difference
+  mutation($leagueSlug: String!, $player1: Int!, $player2: Int!, $player3: Int!, $player4: Int!, $scores: [ScoreInputType]){
+    addMatch(leagueSlug: $leagueSlug,
+      player1_id: $player1,
+      player2_id: $player2,
+      player3_id: $player3,
+      player4_id: $player4,
+      scores: $scores) {
+        id
+        difference
     }
   }
 `
