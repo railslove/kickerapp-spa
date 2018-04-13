@@ -14,11 +14,28 @@ const Wrapper = styled.div`
 
 class Score extends React.Component {
 
-  setScore(){
+  constructor (props) {
+    super(props)
+    this.state = {
+      addable: false
+    }
+  }
+
+  changed(){
     let goals = []
     if(this.score1.value != '') goals.push(parseInt(this.score1.value))
     if(this.score2.value != '') goals.push(parseInt(this.score2.value))
-    // TODO: Add a set with a button
+    if(goals.length > 1){
+      this.setState({addable: true})
+    }else{
+      this.setState({addable: false})
+    }
+  }
+
+  save(){
+    let goals = []
+    if(this.score1.value != '') goals.push(parseInt(this.score1.value))
+    if(this.score2.value != '') goals.push(parseInt(this.score2.value))
     if(goals.length > 1){
       this.props.score(goals)
     }
@@ -27,8 +44,8 @@ class Score extends React.Component {
   render () {
     return (
       <Wrapper>
-        <input type='tel' onChange={() => this.setScore()} ref={(input) => { this.score1 = input }}/>
-        <input type='tel' onChange={() => this.setScore()} ref={(input) => { this.score2 = input }}/>
+        <input type='tel' onBlur={() => this.save()} ref={(input) => { this.score1 = input }}/>
+        <input type='tel' onBlur={() => this.save()} ref={(input) => { this.score2 = input }}/>
       </Wrapper>
     )
   }

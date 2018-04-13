@@ -24,7 +24,6 @@ class AddMatch extends React.Component {
 
   constructor (props) {
     super(props)
-    localStorage.setItem('sets', [])
     this.state = {
       team1: [],
       team2: [],
@@ -67,7 +66,6 @@ class AddMatch extends React.Component {
       localSet['score2'] = set[1]
       sets.push(localSet)
     })
-    localStorage.setItem('sets', sets)
     this.props.mutate({
       variables: { leagueSlug: localStorage.getItem('slug'), player1: parseInt(this.state.team1[0].id, 10), player2: parseInt(this.state.team1[1].id, 10), player3: parseInt(this.state.team2[0].id, 10), player4: parseInt(this.state.team2[1].id, 10), scores: sets }
     })
