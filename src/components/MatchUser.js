@@ -9,10 +9,11 @@ const MatchUser = (props) => {
     align-items: center;
     background: #585757;
     border-radius: 30px 0 0 30px;
+    max-width: 35vw;
     .name{
       color: white;
       flex: 1;
-      padding: 10px 15px;
+      padding: 10px 5px 10px 15px;
       font-size: 14px;
       line-height: 120%;
       max-height: 30px;
@@ -23,6 +24,7 @@ const MatchUser = (props) => {
       border-radius: 0 30px 30px 0;
       .name{
         text-align: right;
+        padding: 10px 15px 10px 5px;
       }
     }
   `

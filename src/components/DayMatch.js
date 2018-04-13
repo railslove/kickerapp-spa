@@ -5,8 +5,11 @@ import MatchUser from './MatchUser'
 const DayMatch = (props) => {
 
   const Wrapper = styled.div`
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
     max-width: 350px;
+    width: 100%;
+    border-bottom: 1px solid #cdcdcd;
   `
   const Team = styled.div`
     display: flex;
