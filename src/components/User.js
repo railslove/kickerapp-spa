@@ -6,7 +6,7 @@ const User = (props) => {
 
   const itemProps = {
     open: {
-      height: 60
+      height: 66
     },
     closed: {
       height: 0
@@ -30,7 +30,6 @@ const User = (props) => {
     width: 100%;
     max-width: 400px;
     margin-bottom: 10px;
-    overflow: hidden;
   `
 
   const Position = styled.div`
@@ -47,7 +46,7 @@ const User = (props) => {
     width: 66px;
     background-color: #999;
     background-image: url(${props.user.image});
-    background-position: center center;
+    background-position: center top;
     background-size: cover;
   `
   const Content = styled.div`

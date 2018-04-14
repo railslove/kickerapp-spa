@@ -34,7 +34,7 @@ const MatchUser = (props) => {
     height: 50px;
     background-color: white;
     border: 2px solid #585757;
-    background-position: center center;
+    background-position: center top;
     background-size: cover;
   `
 
