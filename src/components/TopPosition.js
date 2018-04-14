@@ -19,8 +19,10 @@ const TopPosition = (props) => {
   `
 
   const Image = styled.div`
-    height: 80px;
-    width: 80px;
+    height: 20vw;
+    width: 20vw;
+    max-width: 100px;
+    max-height: 100px;
     background-color: #999;
     background-image: url(${props.user.image});
     background-position: center top;
@@ -29,8 +31,9 @@ const TopPosition = (props) => {
   `
   const Content = styled.div`
     background: white;
-    padding: 2px 10px;
-    width: 100px;
+    padding: 2px 5px;
+    width: 25vw;
+    max-width: 120px;
     text-align: center;
   `
 
@@ -42,6 +45,8 @@ const TopPosition = (props) => {
     bottom: 0;
     width: 100%;
     box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
   `
 
   const Quota = styled.div`
