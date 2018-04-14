@@ -3,6 +3,9 @@ $font-family: 'Comic Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
 
 body{
   font: 400 16px/21px $font-family;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 50px;
 }
 
 select{

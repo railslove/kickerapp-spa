@@ -94,7 +94,6 @@ class RankingPage extends React.Component {
 
     return (
       <div>
-        <h1 className='aHeadline' onClick={() => this.props.history.push('/')}>Ranking</h1>
         <TopPositionsWrapper>
           <TopPositions pose={ this.state.isOpen ? 'open' : 'close' }>
             <TopPosition user={topUsers[2]} index={3}/>

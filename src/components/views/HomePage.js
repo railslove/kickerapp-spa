@@ -20,12 +20,6 @@ class HomePage extends React.Component {
         <div className='aHomeLinks'>
           <Link
             className='aHomeLink'
-            to={'/ranking'}>Ranking</Link>
-          <Link
-            className='aHomeLink'
-            to={'/day_matches'}>Day Matches</Link>
-          <Link
-            className='aHomeLink'
             to={'/teams'}>Teams</Link>
 
           <Link
@@ -34,12 +28,6 @@ class HomePage extends React.Component {
           <Link
             className='aHomeLink'
             to={'/player/new'}>New Player</Link>
-          <Link
-            className='aHomeLink'
-            to={'/match/new'}>New Match</Link>
-          <Link
-            className='aHomeLink'
-            to={'/shuffle'}>Shuffle</Link>
           <Link
             className='aHomeLink'
             to={'/settings'}>Settings</Link>

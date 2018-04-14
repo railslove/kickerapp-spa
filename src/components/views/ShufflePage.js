@@ -19,7 +19,6 @@ class ShufflePage extends React.Component {
     const league = this.props.shuffleQuery.leagues[0]
     return (
       <div>
-        <h1 onClick={() => this.props.history.push('/')} className={`aHeadline ${localStorage.getItem('slug') ? '' : 'withoutBack'}`}>Shuffle</h1>
         <Shuffle league={league} />
       </div>
     )

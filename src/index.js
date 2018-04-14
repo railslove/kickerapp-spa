@@ -10,6 +10,7 @@ import BadgesPage from './components/views/BadgesPage'
 import NewUserPage from './components/views/NewUserPage'
 import NewMatchPage from './components/views/NewMatchPage'
 import ShufflePage from './components/views/ShufflePage'
+import BottomNav from './components/BottomNav'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-client'
@@ -29,6 +30,7 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
       <div>
+        <Route path='/' component={BottomNav} />
         <Route exact path='/' component={HomePage} />
         <Route exact path='/settings' component={SettingsPage} />
         <Route path='/teams' component={TeamsPage} />

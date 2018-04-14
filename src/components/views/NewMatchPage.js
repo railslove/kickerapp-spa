@@ -36,7 +36,6 @@ class NewMatchPage extends React.Component {
     const league = !this.props.newMatchQuery.loading && this.props.newMatchQuery.leagues[0]
     return (
       <div>
-        <h1 className='aHeadline' onClick={() => this.props.history.push('/')}>New Match</h1>
         {this.state.error && <Error>Please fill out at least on set</Error>}
         <AddMatch league={league} gotoDayMatches={this.gotoDayMatches.bind(this)}/>
       </div>
