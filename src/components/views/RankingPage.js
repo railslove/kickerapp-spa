@@ -10,7 +10,7 @@ import posed from 'react-pose'
 
 const listProps = {
   open: {
-    delayChildren: 300,
+    staggerDirection: -1,
     staggerChildren: 50
   },
   closed: {
