@@ -11,17 +11,17 @@ import posed from 'react-pose'
 const listProps = {
   open: {
     staggerDirection: -1,
-    staggerChildren: 50
+    staggerChildren: 30
   },
   closed: {
-    staggerChildren: 50,
+    staggerChildren: 30,
   },
   initialPose: 'closed'
 }
 
 const topProps = {
   open: {
-    delayChildren: 300,
+    delayChildren: 600,
     staggerChildren: 300
   },
   closed: {
