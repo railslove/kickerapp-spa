@@ -23,13 +23,11 @@ class HomePage extends React.Component {
             to={'/ranking'}>Ranking</Link>
           <Link
             className='aHomeLink'
-            to={'/teams'}>Teams</Link>
-          <Link
-            className='aHomeLink'
-            to={'/matches'}>Matches</Link>
-          <Link
-            className='aHomeLink'
             to={'/day_matches'}>Day Matches</Link>
+          <Link
+            className='aHomeLink'
+            to={'/teams'}>Teams</Link>
+
           <Link
             className='aHomeLink'
             to={'/badges'}>Badges</Link>
