@@ -4,10 +4,20 @@ import posed from 'react-pose'
 
 const TopPosition = (props) => {
 
+  const itemProps = {
+    open: {
+      top: 0
+    },
+    closed: {
+      top: 100
+    }
+  }
+
   const Item = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     &.asFirst{
       width: 100%;
       margin-bottom: 20px;
@@ -18,7 +28,7 @@ const TopPosition = (props) => {
     font-size: 20px;
   `
 
-  const Image = styled.div`
+  const Image = styled(posed.div(itemProps))`
     height: 20vw;
     width: 20vw;
     max-width: 100px;
@@ -27,7 +37,8 @@ const TopPosition = (props) => {
     background-image: url(${props.user.image});
     background-position: center top;
     background-size: cover;
-    position: relative
+    position: relative;
+    top: 100px;
   `
   const Content = styled.div`
     background: white;
@@ -35,6 +46,7 @@ const TopPosition = (props) => {
     width: 25vw;
     max-width: 120px;
     text-align: center;
+    z-index: 1;
   `
 
   const Name = styled.div`

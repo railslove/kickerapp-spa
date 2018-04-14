@@ -19,6 +19,17 @@ const listProps = {
   initialPose: 'closed'
 }
 
+const topProps = {
+  open: {
+    delayChildren: 300,
+    staggerChildren: 300
+  },
+  closed: {
+    staggerChildren: 300,
+  },
+  initialPose: 'closed'
+}
+
 const UserList = styled(posed.div(listProps))`
   background: #eee;
   padding: 10px;
@@ -28,10 +39,11 @@ const UserList = styled(posed.div(listProps))`
   align-items: center;
 `
 
-const TopPositions = styled.div`
+const TopPositions = styled(posed.div(topProps))`
   padding: 20px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
   max-width: 360px;
   justify-content: space-around;
 `
@@ -84,10 +96,10 @@ class RankingPage extends React.Component {
       <div>
         <h1 className='aHeadline' onClick={() => this.props.history.push('/')}>Ranking</h1>
         <TopPositionsWrapper>
-          <TopPositions>
-            <TopPosition user={topUsers[0]} index={1}/>
-            <TopPosition user={topUsers[1]} index={2}/>
+          <TopPositions pose={ this.state.isOpen ? 'open' : 'close' }>
             <TopPosition user={topUsers[2]} index={3}/>
+            <TopPosition user={topUsers[1]} index={2}/>
+            <TopPosition user={topUsers[0]} index={1}/>
           </TopPositions>
         </TopPositionsWrapper>
         <UserList pose={this.state.isOpen ? 'open' : 'close'}>
