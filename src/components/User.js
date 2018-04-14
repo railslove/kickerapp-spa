@@ -57,6 +57,8 @@ const User = (props) => {
 
   const Name = styled.div`
     font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
   `
   const Last = styled(posed.div(lastProps))`
     position: absolute;
