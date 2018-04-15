@@ -35,7 +35,6 @@ const UserList = styled(posed.div(listProps))`
   background: #eee;
   padding: 10px;
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
   align-items: center;
 `
@@ -51,7 +50,7 @@ const TopPositions = styled(posed.div(topProps))`
 const TopPositionsWrapper = styled.div`
   background: #232323;
   background: repeating-linear-gradient(
-    -45deg,
+    -25deg,
     #232323,
     #232323 40px,
     #323232 40px,

@@ -63,7 +63,7 @@ const TopPosition = (props) => {
 
   const Quota = styled.div`
     font-size: 14px;
-    color: #ababcd;
+    color: #232323;
   `
 
   return (

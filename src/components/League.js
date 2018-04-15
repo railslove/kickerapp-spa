@@ -9,7 +9,7 @@ const League = (props) => {
   `
   const Games = styled.span`
     font-size: 14px;
-    color: #ababcd;
+    color: #232323;
   `
   return (
     <div onClick={() => props.leagueSelected(props.league)}>

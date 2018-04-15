@@ -7,7 +7,7 @@ import PlayerSelectAndShow from './PlayerSelectAndShow'
 import Score from './Score'
 
 const Button = styled.button`
-  background: #ababcd;
+  background: #232323;
   padding: 10px;
   width: 50vw;
   max-width: 400px;
@@ -17,6 +17,10 @@ const Button = styled.button`
   color: white;
   display: block;
   margin-bottom: 20px;
+`
+
+const Vs = styled.div`
+  text-align: center;
 `
 
 
@@ -70,7 +74,6 @@ class AddMatch extends React.Component {
       variables: { leagueSlug: localStorage.getItem('slug'), player1: parseInt(this.state.team1[0].id, 10), player2: parseInt(this.state.team1[1].id, 10), player3: parseInt(this.state.team2[0].id, 10), player4: parseInt(this.state.team2[1].id, 10), scores: sets }
     })
     .then(({ data }) => {
-      console.log('saveMatch', data)
       this.props.gotoDayMatches()
       this.setState({teams: data.addMatch})
     }).catch((error) => {
@@ -88,7 +91,7 @@ class AddMatch extends React.Component {
     return (
       <div>
         {this.props.league && <div><PlayerSelectAndShow size={2} league={this.props.league} playersSelected={this.playersSelected.bind(this, 1)}/>
-        <div>VS</div>
+        <Vs>VS</Vs>
         <PlayerSelectAndShow size={2} league={this.props.league} playersSelected={this.playersSelected.bind(this, 2)}/></div> }
         {this.state.completed && <div>
           <Score score={this.setScore.bind(this)}/>

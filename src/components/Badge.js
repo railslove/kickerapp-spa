@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Badge = (props) => {
 
   const Wrapper = styled.div`
-    border: 2px solid #ababcd;
+    border: 2px solid #232323;
     padding: 10px;
     margin-bottom: 20px;
     display: flex;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 import PlayerSelectAndShow from './PlayerSelectAndShow'
@@ -8,7 +8,7 @@ import posed from 'react-pose'
 import Team from './Team'
 
 const Button = styled.button`
-  background: #ababcd;
+  background: #232323;
   padding: 10px;
   width: 50vw;
   max-width: 400px;
@@ -18,6 +18,10 @@ const Button = styled.button`
   color: white;
   display: block;
   margin-bottom: 20px;
+`
+
+const Vs = styled.div`
+  text-align: center;
 `
 
 const TeamList = posed.div({})
@@ -53,11 +57,16 @@ class Shuffle extends React.Component {
         <PlayerSelectAndShow size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
         {this.state.players.length >= 4 && <Button onClick={()=>this.shuffle()}>Shuffle</Button>}
         {
-          this.state.teams.length === 2 && <TeamList pose='open'>
+          this.state.teams.length === 2 && <div><TeamList pose='open'>
           <Team team={this.state.teams[0]}/>
-          <p>VS</p>
+          <Vs>VS</Vs>
           <Team team={this.state.teams[1]}/>
         </TeamList>
+        <Link to={{pathname: '/match/new',
+          search: `?team1=${this.state.teams[0].id}&team2=${this.state.teams[1].id}`}}>
+          <Button>Start Match</Button>
+        </Link>
+        </div>
         }
       </div>
     )
@@ -67,6 +76,7 @@ class Shuffle extends React.Component {
 const shuffleQuery = gql`
   mutation($player1: Int!, $player2: Int!, $player3: Int!, $player4: Int!){
     shuffle(player1_id: $player1, player2_id: $player2, player3_id: $player3, player4_id: $player4) {
+      id
       name
       score
       percentage

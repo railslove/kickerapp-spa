@@ -7,7 +7,7 @@ import posed from 'react-pose'
 
 const Player = styled.div`
   position: relative;
-  box-shadow: 0 0 6px #bcbcde;
+  box-shadow: 0 0 6px #232323;
   height: 20vw;
   width: 20vw;
   overflow: hidden;

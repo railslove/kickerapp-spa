@@ -7,6 +7,10 @@ import PlayerSelect from "./PlayerSelect"
 import Player from "./JustPlayer"
 import Team from "./Team"
 
+const Wrapper = styled.div`
+  padding: 10px;
+`
+
 const Players = styled.div`
   display: flex;
   justify-content: space-between;
@@ -46,12 +50,12 @@ class PlayerSelectAndShow extends React.Component {
     }
 
     return (
-      <div>
+      <Wrapper>
         <Players>
           { players }
         </Players>
         { this.state.players.length < this.props.size && <PlayerSelect players={this.props.league.users} filter={this.selectUser.bind(this)}/> }
-      </div>
+      </Wrapper>
     )
   }
 }

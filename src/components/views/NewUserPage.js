@@ -5,7 +5,7 @@ import gql from 'graphql-tag'
 import styled from 'styled-components'
 
 const Button = styled.button`
-  background: #ababcd;
+  background: #232323;
   padding: 10px;
   width: 50vw;
   max-width: 400px;

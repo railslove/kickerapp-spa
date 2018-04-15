@@ -6,12 +6,12 @@ const JustPlayer = (props) => {
 
   const Player = styled.div`
     position: relative;
-    background-color: #bcbcde;
-    box-shadow: 0 0 6px #bcbcde;
+    background-color: #232323;
+    box-shadow: 0 0 6px #232323;
     height: 20vw;
     width: 20vw;
     overflow: hidden;
-    background-position: center center;
+    background-position: center top;
     background-size: cover;
     position: relative;
     &.withOutImage{

@@ -15,14 +15,14 @@ const Players = styled.div`
 
 const Player = styled.div`
   position: relative;
-  box-shadow: 0 0 6px #bcbcde;
+  box-shadow: 0 0 6px #232323;
   height: 20vw;
   width: 20vw;
   margin-bottom: 10px;
   margin-right: 10px;
   overflow: hidden;
   background-color: #999;
-  background-position: center center;
+  background-position: center top;
   background-size: cover;
 `
 

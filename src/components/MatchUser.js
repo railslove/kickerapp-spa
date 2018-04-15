@@ -3,13 +3,17 @@ import styled from 'styled-components'
 
 const MatchUser = (props) => {
 
+  const Wrapper = styled.div`
+    flex: 1;
+    max-width: 35vw;
+    overflow: hidden;
+  `
+
   const Item = styled.div`
     display: flex;
-    flex: 1;
     align-items: center;
     background: #585757;
     border-radius: 30px 0 0 30px;
-    max-width: 35vw;
     .name{
       color: white;
       flex: 1;
@@ -40,10 +44,12 @@ const MatchUser = (props) => {
 
 
   return (
-    <Item className={props.reverse ? 'asReverse' : ''}>
-      <div className='name'>{props.user.name}</div>
-      <Image style={{backgroundImage: `url(${props.user.image})`}}/>
-    </Item>
+    <Wrapper>
+      <Item className={props.reverse ? 'asReverse' : ''}>
+        <div className='name'>{props.user.name}</div>
+        <Image style={{backgroundImage: `url(${props.user.image})`}}/>
+      </Item>
+    </Wrapper>
   )
 }
 

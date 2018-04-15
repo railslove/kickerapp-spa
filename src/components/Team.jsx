@@ -61,7 +61,7 @@ const Team = (props) => {
 
   const Percentage = styled.div`
     font-size: 14px;
-    color: #ababcd;
+    color: #232323;
   `
 
   const Position = styled.div`
