@@ -22,8 +22,7 @@ class PlayerSelectAndShow extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      players: [],
-      teams: []
+      players: props.preSelect || []
     }
   }
 
@@ -48,7 +47,7 @@ class PlayerSelectAndShow extends React.Component {
     for (let i = 0; i < this.props.size; i++) {
       players.push(<Player key={i} playerClicked={this.playerClicked.bind(this)} position={0} player={this.state.players[i]}/>)
     }
-
+    console.log('props', this.state.players)
     return (
       <Wrapper>
         <Players>

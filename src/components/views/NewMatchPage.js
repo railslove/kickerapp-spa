@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 import AddMatch from '../AddMatch'
+import Spinner from '../../assets/rings.svg'
+
 
 const Error = styled.div`
   background: red;
@@ -22,9 +24,7 @@ class NewMatchPage extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      error: null,
-      players: [],
-      teams: []
+      error: null
     }
   }
 
@@ -34,10 +34,19 @@ class NewMatchPage extends React.Component {
 
   render() {
     const league = !this.props.newMatchQuery.loading && this.props.newMatchQuery.leagues[0]
+
+    if (!league) {
+      return (
+        <div className='aLoading'>
+          <img src={Spinner}/>
+        </div>
+      )
+    }
     return (
       <div>
         {this.state.error && <Error>Please fill out at least on set</Error>}
-        <AddMatch league={league} gotoDayMatches={this.gotoDayMatches.bind(this)}/>
+        <AddMatch league={league} gotoDayMatches={this.gotoDayMatches.bind(this)}
+        preTeam1={[parseInt(this.props.match.params.p1), parseInt(this.props.match.params.p2)]} preTeam2={[parseInt(this.props.match.params.p3), parseInt(this.props.match.params.p4)]} />
       </div>
     )
   }

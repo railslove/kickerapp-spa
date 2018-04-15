@@ -28,11 +28,23 @@ class AddMatch extends React.Component {
 
   constructor (props) {
     super(props)
+    const preSelected1 = props.preTeam1 || []
+    let preselectedPLayers1 = []
+    const preSelected2 = props.preTeam2 || []
+    let preselectedPLayers2 = []
+    if(props.league){
+      preselectedPLayers1 = props.league.users.filter((user) => (
+        preSelected1.indexOf(parseInt(user.id)) > -1
+      ))
+      preselectedPLayers2 = props.league.users.filter((user) => (
+        preSelected2.indexOf(parseInt(user.id)) > -1
+      ))
+    }
     this.state = {
-      team1: [],
-      team2: [],
+      team1: preselectedPLayers1,
+      team2: preselectedPLayers2,
       sets: [],
-      completed: false
+      completed: preselectedPLayers1.length === 2 && preselectedPLayers2.length === 2
     }
   }
 
@@ -90,9 +102,9 @@ class AddMatch extends React.Component {
     })
     return (
       <div>
-        {this.props.league && <div><PlayerSelectAndShow size={2} league={this.props.league} playersSelected={this.playersSelected.bind(this, 1)}/>
+        {this.props.league && <div><PlayerSelectAndShow preSelect={this.state.team1} size={2} league={this.props.league} playersSelected={this.playersSelected.bind(this, 1)}/>
         <Vs>VS</Vs>
-        <PlayerSelectAndShow size={2} league={this.props.league} playersSelected={this.playersSelected.bind(this, 2)}/></div> }
+        <PlayerSelectAndShow preSelect={this.state.team2} size={2} league={this.props.league} playersSelected={this.playersSelected.bind(this, 2)}/></div> }
         {this.state.completed && <div>
           <Score score={this.setScore.bind(this)}/>
           { scores }

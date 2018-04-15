@@ -18,8 +18,8 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import './index.css'
 
-const httpLink = new HttpLink({ uri: 'https://www.kicker.cool/graphql' })
-// const httpLink = new HttpLink({ uri: 'http://localhost:3003/graphql' })
+// const httpLink = new HttpLink({ uri: 'https://www.kicker.cool/graphql' })
+const httpLink = new HttpLink({ uri: 'http://localhost:3003/graphql' })
 
 const client = new ApolloClient({
   link: httpLink,
@@ -38,7 +38,7 @@ ReactDOM.render(
         <Route path='/matches' component={MatchesPage} />
         <Route path='/day_matches' component={DayMatchesPage} />
         <Route path='/player/new' component={NewUserPage} />
-        <Route path='/match/new' component={NewMatchPage} />
+        <Route path='/match/new/:p1?/:p2?/:p3?/:p4?' component={NewMatchPage} />
         <Route path='/badges' component={BadgesPage} />
         <Route path='/shuffle' component={ShufflePage} />
       </div>

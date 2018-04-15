@@ -3,12 +3,11 @@ import PropTypes from "prop-types"
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
   input{
-    float: left;
     width: 35vw;
-    &:first-child{
-      margin-right: 20px;
-    }
   }
 `
 

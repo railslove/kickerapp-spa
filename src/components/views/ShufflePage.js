@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import Shuffle from '../Shuffle'
+import Spinner from '../../assets/rings.svg'
 
 
 class ShufflePage extends React.Component {
@@ -10,9 +11,7 @@ class ShufflePage extends React.Component {
     if (this.props.shuffleQuery.loading) {
       return (
         <div className='aLoading'>
-          <div>
-            Loading
-          </div>
+          <img src={Spinner}/>
         </div>
       )
     }

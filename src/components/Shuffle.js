@@ -55,15 +55,14 @@ class Shuffle extends React.Component {
     return (
       <div>
         <PlayerSelectAndShow size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
-        {this.state.players.length >= 4 && <Button onClick={()=>this.shuffle()}>Shuffle</Button>}
+        {this.state.players.length >= 4 && this.state.teams.length !== 2 && <Button onClick={()=>this.shuffle()}>Shuffle</Button>}
         {
           this.state.teams.length === 2 && <div><TeamList pose='open'>
           <Team team={this.state.teams[0]}/>
           <Vs>VS</Vs>
           <Team team={this.state.teams[1]}/>
         </TeamList>
-        <Link to={{pathname: '/match/new',
-          search: `?team1=${this.state.teams[0].id}&team2=${this.state.teams[1].id}`}}>
+        <Link to={`match/new/${this.state.teams[0].player1.id}/${this.state.teams[0].player2.id}/${this.state.teams[1].player1.id}/${this.state.teams[1].player2.id}`}>
           <Button>Start Match</Button>
         </Link>
         </div>

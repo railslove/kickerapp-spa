@@ -31,7 +31,10 @@ storiesOf('PlayerSelect', module)
 
 storiesOf('PlayerSelectAndShow', module)
   .add('one to be selected', () => <PlayerSelectAndShow size={1} league={{users: [{ name: 'Player 1', image: 'https://bit.ly/2qkiob5' }, { name: 'Player 2', image: 'https://bit.ly/2qkiob5' }, { name: 'Player 3', image: 'https://bit.ly/2qkiob5' }]}} playersSelected={()=>{}}/>)
+
   .add('three to be selected', () => <PlayerSelectAndShow size={3} league={{users: [{ name: 'Player 1', image: 'https://bit.ly/2qkiob5' }, { name: 'Player 2', image: 'https://bit.ly/2qkiob5' }, { name: 'Player 3', image: 'https://bit.ly/2qkiob5' }]}} playersSelected={()=>{}}/>)
+
+  .add('two to be selected, one preselected', () => <PlayerSelectAndShow size={2} preSelect={[1]} league={{users: [{ id: 1, name: 'Player 1', image: 'https://bit.ly/2qkiob5' }, { id: 2, name: 'Player 2', image: 'https://bit.ly/2qkiob5' }, { id: 3, name: 'Player 3', image: 'https://bit.ly/2qkiob5' }]}} playersSelected={()=>{}}/>)
 
 storiesOf('Match', module)
   .add('1vs1', () => <Match match={ { score: '4:3', winner_team: { player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'} }, loser_team: { player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'} }
@@ -40,8 +43,8 @@ storiesOf('Match', module)
   } }/>)
 
 
-  storiesOf('BottomNav', module)
-    .addDecorator(story => (
-      <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
-    ))
-    .add('Home', () => <BottomNav location={{pathname: '/'}}/>)
+storiesOf('BottomNav', module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+  ))
+  .add('Home', () => <BottomNav location={{pathname: '/'}}/>)

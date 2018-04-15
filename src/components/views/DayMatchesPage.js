@@ -35,7 +35,9 @@ class DayMatchesPage extends React.Component {
   }
 
   render() {
-    if (this.props.matchesQuery.loading) {
+    const league = this.props.matchesQuery.leagues && this.props.matchesQuery.leagues[0]
+
+    if (this.props.matchesQuery.loading || !league) {
       return (
         <div className='aLoading'>
           <img src={Spinner}/>
@@ -43,7 +45,6 @@ class DayMatchesPage extends React.Component {
       )
     }
 
-    const league = this.props.matchesQuery.leagues && this.props.matchesQuery.leagues[0]
     const days = this.groupBy(league.day_matches, (day => day.date))
 
     let globalMatches = []
