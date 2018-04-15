@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import Teams from '../Teams'
 import gql from 'graphql-tag'
+import Spinner from '../../assets/rings.svg'
 
 
 class TeamsPage extends React.Component {
@@ -11,9 +12,7 @@ class TeamsPage extends React.Component {
     if (this.props.teamsQuery.loading) {
       return (
         <div className='aLoading'>
-          <div>
-            Loading
-          </div>
+          <img src={Spinner}/>
         </div>
       )
     }

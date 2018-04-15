@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Home from '../assets/home.svg'
-import New from '../assets/new.svg'
+import New from '../assets/plus.svg'
 import Match from '../assets/match.svg'
 import Ranking from '../assets/ranking.svg'
 import Shuffle from '../assets/shuffle.svg'
@@ -38,7 +38,6 @@ const BottomNav = (props) => {
       border-top: 4px solid #43BE47;
     }
   `
-  console.log('this.props.location.pathname', props.location.pathname)
   return (
     <Wrapper>
       <Link to={'/ranking'}>

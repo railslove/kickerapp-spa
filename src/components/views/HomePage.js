@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import { Link } from 'react-router-dom'
 
-
 class HomePage extends React.Component {
 
   componentWillMount(){

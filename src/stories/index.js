@@ -1,9 +1,11 @@
 import React from 'react'
+import { MemoryRouter } from 'react-router';
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 import { Button } from '@storybook/react/demo'
+
 
 import Team from '../components/Team'
 import User from '../components/User'
@@ -11,6 +13,7 @@ import Match from '../components/Match'
 import DayMatch from '../components/DayMatch'
 import PlayerSelect from '../components/PlayerSelect'
 import PlayerSelectAndShow from '../components/PlayerSelectAndShow'
+import BottomNav from '../components/BottomNav'
 
 storiesOf('Team', module)
   .add('withOnePerson', () => <Team team={{name:'ein tolles Team', rank: 1, number_of_wins: 10, number_of_losses: 12, percentage: 33, score: 1234, player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'}}}/>)
@@ -35,3 +38,10 @@ storiesOf('Match', module)
   } }/>)
   .add('2vs2', () => <Match match={ { score: '4:3', winner_team: { player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'}, player2: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'} }, loser_team: { player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'}, player2: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'} }
   } }/>)
+
+
+  storiesOf('BottomNav', module)
+    .addDecorator(story => (
+      <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+    ))
+    .add('Home', () => <BottomNav location={{pathname: '/'}}/>)

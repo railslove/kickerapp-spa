@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import User from '../User'
 import TopPosition from '../TopPosition'
+import Spinner from '../../assets/rings.svg'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 import posed from 'react-pose'
@@ -48,7 +49,14 @@ const TopPositions = styled(posed.div(topProps))`
   justify-content: space-around;
 `
 const TopPositionsWrapper = styled.div`
-  background: #121223;
+  background: #232323;
+  background: repeating-linear-gradient(
+    -45deg,
+    #232323,
+    #232323 40px,
+    #323232 40px,
+    #323232 80px
+  );
   display: flex;
   justify-content: center;
 `
@@ -72,10 +80,7 @@ class RankingPage extends React.Component {
     if (this.props.rankingQuery.loading) {
       return (
         <div className='aLoading'>
-          <div>
-            Loading
-            (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})
-          </div>
+          <img src={Spinner}/>
         </div>
       )
     }

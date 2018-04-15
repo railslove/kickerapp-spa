@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import DayMatch from '../DayMatch'
 import styled from 'styled-components'
+import Spinner from '../../assets/rings.svg'
+
 
 
 const Wrapper = styled.div`
@@ -36,10 +38,7 @@ class DayMatchesPage extends React.Component {
     if (this.props.matchesQuery.loading) {
       return (
         <div className='aLoading'>
-          <div>
-            Loading
-            (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})
-          </div>
+          <img src={Spinner}/>
         </div>
       )
     }
