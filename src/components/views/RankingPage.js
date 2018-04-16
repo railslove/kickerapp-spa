@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import User from '../User'
 import TopPositions from '../TopPositions'
+import RankingTabs from '../RankingTabs'
 import Spinner from '../../assets/rings.svg'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
@@ -19,6 +20,21 @@ const listProps = {
   },
   initialPose: 'closed'
 }
+
+const topProps = {
+  open: {
+    delayChildren: 600,
+    staggerChildren: 300
+  },
+  closed: {
+    staggerChildren: 300,
+  },
+  initialPose: 'closed'
+}
+
+const TopPositionsWrapper = styled(posed.div(topProps))`
+  display: block
+`
 
 const UserList = styled(posed.div(listProps))`
   background: #eee;
@@ -63,10 +79,13 @@ class RankingPage extends React.Component {
       return element
     })
 
-
+// <TopPositions topUsers={topUsers} pose={this.state.isOpen ? 'open' : 'close'}/>
     return (
       <div>
-        <TopPositions topUsers={topUsers} pose={this.state.isOpen ? 'open' : 'close'}/>
+        <RankingTabs active='single'/>
+        <TopPositionsWrapper pose={ this.state.isOpen ? 'open' : 'close' }>
+          <TopPositions topUsers={league.ranking.slice(0,3)} isOpen={this.state.isOpen}/>
+        </TopPositionsWrapper>
         <UserList pose={this.state.isOpen ? 'open' : 'close'}>
           {userlist}
         </UserList>

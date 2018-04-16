@@ -9,36 +9,41 @@ const TopPosition = (props) => {
       top: 0
     },
     closed: {
-      top: 100
+      top: -220
     }
   }
 
-  const Item = styled.div`
+  const Item = styled(posed.div(itemProps))`
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
-    &.asFirst{
-      width: 100%;
-      margin-bottom: 20px;
-    }
+    margin: 0 10px;
+    top: -220px;
+    position: relative;
+    width: 20vw;
+    max-width: 120px;
   `
 
   const Position = styled.div`
-    font-size: 20px;
+    font-size: 15px;
+    color: #62c69a;
+    margin-bottom: 10px;
   `
 
-  const Image = styled(posed.div(itemProps))`
+  const Image = styled.div`
     height: 20vw;
     width: 20vw;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 120px;
+    max-height: 120px;
     background-color: #999;
     background-image: url(${props.user.image});
     background-position: center top;
     background-size: cover;
     position: relative;
-    top: 0px;
+    &.asFirst{
+      height: 26vw;
+      width: 26vw;
+    }
   `
   const Content = styled.div`
     background: white;
@@ -50,31 +55,27 @@ const TopPosition = (props) => {
   `
 
   const Name = styled.div`
-    font-size: 12px;
-    background: rgba(255, 255, 255, 0.75);
-    position: absolute;
-    padding: 2px 5px;
-    bottom: 0;
-    width: 100%;
-    box-sizing: border-box;
-    white-space: nowrap;
+    color: #4a4a4a;
+    font-size: 13px;
+    line-height: 120%;
+    margin: 10px 0;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   `
 
   const Quota = styled.div`
-    font-size: 14px;
-    color: #232323;
+    font-size: 20px;
+    color: #9b9b9b;
   `
 
   return (
     <Item className={(props.index == 1) ? 'asFirst' : ''}>
-      <Image>
-        <Name>{props.user.name}</Name>
+      <Position className='headlineFont'>0{props.index}</Position>
+      <Image className={(props.index == 1) ? 'asFirst' : ''}>
       </Image>
-      <Content>
-        <Position>{props.index}</Position>
-        <Quota>{props.user.quota}</Quota>
-      </Content>
+      <Name>{props.user.name}</Name>
+      <Quota className='headlineFont'>{props.user.quota}</Quota>
     </Item>
   )
 }

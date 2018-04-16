@@ -1,11 +1,18 @@
-@import url(https://fonts.googleapis.com/css?family=Rubik:400,700);
-$font-family: 'Comic Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:400,700);
+
+$font-family: 'Open Sans', 'Open Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
+$headline-family: 'Fjalla One', 'Open Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
+
 
 body{
   font: 400 16px/21px $font-family;
   padding: 0;
   margin: 0;
   padding-bottom: 50px;
+}
+
+.headlineFont{
+  font-family: $headline-family;
 }
 
 select{
@@ -60,15 +67,23 @@ a{
     text-align: center;
     line-height: 20px;
   }
-  &.withoutBack:before{
-    display: none;
+  &.withoutBack{
+    a{
+      position: absolute;
+      right: 10px;
+    }
+    &:before{
+      display: none;
+      padding: 0 40px 0 20px;
+
+    }
   }
 }
 
 .aLoading{
   width: 30vw;
   height: 30vw;
-  margin: 30vw auto 0;
+  margin: 25vw auto 0;
   img{
     width: 100%;
     height: 100%;

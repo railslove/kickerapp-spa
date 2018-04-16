@@ -2,6 +2,7 @@ import React from 'react'
 import Leagues from '../Leagues'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import Spinner from '../../assets/rings.svg'
 
 class SettingsPage extends React.Component {
 
@@ -14,15 +15,14 @@ class SettingsPage extends React.Component {
     if (this.props.allLeaguesQuery.loading) {
       return (
         <div className='aLoading'>
-          <div>
-            Loading
-          </div>
+          <img src={Spinner}/>
         </div>
       )
     }
 
     return (
       <div className={'aWrapper'}>
+        <h1 className='aHeadline withoutBack'>Liga wählen</h1>
         <div className='aLeagueList'>
           {this.props.allLeaguesQuery.leagues && <Leagues leagues={this.props.allLeaguesQuery.leagues} selectLeague={this.selectLeague.bind(this)}/>}
         </div>

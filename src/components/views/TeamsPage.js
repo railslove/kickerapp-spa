@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import Teams from '../Teams'
+import RankingTabs from '../RankingTabs'
 import gql from 'graphql-tag'
 import Spinner from '../../assets/rings.svg'
 
@@ -25,6 +26,7 @@ class TeamsPage extends React.Component {
     })
     return (
       <div>
+        <RankingTabs active='teams'/>
         <Teams teams={teams} players={league.users} />
       </div>
     )

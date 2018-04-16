@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/stephanpavlovic/.nvm/versions/node/v8.0.0/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js add material-ui@next
+  /Users/stephanpavlovic/.nvm/versions/node/v8.0.0/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js watch-css
 
 PATH: 
   /Users/stephanpavlovic/.nvm/versions/node/v8.0.0/bin:/Users/stephanpavlovic/code/pebble-dev/pebble-sdk-4.3-mac/bin:/Users/stephanpavlovic/.rvm/gems/ruby-2.3.1/bin:/Users/stephanpavlovic/.rvm/gems/ruby-2.3.1@global/bin:/Users/stephanpavlovic/.rvm/rubies/ruby-2.3.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/stephanpavlovic/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:/usr/local/mysql/bin
@@ -9484,14 +9484,17 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.7.1.tgz#f84075c0ee085594d3566e1d6454207f126411b3"
 
 Trace: 
-  Error: connect ECONNABORTED 104.16.59.173:443 - Local (0.0.0.0:0)
-      at Object.exports._errnoException (util.js:1026:11)
-      at exports._exceptionWithHostPort (util.js:1049:20)
-      at internalConnect (net.js:931:16)
-      at emitLookup (net.js:1060:7)
-      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:101917:29
-      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:101763:25
-      at RawTask.module.exports.RawTask.call (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:82623:19)
-      at flush (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:82705:29)
-      at _combinedTickCallback (internal/process/next_tick.js:95:7)
-      at process._tickCallback (internal/process/next_tick.js:161:9)
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive
+  Directory: /Users/stephanpavlovic/code/kicker-spa
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:30281:17)
+      at emitTwo (events.js:125:13)
+      at ChildProcess.emit (events.js:213:7)
+      at maybeClose (internal/child_process.js:887:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:208:5)

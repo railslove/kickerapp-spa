@@ -5,14 +5,44 @@ import gql from 'graphql-tag'
 import { Link } from 'react-router-dom'
 import TopPositions from '../TopPositions'
 import Spinner from '../../assets/rings.svg'
+import styled from 'styled-components'
+import posed from 'react-pose'
+import SettingIcon from '../../assets/settings.svg'
+
+const topProps = {
+  open: {
+    delayChildren: 600,
+    staggerChildren: 300
+  },
+  closed: {
+    staggerChildren: 300,
+  },
+  initialPose: 'closed'
+}
+
+const TopPositionWrapper = styled(posed.div(topProps))`
+  display: block;
+`
 
 class HomePage extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      isOpen: false
+    }
+  }
+
+  componentDidMount() {
+    setTimeout(this.toggle, 200)
+  }
 
   componentWillMount(){
     if(!localStorage.getItem('slug')){
       this.props.history.push('settings')
     }
   }
+
+  toggle = () => this.setState({ isOpen: !this.state.isOpen })
 
   render() {
     const league = this.props.leagueQuery.leagues && this.props.leagueQuery.leagues[0]
@@ -26,22 +56,22 @@ class HomePage extends React.Component {
     }
 
     return (<div>
-        <h1 className='aHeadline withoutBack'>{league && league.name}</h1>
-        <TopPositions topUsers={league.ranking.slice(0,3)} pose='open'/>
+        <h1 className='aHeadline withoutBack'>
+          {league && league.name}
+          <Link to='settings'>
+            <img src={SettingIcon}/>
+          </Link>
+        </h1>
+        <TopPositionWrapper pose={ this.state.isOpen ? 'open' : 'close' }>
+          <TopPositions topUsers={league.ranking.slice(0,3)} isOpen={this.state.isOpen}/>
+        </TopPositionWrapper>
         <div className='aHomeLinks'>
-          <Link
-            className='aHomeLink'
-            to={'/teams'}>Teams</Link>
-
           <Link
             className='aHomeLink'
             to={'/badges'}>Badges</Link>
           <Link
             className='aHomeLink'
             to={'/player/new'}>New Player</Link>
-          <Link
-            className='aHomeLink'
-            to={'/settings'}>Settings</Link>
         </div>
       </div>
     )
