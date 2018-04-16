@@ -3,6 +3,8 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import { Link } from 'react-router-dom'
+import TopPositions from '../TopPositions'
+import Spinner from '../../assets/rings.svg'
 
 class HomePage extends React.Component {
 
@@ -14,8 +16,18 @@ class HomePage extends React.Component {
 
   render() {
     const league = this.props.leagueQuery.leagues && this.props.leagueQuery.leagues[0]
+
+    if (this.props.leagueQuery.loading || !league) {
+      return (
+        <div className='aLoading'>
+          <img src={Spinner}/>
+        </div>
+      )
+    }
+
     return (<div>
         <h1 className='aHeadline withoutBack'>{league && league.name}</h1>
+        <TopPositions topUsers={league.ranking.slice(0,3)} pose='open'/>
         <div className='aHomeLinks'>
           <Link
             className='aHomeLink'
@@ -40,6 +52,11 @@ const LEAGUE_QUERY = gql`
   query LeagueQuery($id: String!) {
     leagues(league_slug: $id) {
       name
+      ranking{
+        name
+        quota
+        image
+      }
     }
   }
 `

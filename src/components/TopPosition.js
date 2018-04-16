@@ -38,7 +38,7 @@ const TopPosition = (props) => {
     background-position: center top;
     background-size: cover;
     position: relative;
-    top: 100px;
+    top: 0px;
   `
   const Content = styled.div`
     background: white;

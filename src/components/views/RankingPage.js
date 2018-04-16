@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import User from '../User'
-import TopPosition from '../TopPosition'
+import TopPositions from '../TopPositions'
 import Spinner from '../../assets/rings.svg'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
@@ -20,44 +20,12 @@ const listProps = {
   initialPose: 'closed'
 }
 
-const topProps = {
-  open: {
-    delayChildren: 600,
-    staggerChildren: 300
-  },
-  closed: {
-    staggerChildren: 300,
-  },
-  initialPose: 'closed'
-}
-
 const UserList = styled(posed.div(listProps))`
   background: #eee;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-`
-
-const TopPositions = styled(posed.div(topProps))`
-  padding: 20px;
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap-reverse;
-  max-width: 360px;
-  justify-content: space-around;
-`
-const TopPositionsWrapper = styled.div`
-  background: #232323;
-  background: repeating-linear-gradient(
-    -25deg,
-    #232323,
-    #232323 40px,
-    #323232 40px,
-    #323232 80px
-  );
-  display: flex;
-  justify-content: center;
 `
 
 class RankingPage extends React.Component {
@@ -98,13 +66,7 @@ class RankingPage extends React.Component {
 
     return (
       <div>
-        <TopPositionsWrapper>
-          <TopPositions pose={ this.state.isOpen ? 'open' : 'close' }>
-            <TopPosition user={topUsers[2]} index={3}/>
-            <TopPosition user={topUsers[1]} index={2}/>
-            <TopPosition user={topUsers[0]} index={1}/>
-          </TopPositions>
-        </TopPositionsWrapper>
+        <TopPositions topUsers={topUsers} pose={this.state.isOpen ? 'open' : 'close'}/>
         <UserList pose={this.state.isOpen ? 'open' : 'close'}>
           {userlist}
         </UserList>
