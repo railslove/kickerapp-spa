@@ -12,7 +12,7 @@ const MatchUser = (props) => {
   const Item = styled.div`
     display: flex;
     align-items: center;
-    background: #585757;
+    background: #232323;
     border-radius: 30px 0 0 30px;
     .name{
       color: white;
@@ -37,7 +37,7 @@ const MatchUser = (props) => {
     width: 50px;
     height: 50px;
     background-color: white;
-    border: 2px solid #585757;
+    border: 2px solid #232323;
     background-position: center top;
     background-size: cover;
   `
