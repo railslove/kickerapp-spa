@@ -37,7 +37,6 @@ const TopPositionsWrapper = styled(posed.div(topProps))`
 `
 
 const UserList = styled(posed.div(listProps))`
-  background: #eee;
   padding: 10px;
   display: flex;
   flex-direction: column;

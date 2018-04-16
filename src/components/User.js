@@ -30,16 +30,17 @@ const User = (props) => {
     width: 100%;
     max-width: 400px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f3f3;
   `
 
   const Position = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 5px;
-    background: #333;
-    color: white;
-    font-size: 10px;
+    padding: 10px 20px;
+    color: #9b9b9b;
+    font-size: 15px;
   `
   const Image = styled.div`
     height: 66px;
@@ -50,15 +51,15 @@ const User = (props) => {
     background-size: cover;
   `
   const Content = styled.div`
-    background: white;
     padding: 10px;
     flex: 1;
   `
 
   const Name = styled.div`
-    font-size: 18px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
+    color: 4a4a4a;
   `
   const Last = styled(posed.div(lastProps))`
     position: absolute;
@@ -73,17 +74,20 @@ const User = (props) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0
+    opacity: 0;
+    display: none;
   `
 
   const Quota = styled.div`
-    font-size: 14px;
-    color: #232323;
+    font-size: 20px;
+    color: #9b9b9b;
   `
 
   return (
     <Item>
-      <Position>{props.index}</Position>
+      <Position className='headlineFont'>
+        {props.index < 10 ? `0${props.index}` : props.index}
+      </Position>
       <Image/>
       <Content>
         <Name>{props.user.name}</Name>
