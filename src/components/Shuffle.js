@@ -62,7 +62,7 @@ class Shuffle extends React.Component {
           <Vs>VS</Vs>
           <Team team={this.state.teams[1]}/>
         </TeamList>
-        <Link to={`match/new/${this.state.teams[0].player1.id}/${this.state.teams[0].player2.id}/${this.state.teams[1].player1.id}/${this.state.teams[1].player2.id}`}>
+        <Link to={`match/new/${this.state.teams[0].player1.id}/${this.state.teams[1].player1.id}/${this.state.teams[0].player2.id}/${this.state.teams[1].player2.id}`}>
           <Button>Start Match</Button>
         </Link>
         </div>

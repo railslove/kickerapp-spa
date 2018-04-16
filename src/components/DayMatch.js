@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MatchUser from './MatchUser'
+import { Link } from 'react-router-dom'
 
 const DayMatch = (props) => {
 
@@ -41,6 +42,11 @@ const DayMatch = (props) => {
     display: flex;
     justify-content: center;
     margin: 10px 0;
+    a{
+      display: flex;
+      align-items: center;
+      justofy-content: center;
+    }
   `
 
   const Set = styled.div`
@@ -49,6 +55,7 @@ const DayMatch = (props) => {
     .score{
       border: 1px solid #999;
       padding: 5px;
+      text-align: center;
     }
     .points{
       font-size: 14px;
@@ -57,6 +64,17 @@ const DayMatch = (props) => {
       height: 14px;
       text-align: center;
     }
+  `
+
+  const Button = styled.button`
+    background: #232323;
+    padding: 5px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    display: block;
+    margin-left: 10px;
   `
 
   let sets = props.match.matches.map((set)=>{
@@ -82,7 +100,12 @@ const DayMatch = (props) => {
         <Difference>{ props.match.difference }</Difference>
         { props.match.winner_team.player2 && <MatchUser user={props.match.winner_team.player2} reverse={true}/> }
       </Team>
-      <Score>{sets}</Score>
+      <Score>
+        {sets}
+        <Link to={`match/new/${props.match.winner_team.player1.id}/${props.match.loser_team.player1.id}/${props.match.winner_team.player2.id}/${props.match.loser_team.player2.id}`}>
+          <Button>+</Button>
+        </Link>
+      </Score>
       <Team>
         <MatchUser user={props.match.loser_team.player1}/>
         <Difference className='asLost'>{ props.match.difference }</Difference>

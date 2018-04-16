@@ -46,7 +46,7 @@ class NewMatchPage extends React.Component {
       <div>
         {this.state.error && <Error>Please fill out at least on set</Error>}
         <AddMatch league={league} gotoDayMatches={this.gotoDayMatches.bind(this)}
-        preTeam1={[parseInt(this.props.match.params.p1), parseInt(this.props.match.params.p2)]} preTeam2={[parseInt(this.props.match.params.p3), parseInt(this.props.match.params.p4)]} />
+        preTeam1={[parseInt(this.props.match.params.p1), parseInt(this.props.match.params.p3)]} preTeam2={[parseInt(this.props.match.params.p2), parseInt(this.props.match.params.p4)]} />
       </div>
     )
   }

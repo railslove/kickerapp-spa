@@ -91,10 +91,12 @@ const MATCHES_QUERY = gql`
         winner_team {
           id
           player1 {
+            id
             name
             image
           }
           player2 {
+            id
             name
             image
           }
@@ -102,10 +104,12 @@ const MATCHES_QUERY = gql`
         loser_team {
           id
           player1 {
+            id
             name
             image
           }
           player2 {
+            id
             name
             image
           }

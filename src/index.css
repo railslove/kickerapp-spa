@@ -16,6 +16,9 @@ input {
   padding: 10px;
   margin-bottom: 10px; }
 
+a {
+  text-decoration: none; }
+
 .aLeague {
   display: block;
   padding: 10px;

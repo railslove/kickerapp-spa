@@ -25,7 +25,7 @@ const Team = (props) => {
   const Image = styled.div`
     width: 30vw;
     height: 30vw;
-    background-position: center center;
+    background-position: center top;
     background-size: cover;
     background-color: #333333;
     max-width: 100px;
