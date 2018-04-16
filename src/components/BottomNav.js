@@ -17,25 +17,26 @@ const BottomNav = (props) => {
     left: 0;
     width: 100vw;
     display: flex;
-    box-shadow: 0 0 20px #232323;
-    background: #232323;
+    align-items: flex-end;
     a{
       display: block;
       flex: 1;
     }
   `
   const Item = styled.div`
-    border-top: 4px solid #343434;
-    border-right: 2px solid #343434;
+    border-top: 4px solid #101632;
+    background: #101632;
     padding: 10px;
     height: 30px;
     display: flex;
     justify-content: center;
+    align-items: flex-end;
     img{
       height: 30px;
     }
     &.asActive{
       border-top: 4px solid #43BE47;
+      height: 34px;
     }
   `
   return (
