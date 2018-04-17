@@ -35,7 +35,7 @@ const MatchWrapper = styled.div`
 `
 const Header = styled.div`
   background: #101632;
-  padding: 20px 0;
+  padding: 10px 0 20px;
   color: white;
   h1{
     margin: 0 0 20px 0;
@@ -50,7 +50,7 @@ const HomeLinks = styled.div`
   .aHomeLink{
     color: #c0c0c0;
     font-size: 12px;
-    padding: 20px;
+    padding: 0px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,7 +93,7 @@ class HomePage extends React.Component {
 
     return (<div>
         <Header>
-          <h1 className='aHeadline withoutBack'>
+          <h1 className='aHeadline onDark'>
             {league && league.name}
           </h1>
           <HomeLinks>

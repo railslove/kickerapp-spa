@@ -1,41 +1,22 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from 'styled-components'
+import Player from "./JustPlayer"
 
 const Wrapper = styled.div`
   flex: 1;
+  position: relative
 `
 
 const Players = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: -10px;
+  margin-top: 10px;
   padding: 10px 0;
-`
-
-const Player = styled.div`
-  position: relative;
-  box-shadow: 0 0 6px #232323;
-  height: 20vw;
-  width: 20vw;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  overflow: hidden;
-  background-color: #999;
-  background-position: center top;
-  background-size: cover;
-`
-
-const Name = styled.div`
-  position: absolute;
-  bottom: 0;
-  background: rgba(255,255,255,0.85);
-  width: 100%;
-  font-size: 10px;
-  padding: 0 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  > div{
+    margin-bottom: 7px;
+    margin-right: 7px;
+  }
 `
 
 class PlayerSelect extends React.Component {
@@ -44,7 +25,8 @@ class PlayerSelect extends React.Component {
     super(props)
     this.state = {
       players: props.players,
-      searchTerm: ''
+      searchTerm: '',
+      active: props.active || false
     }
   }
 
@@ -63,14 +45,16 @@ class PlayerSelect extends React.Component {
     this.playerName.focus()
   }
 
+  activate(){
+    this.setState({active: true})
+  }
+
   playerList(){
-    if(this.state.searchTerm == ''){
+    if(!this.state.active && !this.props.active){
       return null
     }
     const playerList = this.state.players.map((player) => {
-      return <Player key={player.id} style={{backgroundImage: `url(${player.image})`}} onClick={() => this.select(player)}>
-        <Name>{player.name}</Name>
-      </Player>
+      return <Player key={player.id} player={player} playerClicked={()=> this.select(player)}/>
     })
     return <Players>{playerList}</Players>
   }
@@ -79,7 +63,7 @@ class PlayerSelect extends React.Component {
   render () {
     return (
       <Wrapper>
-        <input type='text' placeholder='Filter players by name' onChange={() => this.filter()} ref={(input) => { this.playerName = input; }}/>
+        <input type='text' placeholder='Filter players by name' onFocus={() => this.activate()} onChange={() => this.filter()} ref={(input) => { this.playerName = input; }}/>
         { this.playerList()}
       </Wrapper>
     )

@@ -19,8 +19,8 @@ const Button = styled.button`
   margin-bottom: 20px;
 `
 
-const Vs = styled.div`
-  text-align: center;
+const HeaderWrapper = styled.div`
+  background: #f8f8f8;
 `
 
 
@@ -54,23 +54,12 @@ class AddMatch extends React.Component {
     this.setState({sets: newSets})
   }
 
-  playersSelected(team, newPlayers){
+  playersSelected(newPlayers){
+    let copyPlayers = newPlayers.slice(0)
     let newState = {}
-    if (team===1){
-      newState = {team1: newPlayers}
-      if(this.state.team2.length > 1 && newPlayers.length > 1){
-        newState['çompleted'] = true
-      }else{
-        newState['completed'] = false
-      }
-    }else{
-      newState = {team2: newPlayers}
-      if(this.state.team1.length > 1 && newPlayers.length > 1){
-        newState['completed'] = true
-      }else{
-        newState['completed'] = false
-      }
-    }
+    let team1 = copyPlayers.splice(0,2)
+    let complete = (team1.length > 1 && copyPlayers.length > 1)
+    newState = {team1: team1, team2: copyPlayers, completed: complete}
     this.setState(newState)
   }
 
@@ -102,9 +91,12 @@ class AddMatch extends React.Component {
     })
     return (
       <div>
-        {this.props.league && <div><PlayerSelectAndShow preSelect={this.state.team1} size={2} league={this.props.league} playersSelected={this.playersSelected.bind(this, 1)}/>
-        <Vs>VS</Vs>
-        <PlayerSelectAndShow preSelect={this.state.team2} size={2} league={this.props.league} playersSelected={this.playersSelected.bind(this, 2)}/></div> }
+        <h1 className='aHeadline asLarge'>
+          Choose Players
+          <div className='aHeadline-sub'>New game</div>
+        </h1>
+        {this.props.league && <HeaderWrapper><PlayerSelectAndShow preSelect={this.state.team1} break={true} size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
+        </HeaderWrapper> }
         {this.state.completed && <div>
           <Score score={this.setScore.bind(this)}/>
           { scores }

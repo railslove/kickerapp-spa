@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-bottom: 10px;
+  margin: 10px 0;
   input{
     width: 35vw;
   }

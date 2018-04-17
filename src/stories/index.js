@@ -20,6 +20,9 @@ storiesOf('Team', module)
   .add('withTwoPerson', () => <Team team={{name: 'ein tolles Zweier Team', rank: 1, number_of_wins: 10, number_of_losses: 12, percentage: 33, score: 1234, player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'}, player2: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'}}}/>)
 
 storiesOf('DayMatch', module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+  ))
   .add('one set', () => <DayMatch match={{difference: 8, matches: [{ score: '5:3', difference: 8, winner_team_id: 1 }], winner_team: { id: 1, player1: { name: 'Stephan', image: 'https://bit.ly/2qkiob5' }, player2: { name: 'Klaus', image: 'https://bit.ly/2qkiob5' } },loser_team: { id: 2, player1: { name: 'Peter', image: 'https://bit.ly/2qkiob5' }, player2: { name: 'Max', image: 'https://bit.ly/2qkiob5' } }}}/>)
   .add('five sets', () => <DayMatch match={{difference: 12, matches: [{ score: '5:3', difference: 12, winner_team_id: 1 }, { score: '5:3', difference: 8, winner_team_id: 2 }, { score: '5:0', difference: 4, winner_team_id: 1 }, { score: '5:3', difference: 4, winner_team_id: 2 }, { score: '5:3', difference: 8, winner_team_id: 1 }], winner_team: { id: 1, player1: { name: 'Stephan', image: 'https://bit.ly/2qkiob5' }, player2: { name: 'Klaus', image: 'https://bit.ly/2qkiob5' } },loser_team: { id: 2, player1: { name: 'Peter', image: 'https://bit.ly/2qkiob5' }, player2: { name: 'Max', image: 'https://bit.ly/2qkiob5' } }}}/>)
 
@@ -36,12 +39,7 @@ storiesOf('PlayerSelectAndShow', module)
 
   .add('two to be selected, one preselected', () => <PlayerSelectAndShow size={2} preSelect={[1]} league={{users: [{ id: 1, name: 'Player 1', image: 'https://bit.ly/2qkiob5' }, { id: 2, name: 'Player 2', image: 'https://bit.ly/2qkiob5' }, { id: 3, name: 'Player 3', image: 'https://bit.ly/2qkiob5' }]}} playersSelected={()=>{}}/>)
 
-storiesOf('Match', module)
-  .add('1vs1', () => <Match match={ { score: '4:3', winner_team: { player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'} }, loser_team: { player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'} }
-  } }/>)
-  .add('2vs2', () => <Match match={ { score: '4:3', winner_team: { player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'}, player2: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'} }, loser_team: { player1: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'}, player2: {image: 'http://cdn1.spiegel.de/images/image-1263248-860_poster_16x9-ctfu-1263248.jpg'} }
-  } }/>)
-
+  .add('six to be selected, with break', () => <PlayerSelectAndShow break={true} size={6} preSelect={[]} league={{users: [{ id: 1, name: 'Player 1', image: 'https://bit.ly/2qkiob5' }, { id: 2, name: 'Player 2', image: 'https://bit.ly/2qkiob5' }, { id: 3, name: 'Player 3', image: 'https://bit.ly/2qkiob5' }]}} playersSelected={()=>{}}/>)
 
 storiesOf('BottomNav', module)
   .addDecorator(story => (

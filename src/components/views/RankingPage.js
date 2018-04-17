@@ -53,7 +53,7 @@ class RankingPage extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(this.toggle, 200)
+    setTimeout(this.toggle, 20)
   }
 
   toggle = () => this.setState({ isOpen: !this.state.isOpen })
@@ -81,6 +81,7 @@ class RankingPage extends React.Component {
 // <TopPositions topUsers={topUsers} pose={this.state.isOpen ? 'open' : 'close'}/>
     return (
       <div>
+        <h1 className='aHeadline asGreen'>Ranking</h1>
         <RankingTabs active='single'/>
         <TopPositionsWrapper pose={ this.state.isOpen ? 'open' : 'close' }>
           <TopPositions topUsers={league.ranking.slice(0,3)} isOpen={this.state.isOpen}/>

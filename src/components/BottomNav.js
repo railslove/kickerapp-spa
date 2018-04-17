@@ -27,7 +27,7 @@ const BottomNav = (props) => {
     border-top: 4px solid #101632;
     background: #101632;
     padding: 10px;
-    height: 30px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -36,7 +36,7 @@ const BottomNav = (props) => {
     }
     &.asActive{
       border-top: 4px solid #62c69a;
-      height: 34px;
+      height: 54px;
     }
   `
   return (

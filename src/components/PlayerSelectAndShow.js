@@ -13,8 +13,12 @@ const Wrapper = styled.div`
 
 const Players = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 20px;
+  .seperator{
+    display: flex;
+    align-items: center;
+  }
 `
 
 class PlayerSelectAndShow extends React.Component {
@@ -22,38 +26,51 @@ class PlayerSelectAndShow extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      players: props.preSelect || []
+      players: props.preSelect || [],
+      selectActive: false
     }
   }
 
-  selectUser(player){
+  addPlayer(player){
     if(this.state.players.indexOf(player) < 0){
       let newPlayers = this.state.players
       newPlayers.push(player)
-      this.props.playersSelected(newPlayers)
+      console.log('newPlayers', newPlayers);
       this.setState({players: newPlayers})
+      this.props.playersSelected(newPlayers)
     }
   }
 
-  playerClicked(position){
+  playerTopBarClicked(position){
     let newPlayers = this.state.players
-    newPlayers.splice(position, 1)
-    this.props.playersSelected(newPlayers)
-    this.setState({players: newPlayers})
+
+    if(position < newPlayers.length){
+      newPlayers.splice(position, 1)
+      this.props.playersSelected(newPlayers)
+      this.setState({players: newPlayers})
+    }else{
+      this.setState({selectActive: true})
+    }
+
   }
 
   render() {
+    console.log('RENDER', this.state.players);
     let players = []
     for (let i = 0; i < this.props.size; i++) {
-      players.push(<Player key={i} playerClicked={this.playerClicked.bind(this)} position={0} player={this.state.players[i]}/>)
+      players.push(<Player key={i} playerClicked={ this.playerTopBarClicked.bind(this)} position={i} player={this.state.players[i]}/>)
+      if(this.props.break && i === (this.props.size/2 - 1)){
+        players.push(<div key='seperator' className='seperator headlineFont'>-</div>)
+      }
     }
-    console.log('props', this.state.players)
     return (
       <Wrapper>
         <Players>
           { players }
         </Players>
-        { this.state.players.length < this.props.size && <PlayerSelect players={this.props.league.users} filter={this.selectUser.bind(this)}/> }
+        { this.state.players.length < this.props.size && <PlayerSelect players={this.props.league.users}
+        active={this.state.selectActive}
+        filter={this.addPlayer.bind(this)}/> }
       </Wrapper>
     )
   }

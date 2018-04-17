@@ -7,11 +7,13 @@ const User = (props) => {
   const itemProps = {
     open: {
       height: 66,
-      paddingBottom: 10
+      paddingBottom: 10,
+      opacity: 1
     },
     closed: {
       height: 0,
-      paddingBottom: 0
+      paddingBottom: 0,
+      opacity: 0
     }
   }
 
@@ -23,6 +25,7 @@ const User = (props) => {
     margin-bottom: 10px;
     padding-bottom: 0px;
     border-bottom: 1px solid #f3f3f3;
+    opacity: 0;
   `
 
   const Position = styled.div`

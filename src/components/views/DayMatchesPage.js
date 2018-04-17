@@ -61,6 +61,7 @@ class DayMatchesPage extends React.Component {
 
     return (
       <div>
+          <h1 className='aHeadline'>Matches</h1>
           { league && league.day_matches && <div>
             {globalMatches}
           </div> }

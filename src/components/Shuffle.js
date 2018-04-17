@@ -8,7 +8,8 @@ import posed from 'react-pose'
 import Team from './Team'
 
 const Button = styled.button`
-  background: #232323;
+  background: #62c69a;
+  border-radius: 30px;
   padding: 10px;
   width: 50vw;
   max-width: 400px;
@@ -18,6 +19,7 @@ const Button = styled.button`
   color: white;
   display: block;
   margin-bottom: 20px;
+  border: none;
 `
 
 const Vs = styled.div`

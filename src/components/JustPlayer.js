@@ -1,41 +1,40 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import EmptyPlayer from '../assets/player.png'
 
 const JustPlayer = (props) => {
 
   const Player = styled.div`
     position: relative;
-    background-color: #232323;
-    box-shadow: 0 0 6px #232323;
-    height: 20vw;
-    width: 20vw;
+    border: 1px solid #cbcbcb;
+    background-color: white;
+    background-image: url(${EmptyPlayer});
+    height: 60px;
+    width: 60px;
     overflow: hidden;
     background-position: center top;
     background-size: cover;
     position: relative;
-    &.withOutImage{
-      &:before{
-        content: '?';
-        font-size: 40px;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-    }
     &.withImage{
-      &:before{
-        display: none;
-      }
+      background-image: url(${props.player && props.player.image})
     }
+  `
+  const Name = styled.div`
+    position: absolute;
+    bottom: 0;
+    background: rgba(255,255,255,0.85);
+    width: 100%;
+    font-size: 10px;
+    padding: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   `
 
   return (
-    <Player className={props.player ? 'withImage' : 'withOutImage'}  style={{backgroundImage: `url(${props.player && props.player.image})`}} onClick={() => props.playerClicked(props.position)}/>
+    <Player className={props.player ? 'withImage' : ''} onClick={() => props.playerClicked(props.position)}>
+      { props.player && <Name>{props.player.name}</Name> }
+    </Player>
   )
 }
 
