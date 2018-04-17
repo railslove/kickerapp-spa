@@ -6,21 +6,12 @@ const User = (props) => {
 
   const itemProps = {
     open: {
-      height: 66
+      height: 66,
+      paddingBottom: 10
     },
     closed: {
-      height: 0
-    }
-  }
-
-  const lastProps = {
-    open: {
-      opacity: 1,
-      height: 5
-    },
-    closed: {
-      opacity: 0,
-      height: 0
+      height: 0,
+      paddingBottom: 0
     }
   }
 
@@ -30,7 +21,7 @@ const User = (props) => {
     width: 100%;
     max-width: 400px;
     margin-bottom: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
     border-bottom: 1px solid #f3f3f3;
   `
 
@@ -61,20 +52,7 @@ const User = (props) => {
     overflow: hidden;
     color: 4a4a4a;
   `
-  const Last = styled(posed.div(lastProps))`
-    position: absolute;
-    left: 95px;
-    margin-top: -22px;
-    padding: 8px;
-    background: #eee;
-    color: #999;
-    font-size: 12px;
-    width: 16px;
-    height: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
+  const Last = styled.div`
     display: none;
   `
 

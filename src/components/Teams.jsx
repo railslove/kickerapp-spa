@@ -20,7 +20,6 @@ const Header = styled.div`
 
 const listProps = {
   open: {
-    delayChildren: 300,
     staggerChildren: 120
   },
   closed: {
@@ -45,7 +44,7 @@ class Teams extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(this.toggle, 200)
+    setTimeout(this.toggle, 20)
   }
 
   toggle = () => this.setState({ isOpen: !this.state.isOpen })

@@ -1,14 +1,16 @@
-@import url(https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One:400,700|Open+Sans:400,700);
 
 $font-family: 'Open Sans', 'Open Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
 $headline-family: 'Fjalla One', 'Open Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
 
 
-body{
+body, html{
   font: 400 16px/21px $font-family;
   padding: 0;
   margin: 0;
   padding-bottom: 50px;
+  top: 0;
+  position: relative;
 }
 
 .headlineFont{
@@ -46,37 +48,24 @@ a{
 }
 
 .aHeadline{
-  font: 700 24px/30px $font-family;
+  font: 400 20px/24px $headline-family;
   padding: 0 20px;
   text-align: center;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  &:before{
-    content: '<';
-    border: 2px solid #cdcdde;
-    color: #cdcdde;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: inline-block;
-    position: absolute;
-    font-size: 16px;
-    left: 10px;
-    text-align: center;
-    line-height: 20px;
-  }
   &.withoutBack{
     a{
       position: absolute;
       right: 10px;
     }
-    &:before{
-      display: none;
-      padding: 0 40px 0 20px;
-
-    }
+  }
+  &.asSmall{
+    font: 400 14px/14px $headline-family;
+    color: #4a4a4a;
+    text-decoration: underline;
+    text-decoration-color: #62c69a;
   }
 }
 
@@ -87,27 +76,5 @@ a{
   img{
     width: 100%;
     height: 100%;
-  }
-}
-
-.aHomeLinks{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(80px, auto);
-  padding: 10px;
-  .aHomeLink{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #dedede;
-    text-decoration: none;
-    font-size: 18px;
-    background: #232323;
-    color: #ECECEC;
-    &.asLast{
-      grid-column: 1 / 3;
-      height: 40px
-    }
   }
 }

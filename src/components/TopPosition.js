@@ -9,7 +9,7 @@ const TopPosition = (props) => {
       top: 0
     },
     closed: {
-      top: -220
+      top: -240
     }
   }
 
@@ -18,7 +18,7 @@ const TopPosition = (props) => {
     flex-direction: column;
     align-items: center;
     margin: 0 10px;
-    top: -220px;
+    top: -240px;
     position: relative;
     width: 20vw;
     max-width: 120px;
@@ -33,8 +33,8 @@ const TopPosition = (props) => {
   const Image = styled.div`
     height: 20vw;
     width: 20vw;
-    max-width: 120px;
-    max-height: 120px;
+    max-width: 100px;
+    max-height: 100px;
     background-color: #999;
     background-image: url(${props.user.image});
     background-position: center top;
@@ -43,6 +43,8 @@ const TopPosition = (props) => {
     &.asFirst{
       height: 26vw;
       width: 26vw;
+      max-width: 120px;
+      max-height: 120px;
     }
   `
   const Content = styled.div`

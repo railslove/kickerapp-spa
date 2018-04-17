@@ -35,7 +35,7 @@ const BottomNav = (props) => {
       height: 30px;
     }
     &.asActive{
-      border-top: 4px solid #43BE47;
+      border-top: 4px solid #62c69a;
       height: 34px;
     }
   `

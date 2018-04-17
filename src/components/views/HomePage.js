@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import { Link } from 'react-router-dom'
 import TopPositions from '../TopPositions'
 import Spinner from '../../assets/rings.svg'
+import MatchImage from '../../assets/match.svg'
 import styled from 'styled-components'
 import posed from 'react-pose'
 import SettingIcon from '../../assets/settings.svg'
@@ -22,6 +23,34 @@ const topProps = {
 
 const TopPositionWrapper = styled(posed.div(topProps))`
   display: block;
+  background: #f8f8f8;
+  padding: 20px 0;
+`
+const Header = styled.div`
+  background: #101632;
+  padding: 20px 0;
+  color: white;
+  h1{
+    margin: 0 0 20px 0;
+  }
+`
+
+const HomeLinks = styled.div`
+  display: flex;
+  justify-content: space-around;
+  max-width: 450px;
+  margin: 0 auto;
+  .aHomeLink{
+    color: #c0c0c0;
+    font-size: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+      height: 50px;
+    }
+  }
 `
 
 class HomePage extends React.Component {
@@ -56,23 +85,35 @@ class HomePage extends React.Component {
     }
 
     return (<div>
-        <h1 className='aHeadline withoutBack'>
-          {league && league.name}
-          <Link to='settings'>
-            <img src={SettingIcon}/>
-          </Link>
-        </h1>
+        <Header>
+          <h1 className='aHeadline withoutBack'>
+            {league && league.name}
+          </h1>
+          <HomeLinks>
+            <Link
+              className='aHomeLink headlineFont'
+              to={'/badges'}>
+              <img src={MatchImage}/>
+              Badges
+            </Link>
+            <Link
+              className='aHomeLink headlineFont'
+              to={'/player/new'}>
+              <img src={MatchImage}/>
+              New Player
+            </Link>
+            <Link
+              className='aHomeLink headlineFont'
+              to={'/settings'}>
+              <img src={SettingIcon}/>
+              Settings
+            </Link>
+          </HomeLinks>
+        </Header>
         <TopPositionWrapper pose={ this.state.isOpen ? 'open' : 'close' }>
+          <div className='aHeadline asSmall'>Top Players</div>
           <TopPositions topUsers={league.ranking.slice(0,3)} isOpen={this.state.isOpen}/>
         </TopPositionWrapper>
-        <div className='aHomeLinks'>
-          <Link
-            className='aHomeLink'
-            to={'/badges'}>Badges</Link>
-          <Link
-            className='aHomeLink'
-            to={'/player/new'}>New Player</Link>
-        </div>
       </div>
     )
   }
