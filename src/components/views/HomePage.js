@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import { Link } from 'react-router-dom'
 import TopPositions from '../TopPositions'
+import DayMatch from '../DayMatch'
 import Spinner from '../../assets/rings.svg'
 import MatchImage from '../../assets/match.svg'
 import styled from 'styled-components'
@@ -22,9 +23,15 @@ const topProps = {
 }
 
 const TopPositionWrapper = styled(posed.div(topProps))`
-  display: block;
   background: #f8f8f8;
   padding: 20px 0;
+`
+
+const MatchWrapper = styled.div`
+  padding: 20px 0;
+  h2{
+    margin-bottom: 20px;
+  }
 `
 const Header = styled.div`
   background: #101632;
@@ -111,9 +118,11 @@ class HomePage extends React.Component {
           </HomeLinks>
         </Header>
         <TopPositionWrapper pose={ this.state.isOpen ? 'open' : 'close' }>
-          <div className='aHeadline asSmall'>Top Players</div>
+          <h2 className='aHeadline asSmall'>Top Players</h2>
           <TopPositions topUsers={league.ranking.slice(0,3)} isOpen={this.state.isOpen}/>
         </TopPositionWrapper>
+        { league.day_matches && league.day_matches.length > 0 && <MatchWrapper><h2 className='aHeadline asSmall'>Last Match</h2>
+        <DayMatch match={league.day_matches[0]}/></MatchWrapper> }
       </div>
     )
   }
@@ -127,6 +136,46 @@ const LEAGUE_QUERY = gql`
         name
         quota
         image
+      }
+      day_matches(limit: 1){
+        id
+        difference
+        date
+        winner_team_id
+        loser_team_id
+        matches{
+          id
+          score
+          difference
+          winner_team_id
+          loser_team_id
+        }
+        winner_team {
+          id
+          player1 {
+            id
+            name
+            image
+          }
+          player2 {
+            id
+            name
+            image
+          }
+        }
+        loser_team {
+          id
+          player1 {
+            id
+            name
+            image
+          }
+          player2 {
+            id
+            name
+            image
+          }
+        }
       }
     }
   }
