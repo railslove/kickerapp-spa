@@ -22,6 +22,10 @@ const Button = styled.button`
   border: none;
 `
 
+const HeaderWrapper = styled.div`
+  background: #f8f8f8;
+`
+
 const Vs = styled.div`
   text-align: center;
 `
@@ -56,7 +60,13 @@ class Shuffle extends React.Component {
   render() {
     return (
       <div>
-        <PlayerSelectAndShow size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
+        <HeaderWrapper>
+          <h1 className='aHeadline asLarge'>
+            Choose Players
+            <div className='aHeadline-sub'>Shuffle</div>
+          </h1>
+          <PlayerSelectAndShow size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
+        </HeaderWrapper>
         {this.state.players.length >= 4 && this.state.teams.length !== 2 && <Button onClick={()=>this.shuffle()}>Shuffle</Button>}
         {
           this.state.teams.length === 2 && <div><TeamList pose='open'>

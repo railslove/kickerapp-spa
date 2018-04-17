@@ -92,10 +92,10 @@ class AddMatch extends React.Component {
     return (
       <div>
         <h1 className='aHeadline asLarge'>
-          Choose Players
+          {`${this.state.completed ? 'Lineup' : 'Choose Players'}`}
           <div className='aHeadline-sub'>New game</div>
         </h1>
-        {this.props.league && <HeaderWrapper><PlayerSelectAndShow preSelect={this.state.team1} break={true} size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
+        {this.props.league && <HeaderWrapper><PlayerSelectAndShow preSelect={this.state.team1.concat(this.state.team2)} break={true} size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
         </HeaderWrapper> }
         {this.state.completed && <div>
           <Score score={this.setScore.bind(this)}/>

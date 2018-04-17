@@ -12,78 +12,76 @@ const Team = (props) => {
     }
   }
 
-  const Wrapper = styled(posed.div(teamProps))`
+  const Item = styled(posed.div(teamProps))`
     display: flex;
     width: 100%;
     max-width: 400px;
     margin-bottom: 10px;
+    padding: 20px 0px;
+    border-bottom: 1px solid #f3f3f3;
     overflow: hidden;
     position: relative;
-    left: -100%;
-
-  `
-  const Image = styled.div`
-    width: 30vw;
-    height: 30vw;
-    background-position: center top;
-    background-size: cover;
-    background-color: #333333;
-    max-width: 100px;
-    max-height: 100px;
-  `
-  const TeamName = styled.div`
-    position: relative;
-    display: flex;
-  `
-
-  const TeamNameValue = styled.div`
-    position: absolute;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 5px 10px;
-    font-size: 12px;
-    width: 100%;
-  `
-
-  const Content = styled.div`
-    background: white;
-    padding: 10px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-  `
-
-  const Quota = styled.div`
-    font-size: 26px;
-  `
-
-  const Percentage = styled.div`
-    font-size: 14px;
-    color: #232323;
+    left: -100;
   `
 
   const Position = styled.div`
-    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    color: #9b9b9b;
+    font-size: 15px;
+  `
+  const Image = styled.div`
+    height: 50px;
+    width: 50px;
+    flex-shrink: 0;
+    background-color: #999;
+    background-image: url(${props.team.player1.image});
+    background-position: center top;
+    background-size: cover;
+    &.player2{
+      background-image: url(${props.team.player2.image});
+    }
+  `
+  const Content = styled.div`
+    padding: 0 10px;
+    flex: 1 0 0;
+  `
+
+  const Name = styled.div`
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #4a4a4a;
+  `
+
+  const Quota = styled.div`
+    font-size: 15px;
+    color: #9b9b9b;
+    display: flex;
+    align-items: center;
     position: absolute;
-    right: 20px;
-    color: #dedefe;
+    right: 10px;
+    height: 100%;
+    background: white;
+    padding-left: 10px;
+    top: 0;
   `
 
   return (
-    <Wrapper>
-      <TeamName>
-        { props.team.player1 && <Image style={{backgroundImage: `url(${props.team.player1.image})`}}/> }
-        { props.team.player2 && <Image style={{backgroundImage: `url(${props.team.player2.image})`}}/> }
-        <TeamNameValue>{props.team.name}</TeamNameValue>
-      </TeamName>
+    <Item>
+      <Position className='headlineFont'>
+        {props.team.position < 10 ? `0${props.team.position}` : props.team.position}
+      </Position>
+      <Image/>
+      <Image className='player2'/>
       <Content>
-        <Quota>{props.team.score}</Quota>
-        <Percentage>{props.team.percentage}%</Percentage>
-        <Position>{props.team.position}</Position>
+        <Name>{props.team.player1.name}</Name>
+        <Name>{props.team.player2.name}</Name>
       </Content>
-    </Wrapper>
+      <Quota>{props.team.score}</Quota>
+    </Item>
   )
 }
 

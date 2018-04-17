@@ -10,7 +10,8 @@ import Spinner from '../../assets/rings.svg'
 class TeamsPage extends React.Component {
 
   render() {
-    if (this.props.teamsQuery.loading) {
+    const league = this.props.teamsQuery.leagues && this.props.teamsQuery.leagues[0]
+    if (this.props.teamsQuery.loading && !league) {
       return (
         <div className='aLoading'>
           <img src={Spinner}/>
@@ -18,7 +19,6 @@ class TeamsPage extends React.Component {
       )
     }
 
-    const league = this.props.teamsQuery.leagues[0]
     let teams = league.teams.map((team, index) => {
       let newTeam = Object.assign({}, team)
       newTeam.position = index + 1
@@ -27,7 +27,7 @@ class TeamsPage extends React.Component {
     return (
       <div>
         <RankingTabs active='teams'/>
-        <Teams teams={teams} players={league.users} />
+        <Teams league={league} teams={teams} />
       </div>
     )
   }
@@ -44,15 +44,16 @@ const TEAMS_QUERY = gql`
       }
       teams{
         id
-        name
         score
         percentage
         player1{
           id
+          name
           image
         }
         player2{
           id
+          name
           image
         }
       }

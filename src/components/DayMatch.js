@@ -87,8 +87,8 @@ const DayMatch = (props) => {
     }else{
       return <Set key={set.id}>
         <div className='points'/>
-        {set.score.split(':').reverse().map((s)=>(<div className='score'>{s}</div>))}
-        <div className='points'>{set.difference}</div>
+        {set.score.split(':').reverse().map((s)=>(<div className='score' key={s}>{s}</div>))}
+        <div key='add' className='points'>{set.difference}</div>
       </Set>
     }
   })

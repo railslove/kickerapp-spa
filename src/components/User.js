@@ -53,7 +53,7 @@ const User = (props) => {
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
-    color: 4a4a4a;
+    color: #4a4a4a;
   `
   const Last = styled.div`
     display: none;

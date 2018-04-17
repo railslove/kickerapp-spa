@@ -9,6 +9,21 @@ import Team from "./Team"
 
 const Wrapper = styled.div`
   padding: 10px;
+  &.as1{
+    display: flex;
+    flex-direction: row-reverse;
+    > div{
+      margin-bottom: 0;
+      &:first-child{
+        margin-left: 20px;
+      }
+    }
+    input{
+      margin-top: 10px;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+  }
 `
 
 const Players = styled.div`
@@ -35,8 +50,7 @@ class PlayerSelectAndShow extends React.Component {
     if(this.state.players.indexOf(player) < 0){
       let newPlayers = this.state.players
       newPlayers.push(player)
-      console.log('newPlayers', newPlayers);
-      this.setState({players: newPlayers})
+      this.setState({players: newPlayers, selectActive: newPlayers.length >= this.props.size})
       this.props.playersSelected(newPlayers)
     }
   }
@@ -55,7 +69,6 @@ class PlayerSelectAndShow extends React.Component {
   }
 
   render() {
-    console.log('RENDER', this.state.players);
     let players = []
     for (let i = 0; i < this.props.size; i++) {
       players.push(<Player key={i} playerClicked={ this.playerTopBarClicked.bind(this)} position={i} player={this.state.players[i]}/>)
@@ -64,7 +77,7 @@ class PlayerSelectAndShow extends React.Component {
       }
     }
     return (
-      <Wrapper>
+      <Wrapper className={`as${this.props.size}`}>
         <Players>
           { players }
         </Players>

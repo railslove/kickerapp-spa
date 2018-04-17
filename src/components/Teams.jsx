@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Team from "./Team"
-import PlayerSelect from "./PlayerSelect"
+import PlayerSelectAndShow from "./PlayerSelectAndShow"
 import styled from 'styled-components'
 import posed from 'react-pose'
 
@@ -15,7 +15,7 @@ const Player = styled.div`
   background-size: cover;
 `
 const Header = styled.div`
-  display: flex;
+  padding: 20px;
 `
 
 const listProps = {
@@ -63,6 +63,7 @@ class Teams extends React.Component {
   }
 
   filterTeams = (player) => {
+    player = player[0]
     let teams = this.props.teams
     if (!isNaN(player.id)) {
       teams = this.props.teams.filter((team) => {
@@ -77,8 +78,7 @@ class Teams extends React.Component {
     return (
       <div>
         <Header>
-          <PlayerSelect players={this.props.players} filter={this.filterTeams}/>
-          { this.state.player && <Player style={{backgroundImage: `url(${this.state.player.image})`}} onClick={() => this.resetFilter()}/> }
+          <PlayerSelectAndShow size={1} league={this.props.league} playersSelected={this.filterTeams}/>
         </Header>
         <TeamList pose={ this.state.isOpen ? 'open' : 'close' }>{this.teamList()}</TeamList>
       </div>
@@ -87,8 +87,7 @@ class Teams extends React.Component {
 }
 
 Teams.propTypes = {
-  teams: PropTypes.array.isRequired,
-  players: PropTypes.array.isRequired
+  league: PropTypes.object.isRequired
 }
 
 export default Teams
