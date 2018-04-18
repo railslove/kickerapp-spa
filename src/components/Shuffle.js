@@ -28,6 +28,9 @@ const HeaderWrapper = styled.div`
 
 const Vs = styled.div`
   text-align: center;
+  position: absolute;
+  width: 100%;
+  margin-top: -20px;
 `
 
 const TeamList = posed.div({})
