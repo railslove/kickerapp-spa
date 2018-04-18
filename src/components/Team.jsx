@@ -21,7 +21,7 @@ const Team = (props) => {
     border-bottom: 1px solid #f3f3f3;
     overflow: hidden;
     position: relative;
-    left: -100;
+    left: -100%;
   `
 
   const Position = styled.div`
@@ -63,7 +63,7 @@ const Team = (props) => {
     align-items: center;
     position: absolute;
     right: 0px;
-    padding-right: 10px
+    padding-right: 10px;
     height: 100%;
     background: white;
     padding-left: 10px;
