@@ -6,6 +6,9 @@ $headline-family: 'Fjalla One', 'Open Sans', 'Helvetica Neue', Helventica, Arial
 
 * {
   box-sizing: border-box;
+  &:focus{
+    outline: none
+  }
 }
 body, html{
   font: 400 16px/21px $font-family;
@@ -32,6 +35,9 @@ input{
   border: 1px solid #9b9b9b;
   padding: 10px;
   margin-bottom: 10px;
+  &:focus{
+    outline: none
+  }
 }
 
 a{

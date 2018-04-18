@@ -4,10 +4,19 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-around;
-  margin: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  border-radius: 8px;
+  border: 1px solid #9b9b9b;
+  width: 100px;
+  position: relative;
   input{
-    width: 35vw;
+    border: none;
+    margin: 0;
+    &:first-child{
+      text-align: right;
+    }
   }
 `
 
@@ -44,6 +53,7 @@ class Score extends React.Component {
     return (
       <Wrapper>
         <input type='tel' onBlur={() => this.save()} ref={(input) => { this.score1 = input }}/>
+        -
         <input type='tel' onBlur={() => this.save()} ref={(input) => { this.score2 = input }}/>
       </Wrapper>
     )

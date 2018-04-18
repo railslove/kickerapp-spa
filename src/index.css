@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Fjalla+One:400,700|Open+Sans:400,700);
 * {
   box-sizing: border-box; }
+  *:focus {
+    outline: none; }
 
 body, html {
   font: 400 16px/21px "Open Sans", "Open Sans", "Helvetica Neue", Helventica, Arial, sans-serif;
@@ -24,6 +26,8 @@ input {
   border: 1px solid #9b9b9b;
   padding: 10px;
   margin-bottom: 10px; }
+  input:focus {
+    outline: none; }
 
 a {
   text-decoration: none; }
