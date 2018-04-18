@@ -21,6 +21,7 @@ const Button = styled.button`
 
 const HeaderWrapper = styled.div`
   background: #f8f8f8;
+  margin-bottom: 40px;
 `
 
 

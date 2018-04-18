@@ -6,11 +6,10 @@ import { Link } from 'react-router-dom'
 const DayMatch = (props) => {
 
   const Wrapper = styled.div`
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    max-width: 380px;
+    padding: 20px 0;
+    max-width: 420px;
     width: 100%;
-    border-bottom: 1px solid #cdcdcd;
+    border-bottom: 1px solid #9b9b9b;
   `
   const Team = styled.div`
     display: flex;
@@ -20,7 +19,7 @@ const DayMatch = (props) => {
 
   const Difference = styled.div`
     padding: 0 20px;
-    color: #43BE47;
+    color: #62c69a;
     font-weight: bold;
     font-size: 20px;
     min-width: 24px;
@@ -42,10 +41,14 @@ const DayMatch = (props) => {
     display: flex;
     justify-content: center;
     margin: 10px 0;
+    position: relative;
     a{
       display: flex;
       align-items: center;
       justofy-content: center;
+      position: absolute;
+      right: 20px;
+      height: 100%;
     }
   `
 
@@ -67,22 +70,22 @@ const DayMatch = (props) => {
   `
 
   const Button = styled.button`
-    background: #232323;
+    background: #62c69a;
+    border: none;
     padding: 5px;
     margin: 0 auto;
     text-align: center;
     font-size: 18px;
     color: white;
     display: block;
-    margin-left: 10px;
   `
 
   let sets = props.match.matches.map((set)=>{
     if(set.winner_team_id == props.match.winner_team.id){
       return <Set key={set.id}>
         <div className='points'>{set.difference}</div>
-        {set.score.split(':').map((s)=>(<div className='score'>{s}</div>))}
-        <div className='points'/>
+        {set.score.split(':').map((s)=>(<div className='score' key={s}>{s}</div>))}
+        <div key='add' className='points'/>
       </Set>
     }else{
       return <Set key={set.id}>

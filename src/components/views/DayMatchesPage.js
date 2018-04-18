@@ -13,9 +13,13 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  > div{
-    margin: 10px;
-  }
+`
+
+const Day = styled.div`
+  font-size: 13px;
+  color: #9b9b9b;
+  border-bottom: 1px solid #9b9b9b;
+  padding: 10px;
 `
 
 class DayMatchesPage extends React.Component {
@@ -54,7 +58,7 @@ class DayMatchesPage extends React.Component {
         <DayMatch key={match.id} match={match}/>
       ))
       globalMatches.push(<div key={day}>
-        <h3 className='aHeadline withoutBack'>{day}</h3>
+        <Day>{day}</Day>
         <Wrapper>{matches}</Wrapper>
       </div>)
     })
