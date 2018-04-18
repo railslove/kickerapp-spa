@@ -13,12 +13,11 @@ const Button = styled.button`
   padding: 10px;
   width: 50vw;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
   font-size: 18px;
   color: white;
   display: block;
-  margin-bottom: 20px;
   border: none;
 `
 

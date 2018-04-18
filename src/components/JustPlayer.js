@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from "prop-types"
 import styled from 'styled-components'
 import EmptyPlayer from '../assets/player.png'
 
@@ -18,6 +19,13 @@ const JustPlayer = (props) => {
     &.withImage{
       background-image: url(${props.player && props.player.image})
     }
+    &.asSmall{
+      height: 40px;
+      width: 40px;
+      > div{
+        display: none;
+      }
+    }
   `
   const Name = styled.div`
     position: absolute;
@@ -32,10 +40,15 @@ const JustPlayer = (props) => {
   `
 
   return (
-    <Player className={props.player ? 'withImage' : ''} onClick={() => props.playerClicked(props.position)}>
+    <Player className={[(props.player ? 'withImage' : ''), (props.small ? 'asSmall' : '')].join(' ')} onClick={() => props.playerClicked(props.position)}>
       { props.player && <Name>{props.player.name}</Name> }
     </Player>
   )
+}
+
+JustPlayer.propTypes = {
+  player: PropTypes.object,
+  small: PropTypes.bool
 }
 
 export default JustPlayer;

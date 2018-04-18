@@ -5,7 +5,10 @@ import Player from "./JustPlayer"
 
 const Wrapper = styled.div`
   flex: 1;
-  position: relative
+  position: relative;
+  .spaceRight{
+    width: calc(100% - 70px)
+  }
 `
 
 const Players = styled.div`
@@ -40,9 +43,16 @@ class PlayerSelect extends React.Component {
 
   select(player){
     this.playerName.value = ''
-    this.setState({searchTerm: ''})
+    let newState = {searchTerm: ''}
+    if(this.props.onTeams){
+      newState['active'] = false
+      newState['players'] = this.props.players
+    }else{
+      this.playerName.focus()
+    }
+    this.setState(newState)
     this.props.filter(player)
-    this.playerName.focus()
+
   }
 
   activate(){
@@ -63,11 +73,18 @@ class PlayerSelect extends React.Component {
   render () {
     return (
       <Wrapper>
-        <input type='text' placeholder='Filter players by name' onFocus={() => this.activate()} onChange={() => this.filter()} ref={(input) => { this.playerName = input; }}/>
+        <input className={this.props.onTeams ? 'spaceRight' : ''} type='text' placeholder='Filter players by name' onFocus={() => this.activate()} onChange={() => this.filter()} ref={(input) => { this.playerName = input; }}/>
         { this.playerList()}
       </Wrapper>
     )
   }
+}
+
+PlayerSelect.propTypes = {
+  players: PropTypes.array.isRequired,
+  filter: PropTypes.func.isRequired,
+  active: PropTypes.bool,
+  onTeams: PropTypes.bool
 }
 
 export default PlayerSelect

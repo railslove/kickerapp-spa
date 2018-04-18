@@ -1,21 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Team from "./Team"
-import PlayerSelectAndShow from "./PlayerSelectAndShow"
+import PlayerSelect from "./PlayerSelect"
+import JustPlayer from "./JustPlayer"
 import styled from 'styled-components'
 import posed from 'react-pose'
 
-const Player = styled.div`
-  position: relative;
-  box-shadow: 0 0 6px #232323;
-  height: 20vw;
-  width: 20vw;
-  overflow: hidden;
-  background-position: center center;
-  background-size: cover;
-`
 const Header = styled.div`
-  padding: 20px;
+  padding: 20px 10px;
+  position: relative;
+  > div:last-child{
+    position: absolute;
+    top: 20px;
+    right: 10px
+  }
 `
 
 const listProps = {
@@ -63,7 +61,6 @@ class Teams extends React.Component {
   }
 
   filterTeams = (player) => {
-    player = player[0]
     let teams = this.props.teams
     if (!isNaN(player.id)) {
       teams = this.props.teams.filter((team) => {
@@ -78,7 +75,8 @@ class Teams extends React.Component {
     return (
       <div>
         <Header>
-          <PlayerSelectAndShow size={1} league={this.props.league} playersSelected={this.filterTeams}/>
+          <PlayerSelect players={this.props.league.users} filter={this.filterTeams} onTeams={true}/>
+          <JustPlayer player={this.state.player} small={true} playerClicked={this.resetFilter.bind(this)}/>
         </Header>
         <TeamList pose={ this.state.isOpen ? 'open' : 'close' }>{this.teamList()}</TeamList>
       </div>
