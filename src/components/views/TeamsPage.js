@@ -26,6 +26,7 @@ class TeamsPage extends React.Component {
     })
     return (
       <div>
+        <h1 className='aHeadline asGreen'>Ranking</h1>
         <RankingTabs active='teams'/>
         <Teams league={league} teams={teams} />
       </div>

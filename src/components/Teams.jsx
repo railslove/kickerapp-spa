@@ -8,6 +8,7 @@ import posed from 'react-pose'
 
 const Header = styled.div`
   padding: 20px 10px;
+  background: #f8f8f8;
   position: relative;
   > div:last-child{
     position: absolute;

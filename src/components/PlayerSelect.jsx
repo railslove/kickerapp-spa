@@ -73,7 +73,7 @@ class PlayerSelect extends React.Component {
   render () {
     return (
       <Wrapper>
-        <input className={this.props.onTeams ? 'spaceRight' : ''} type='text' placeholder='Filter players by name' onFocus={() => this.activate()} onChange={() => this.filter()} ref={(input) => { this.playerName = input; }}/>
+        <input className={this.props.onTeams ? 'spaceRight' : ''} type='text' placeholder='Filter by player name' onFocus={() => this.activate()} onChange={() => this.filter()} ref={(input) => { this.playerName = input; }}/>
         { this.playerList()}
       </Wrapper>
     )
