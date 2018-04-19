@@ -9,6 +9,8 @@ import Team from "./Team"
 
 const Wrapper = styled.div`
   padding: 10px;
+  max-width: 490px;
+  margin: 0 auto;
   &.as1{
     display: flex;
     flex-direction: row-reverse;

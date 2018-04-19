@@ -85,7 +85,7 @@ const MATCHES_QUERY = gql`
     leagues(league_slug: $id) {
       id
       name
-      day_matches(limit: 10){
+      day_matches(limit: 30){
         id
         difference
         date

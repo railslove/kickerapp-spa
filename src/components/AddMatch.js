@@ -4,24 +4,38 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 import PlayerSelectAndShow from './PlayerSelectAndShow'
-import Score from './Score'
+import Score from './ScoreInput'
 
 const Button = styled.button`
-  background: #232323;
+  background: #62c69a;
+  border-radius: 30px;
   padding: 10px;
   width: 50vw;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
   font-size: 18px;
   color: white;
   display: block;
-  margin-bottom: 20px;
+  border: none;
 `
 
 const HeaderWrapper = styled.div`
   background: #f8f8f8;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+`
+
+const AddSet = styled.div`
+  border: 1px solid #62c69a;
+  width: 100px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  border-radius: 8px;
+  font-size: 19px;
+  color: #62c69a;
 `
 
 
@@ -44,14 +58,15 @@ class AddMatch extends React.Component {
     this.state = {
       team1: preselectedPLayers1,
       team2: preselectedPLayers2,
-      sets: [],
+      sets: new Map(),
+      setCount: 3,
       completed: preselectedPLayers1.length === 2 && preselectedPLayers2.length === 2
     }
   }
 
-  setScore(goals){
+  setScore(set, goals, crawling){
     let newSets = this.state.sets
-    newSets.push(goals)
+    newSets.set(set, {goals: goals, crawling: crawling})
     this.setState({sets: newSets})
   }
 
@@ -66,18 +81,20 @@ class AddMatch extends React.Component {
 
   saveMatch(){
     let sets = []
-    this.state.sets.forEach( (set) => {
+
+    for (var [index, set] of this.state.sets) {
       let localSet = {}
-      localSet['score1'] = set[0]
-      localSet['score2'] = set[1]
+      localSet['score1'] = set.goals[0]
+      localSet['score2'] = set.goals[1]
+      localSet['crawling'] = set.crawling
       sets.push(localSet)
-    })
+    }
+
     this.props.mutate({
       variables: { leagueSlug: localStorage.getItem('slug'), player1: parseInt(this.state.team1[0].id, 10), player2: parseInt(this.state.team1[1].id, 10), player3: parseInt(this.state.team2[0].id, 10), player4: parseInt(this.state.team2[1].id, 10), scores: sets }
     })
     .then(({ data }) => {
       this.props.gotoDayMatches()
-      this.setState({teams: data.addMatch})
     }).catch((error) => {
       console.log('there was an error sending the query', error)
     })
@@ -85,11 +102,10 @@ class AddMatch extends React.Component {
 
 
   render() {
-    let index = -1
-    let scores = this.state.sets.map(()=>{
-      index = index+1
-      return <Score key={index} score={this.setScore.bind(this)}/>
-    })
+    let sets = []
+    for (let step = 0; step < this.state.setCount; step++) {
+      sets.push(<Score index={step} score={this.setScore.bind(this)}/>)
+    }
     return (
       <div>
         <h1 className='aHeadline asLarge'>
@@ -99,10 +115,11 @@ class AddMatch extends React.Component {
         {this.props.league && <HeaderWrapper><PlayerSelectAndShow preSelect={this.state.team1.concat(this.state.team2)} break={true} size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
         </HeaderWrapper> }
         {this.state.completed && <div>
-          <Score score={this.setScore.bind(this)}/>
-          { scores }
+          <h4 className='aHeadline asSmall'>Result</h4>
+          { sets }
+          <AddSet className='headlineFont' onClick={()=>this.setState({setCount: this.state.setCount + 1})}>+</AddSet>
         </div>}
-        { this.state.completed && this.state.sets.length > 0 &&  <Button onClick={()=> this.saveMatch()}>
+        { this.state.completed && this.state.sets.size > 0 &&  <Button onClick={()=> this.saveMatch()}>
           Save Match
         </Button> }
       </div>
