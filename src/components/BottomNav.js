@@ -32,7 +32,7 @@ const BottomNav = (props) => {
     justify-content: center;
     align-items: flex-end;
     img{
-      height: 30px;
+      height: 25px;
     }
     &.asActive{
       border-top: 4px solid #62c69a;

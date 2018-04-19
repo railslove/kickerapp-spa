@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 import TopPositions from '../TopPositions'
 import DayMatch from '../DayMatch'
 import Spinner from '../../assets/rings.svg'
-import MatchImage from '../../assets/match.svg'
+import BadgeImage from '../../assets/badges.svg'
+import NewPlayerImage from '../../assets/new.svg'
 import styled from 'styled-components'
 import posed from 'react-pose'
 import SettingIcon from '../../assets/settings.svg'
@@ -55,7 +56,7 @@ const HomeLinks = styled.div`
     flex-direction: column;
     align-items: center;
     img{
-      height: 50px;
+      height: 40px;
     }
   }
 `
@@ -100,13 +101,13 @@ class HomePage extends React.Component {
             <Link
               className='aHomeLink headlineFont'
               to={'/badges'}>
-              <img src={MatchImage}/>
+              <img src={BadgeImage}/>
               Badges
             </Link>
             <Link
               className='aHomeLink headlineFont'
               to={'/player/new'}>
-              <img src={MatchImage}/>
+              <img src={NewPlayerImage}/>
               New Player
             </Link>
             <Link
