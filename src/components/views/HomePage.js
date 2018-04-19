@@ -146,6 +146,7 @@ const LEAGUE_QUERY = gql`
         matches{
           id
           score
+          crawling
           difference
           winner_team_id
           loser_team_id

@@ -59,11 +59,16 @@ const DayMatch = (props) => {
       border: 1px solid #999;
       padding: 5px;
       text-align: center;
+      &.withCrawling{
+        background-color: #62c69a;
+        border-color: #62c69a;
+        color: white;
+      }
     }
     .points{
       font-size: 14px;
       margin: 5px 0;
-      color: #43BE47;
+      color: #62c69a;
       height: 14px;
       text-align: center;
     }
@@ -84,7 +89,7 @@ const DayMatch = (props) => {
     if(set.winner_team_id == props.match.winner_team.id){
       return <Set key={set.id}>
         <div className='points'>{set.difference}</div>
-        {set.score.split(':').map((s)=>(<div className='score' key={s}>{s}</div>))}
+        {set.score.split(':').map((s)=>(<div className={`score ${set.crawling ? 'withCrawling' : 'withoutCrawling'}`} key={s}>{s}</div>))}
         <div key='add' className='points'/>
       </Set>
     }else{
