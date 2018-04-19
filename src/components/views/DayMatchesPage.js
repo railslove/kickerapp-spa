@@ -11,8 +11,10 @@ import Spinner from '../../assets/rings.svg'
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
 `
 
 const Day = styled.div`
@@ -20,6 +22,9 @@ const Day = styled.div`
   color: #9b9b9b;
   border-bottom: 1px solid #9b9b9b;
   padding: 10px;
+  max-width: 768px;
+  margin: 0 auto;
+  margin-top: 20px;
 `
 
 class DayMatchesPage extends React.Component {
@@ -58,7 +63,7 @@ class DayMatchesPage extends React.Component {
         <DayMatch key={match.id} match={match}/>
       ))
       globalMatches.push(<div key={day}>
-        <Day>{day}</Day>
+        <Day className='headlineFont'>{day}</Day>
         <Wrapper>{matches}</Wrapper>
       </div>)
     })
@@ -80,7 +85,7 @@ const MATCHES_QUERY = gql`
     leagues(league_slug: $id) {
       id
       name
-      day_matches{
+      day_matches(limit: 10){
         id
         difference
         date

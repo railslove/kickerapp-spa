@@ -1,124 +1,107 @@
 import React from 'react'
 import styled from 'styled-components'
-import MatchUser from './MatchUser'
+import JustPlayer from './JustPlayer'
+import Set from './Set'
 import { Link } from 'react-router-dom'
 
 const DayMatch = (props) => {
 
   const Wrapper = styled.div`
-    padding: 20px 0;
-    max-width: 420px;
+    max-width: 370px;
     width: 100%;
     border-bottom: 1px solid #9b9b9b;
   `
   const Team = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+  `
+  const Image = styled.div`
+    width: 60px;
+    height: 60px;
+    background-position: center top;
+    background-size: cover;
+    margin-right: 5px;
+  `
+
+  const Images = styled.div`
+    display: flex;
+    padding: 10px;
   `
 
   const Difference = styled.div`
     padding: 0 20px;
-    color: #62c69a;
-    font-weight: bold;
-    font-size: 20px;
-    min-width: 24px;
-    text-align: center;
-    &.asLost{
-      color: #DB624A;
-    }
+    color: #626262;
+    font-size: 19px;
   `
 
-  const Image = styled.div`
-    width: 22vw;
-    height: 22vw;
-    background-position: center center;
-    background-size: cover;
-    max-width: 100px;
-    max-height: 100px;
-  `
   const Score = styled.div`
     display: flex;
-    justify-content: center;
-    margin: 10px 0;
+    justify-content: space-between;
     position: relative;
-    a{
-      display: flex;
-      align-items: center;
-      justofy-content: center;
-      position: absolute;
-      right: 20px;
-      height: 100%;
+    background: #f7f7f7;
+    padding: 10px
+  `
+
+  const Sets = styled.div`
+    display: flex;
+  `
+  const Names = styled.div`
+    flex: 1;
+    color: #9b9b9b;
+  `
+  const TeamNames = styled.div`
+    height: 60px;
+    font-size: 13px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &.first{
+      border-bottom: 1px solid #d6d6d6;
     }
   `
 
-  const Set = styled.div`
-    margin: 0 10px;
-    line-height: 100%;
-    .score{
-      border: 1px solid #999;
-      padding: 5px;
-      text-align: center;
-      &.withCrawling{
-        background-color: #62c69a;
-        border-color: #62c69a;
-        color: white;
-      }
-    }
-    .points{
-      font-size: 14px;
-      margin: 5px 0;
-      color: #62c69a;
-      height: 14px;
-      text-align: center;
-    }
-  `
-
-  const Button = styled.button`
-    background: #62c69a;
-    border: none;
-    padding: 5px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 18px;
-    color: white;
-    display: block;
+  const Rematch = styled.div`
+    border-top: 1px solid #d6d6d6;
+    color: #9b9b9b;
+    font-size: 13px;
+    padding: 10px 20px;
   `
 
   let sets = props.match.matches.map((set)=>{
-    if(set.winner_team_id == props.match.winner_team.id){
-      return <Set key={set.id}>
-        <div className='points'>{set.difference}</div>
-        {set.score.split(':').map((s)=>(<div className={`score ${set.crawling ? 'withCrawling' : 'withoutCrawling'}`} key={s}>{s}</div>))}
-        <div key='add' className='points'/>
-      </Set>
-    }else{
-      return <Set key={set.id}>
-        <div className='points'/>
-        {set.score.split(':').reverse().map((s)=>(<div className='score' key={s}>{s}</div>))}
-        <div key='add' className='points'>{set.difference}</div>
-      </Set>
-    }
+    return <Set key={set.id} data={set}
+      winner={set.winner_team_id == props.match.winner_team.id}/>
   })
 
   return (
     <Wrapper>
       <Team>
-        <MatchUser user={props.match.winner_team.player1}/>
-        <Difference>{ props.match.difference }</Difference>
-        { props.match.winner_team.player2 && <MatchUser user={props.match.winner_team.player2} reverse={true}/> }
+        <Images><Image style={{backgroundImage: `url(${props.match.winner_team.player1.image})`}} />
+        { props.match.winner_team.player2 && <Image style={{backgroundImage: `url(${props.match.winner_team.player2.image})`}} /> }</Images>
+      <Difference className='headlineFont'>+{ props.match.difference }</Difference>
       </Team>
       <Score>
-        {sets}
-        <Link to={`match/new/${props.match.winner_team.player1.id}/${props.match.loser_team.player1.id}/${props.match.winner_team.player2.id}/${props.match.loser_team.player2.id}`}>
-          <Button>+</Button>
-        </Link>
+        <Names>
+          <TeamNames className='first'>
+            <div>Stephan</div>
+            <div>Peter</div>
+          </TeamNames>
+          <TeamNames>
+            <div>Klaus</div>
+            <div>Max</div>
+          </TeamNames>
+        </Names>
+        <Sets>{sets}</Sets>
       </Score>
       <Team>
-        <MatchUser user={props.match.loser_team.player1}/>
-        <Difference className='asLost'>{ props.match.difference }</Difference>
-        { props.match.loser_team.player2 && <MatchUser user={props.match.loser_team.player2} reverse={true}/> }
+        <Images><Image style={{backgroundImage: `url(${props.match.loser_team.player1.image})`}} />
+        { props.match.loser_team.player2 && <Image style={{backgroundImage: `url(${props.match.loser_team.player2.image})`}} /> }</Images>
+      <Difference className='headlineFont asLost'>-{ props.match.difference }</Difference>
       </Team>
+      <Link to={`match/new/${props.match.winner_team.player1.id}/${props.match.loser_team.player1.id}/${props.match.winner_team.player2.id}/${props.match.loser_team.player2.id}`}>
+        <Rematch className='headlineFont'>+ Rematch</Rematch>
+      </Link>
     </Wrapper>
   )
 }
