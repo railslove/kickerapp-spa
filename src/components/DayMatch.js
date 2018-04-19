@@ -84,12 +84,12 @@ const DayMatch = (props) => {
       <Score>
         <Names>
           <TeamNames className='first'>
-            <div>Stephan</div>
-            <div>Peter</div>
+            <div>{props.match.winner_team.player1.name}</div>
+            <div>{props.match.winner_team.player2 && props.match.winner_team.player2.name}</div>
           </TeamNames>
           <TeamNames>
-            <div>Klaus</div>
-            <div>Max</div>
+            <div>{props.match.loser_team.player1.name}</div>
+            <div>{props.match.loser_team.player2 && props.match.loser_team.player2.name}</div>
           </TeamNames>
         </Names>
         <Sets>{sets}</Sets>
