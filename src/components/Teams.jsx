@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Team from "./Team"
 import PlayerSelect from "./PlayerSelect"
-import JustPlayer from "./JustPlayer"
+import Player from "./Player"
 import styled from 'styled-components'
 import posed from 'react-pose'
 
@@ -77,7 +77,7 @@ class Teams extends React.Component {
       <div>
         <Header>
           <PlayerSelect players={this.props.league.users} filter={this.filterTeams} onTeams={true}/>
-          <JustPlayer player={this.state.player} small={true} playerClicked={this.resetFilter.bind(this)}/>
+          <Player player={this.state.player} small={true} playerClicked={this.resetFilter.bind(this)}/>
         </Header>
         <TeamList pose={ this.state.isOpen ? 'open' : 'close' }>{this.teamList()}</TeamList>
       </div>

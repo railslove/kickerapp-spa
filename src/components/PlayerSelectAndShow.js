@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlayerSelect from "./PlayerSelect"
-import Player from "./JustPlayer"
+import Player from "./Player"
 
 const Wrapper = styled.div`
   padding: 10px;

@@ -9,6 +9,9 @@ const Set = (props) => {
     &:last-child{
       border: none;
     }
+    &.withCrawling{
+      font-weight: bold;
+    }
   `
 
   const Difference = styled.div`

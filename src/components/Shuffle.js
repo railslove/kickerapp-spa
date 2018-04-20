@@ -26,6 +26,13 @@ const HeaderWrapper = styled.div`
   background: #f8f8f8;
 `
 
+const TeamWrapper = styled.div`
+  max-width: 490px;
+  margin: 0 auto;
+  position: relative;
+`
+
+
 const Vs = styled.div`
   text-align: center;
   position: absolute;
@@ -72,7 +79,7 @@ class Shuffle extends React.Component {
         </HeaderWrapper>
         {this.state.players.length >= 4 && this.state.teams.length !== 2 && <Button onClick={()=>this.shuffle()}>Shuffle</Button>}
         {
-          this.state.teams.length === 2 && <div><TeamList pose='open'>
+          this.state.teams.length === 2 && <TeamWrapper><TeamList pose='open'>
           <Team team={this.state.teams[0]}/>
           <Vs>VS</Vs>
           <Team team={this.state.teams[1]}/>
@@ -80,7 +87,7 @@ class Shuffle extends React.Component {
         <Link to={`match/new/${this.state.teams[0].player1.id}/${this.state.teams[1].player1.id}/${this.state.teams[0].player2.id}/${this.state.teams[1].player2.id}`}>
           <Button>Start Match</Button>
         </Link>
-        </div>
+      </TeamWrapper>
         }
       </div>
     )

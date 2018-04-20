@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import posed from 'react-pose'
 
-const User = (props) => {
+const RankingUser = (props) => {
 
   const itemProps = {
     open: {
@@ -80,10 +80,10 @@ const User = (props) => {
   )
 }
 
-User.propTypes = {
+RankingUser.propTypes = {
   index: PropTypes.number.isRequired,
   user: PropTypes.object.isRequired,
   last: PropTypes.number
 }
 
-export default User;
+export default RankingUser;

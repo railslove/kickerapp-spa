@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
-import User from '../User'
+import RankingUser from '../RankingUser'
 import TopPositions from '../TopPositions'
 import RankingTabs from '../RankingTabs'
 import Spinner from '../../assets/rings.svg'
@@ -73,7 +73,7 @@ class RankingPage extends React.Component {
     let baseUsers = league.ranking.slice(3,league.ranking.length)
     let last = 0
     let userlist = baseUsers.map((user, index) => {
-      let element = <User key={user.name} index={index+4} user={user} last={last}/>
+      let element = <RankingUser key={user.name} index={index+4} user={user} last={last}/>
       last = user.quota
       return element
     })

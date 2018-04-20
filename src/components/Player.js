@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import EmptyPlayer from '../assets/player.png'
 
-const JustPlayer = (props) => {
+const Player = (props) => {
 
   const Player = styled.div`
     position: relative;
@@ -46,9 +46,9 @@ const JustPlayer = (props) => {
   )
 }
 
-JustPlayer.propTypes = {
+Player.propTypes = {
   player: PropTypes.object,
   small: PropTypes.bool
 }
 
-export default JustPlayer;
+export default Player;
