@@ -102,18 +102,19 @@ class HomePage extends React.Component {
       )
     }
 
+    // <Link
+    //   className='aHomeLink headlineFont'
+    //   to={'/badges'}>
+    //   <img src={BadgeImage} alt=''/>
+    //   Badges
+    // </Link>
+
     return (<div>
         <Header>
           <h1 className='aHeadline onDark'>
             {league && league.name}
           </h1>
           <HomeLinks>
-            <Link
-              className='aHomeLink headlineFont'
-              to={'/badges'}>
-              <img src={BadgeImage} alt=''/>
-              Badges
-            </Link>
             <Link
               className='aHomeLink headlineFont'
               to={'/player/new'}>
