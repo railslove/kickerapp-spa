@@ -47,8 +47,6 @@ class PlayerSelect extends React.Component {
     if(this.props.onTeams){
       newState['active'] = false
       newState['players'] = this.props.players
-    }else{
-      this.playerName.focus()
     }
     this.setState(newState)
     this.props.filter(player)
