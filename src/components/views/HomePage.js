@@ -30,6 +30,12 @@ const TopPositionWrapper = styled(posed.div(topProps))`
 
 const MatchWrapper = styled.div`
   padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
   h2{
     margin-bottom: 20px;
   }
@@ -126,8 +132,13 @@ class HomePage extends React.Component {
           <h2 className='aHeadline asSmall'>Top Players</h2>
           <TopPositions topUsers={league.ranking.slice(0,3)} isOpen={this.state.isOpen}/>
         </TopPositionWrapper>
-        { league.day_matches && league.day_matches.length > 0 && <MatchWrapper><h2 className='aHeadline asSmall'>Last Match</h2>
-        <DayMatch match={league.day_matches[0]}/></MatchWrapper> }
+        { league.day_matches && league.day_matches.length > 1 && <div>
+          <h2 className='aHeadline asSmall'>Last two matches</h2>
+          <MatchWrapper>
+            <DayMatch match={league.day_matches[0]}/>
+            <DayMatch match={league.day_matches[1]}/>
+          </MatchWrapper>
+        </div> }
       </div>
     )
   }
@@ -142,7 +153,7 @@ const LEAGUE_QUERY = gql`
         quota
         image
       }
-      day_matches(limit: 1){
+      day_matches(limit: 3){
         id
         difference
         date

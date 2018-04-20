@@ -6,6 +6,8 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   padding: 10px;
+  max-width: 450px;
+  margin: 0 auto;
 `
 
 const Button = styled.button`

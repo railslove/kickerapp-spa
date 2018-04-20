@@ -20,6 +20,7 @@ const Wrapper = styled(posed.div(teamProps))`
   position: relative;
   left: -100%;
   max-width: 400px;
+  margin: 0 auto;
   &.asOpen{
     margin-bottom: 0;
     background: #f2f4fb;

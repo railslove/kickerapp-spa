@@ -6,10 +6,15 @@ import Player from "./Player"
 import styled from 'styled-components'
 import posed from 'react-pose'
 
+const HeaderWrapper = styled.div`
+  background: #f8f8f8;
+`
+
 const Header = styled.div`
   padding: 20px 10px;
-  background: #f8f8f8;
   position: relative;
+  max-width: 450px;
+  margin: 0 auto;
   > div:last-child{
     position: absolute;
     top: 20px;
@@ -75,10 +80,12 @@ class Teams extends React.Component {
 
     return (
       <div>
-        <Header>
-          <PlayerSelect players={this.props.league.users} filter={this.filterTeams} onTeams={true}/>
-          <Player player={this.state.player} small={true} playerClicked={this.resetFilter.bind(this)}/>
-        </Header>
+        <HeaderWrapper>
+          <Header>
+            <PlayerSelect players={this.props.league.users} filter={this.filterTeams} onTeams={true}/>
+            <Player player={this.state.player} small={true} playerClicked={this.resetFilter.bind(this)}/>
+          </Header>
+        </HeaderWrapper>
         <TeamList pose={ this.state.isOpen ? 'open' : 'close' }>{this.teamList()}</TeamList>
       </div>
     )
