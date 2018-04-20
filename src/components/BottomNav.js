@@ -42,28 +42,28 @@ const BottomNav = (props) => {
   return (
     <Wrapper>
       <Link to={'/ranking'}>
-        <Item className={props.location.pathname == '/ranking' ? 'asActive' : ''}>
-          <img src={Ranking}/>
+        <Item className={props.location.pathname === '/ranking' ? 'asActive' : ''}>
+          <img src={Ranking} alt='Ranking'/>
         </Item>
       </Link>
       <Link to={'/day_matches'}>
-        <Item className={props.location.pathname == '/day_matches' ? 'asActive' : ''}>
-          <img src={Match}/>
+        <Item className={props.location.pathname === '/day_matches' ? 'asActive' : ''}>
+          <img src={Match} alt='Matches'/>
         </Item>
       </Link>
       <Link to={'/'}>
-        <Item className={props.location.pathname == '/' ? 'asActive' : ''}>
-          <img src={Home}/>
+        <Item className={props.location.pathname === '/' ? 'asActive' : ''}>
+          <img src={Home} alt='Home'/>
         </Item>
       </Link>
       <Link to={'/shuffle'}>
-        <Item className={props.location.pathname == '/shuffle' ? 'asActive' : ''}>
-          <img src={Shuffle}/>
+        <Item className={props.location.pathname === '/shuffle' ? 'asActive' : ''}>
+          <img src={Shuffle} alt='Shuffle'/>
         </Item>
       </Link>
       <Link to={'/match/new'}>
-        <Item className={props.location.pathname == '/match/new' ? 'asActive' : ''}>
-          <img src={New}/>
+        <Item className={props.location.pathname === '/match/new' ? 'asActive' : ''}>
+          <img src={New} alt='New match'/>
         </Item>
       </Link>
     </Wrapper>

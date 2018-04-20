@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import JustPlayer from './JustPlayer'
 import Set from './Set'
 import { Link } from 'react-router-dom'
 

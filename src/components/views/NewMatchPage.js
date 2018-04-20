@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, compose } from 'react-apollo'
+import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
@@ -38,7 +38,7 @@ class NewMatchPage extends React.Component {
     if (!league) {
       return (
         <div className='aLoading'>
-          <img src={Spinner}/>
+          <img src={Spinner} alt='loading spinner'/>
         </div>
       )
     }
@@ -46,7 +46,7 @@ class NewMatchPage extends React.Component {
       <div>
         {this.state.error && <Error>Please fill out at least on set</Error>}
         <AddMatch league={league} gotoDayMatches={this.gotoDayMatches.bind(this)}
-        preTeam1={[parseInt(this.props.match.params.p1), parseInt(this.props.match.params.p3)]} preTeam2={[parseInt(this.props.match.params.p2), parseInt(this.props.match.params.p4)]} />
+        preTeam1={[parseInt(this.props.match.params.p1, 10), parseInt(this.props.match.params.p3, 10)]} preTeam2={[parseInt(this.props.match.params.p2, 10), parseInt(this.props.match.params.p4, 10)]} />
       </div>
     )
   }

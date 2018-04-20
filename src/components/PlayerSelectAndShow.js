@@ -1,11 +1,7 @@
 import React from 'react'
-import { graphql } from 'react-apollo'
-import { withRouter } from 'react-router-dom'
-import gql from 'graphql-tag'
 import styled from 'styled-components'
 import PlayerSelect from "./PlayerSelect"
 import Player from "./JustPlayer"
-import Team from "./Team"
 
 const Wrapper = styled.div`
   padding: 10px;

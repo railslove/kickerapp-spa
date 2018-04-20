@@ -49,7 +49,7 @@ class DayMatchesPage extends React.Component {
     if (this.props.matchesQuery.loading || !league) {
       return (
         <div className='aLoading'>
-          <img src={Spinner}/>
+          <img src={Spinner} alt='loading spinner'/>
         </div>
       )
     }

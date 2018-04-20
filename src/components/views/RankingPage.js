@@ -58,17 +58,18 @@ class RankingPage extends React.Component {
 
   toggle = () => this.setState({ isOpen: !this.state.isOpen })
 
+
+
   render() {
-    if (this.props.rankingQuery.loading) {
+    const league = this.props.rankingQuery.leagues && this.props.rankingQuery.leagues[0]
+
+    if (this.props.rankingQuery.loading && !league) {
       return (
         <div className='aLoading'>
-          <img src={Spinner}/>
+          <img src={Spinner} alt='loading spinner'/>
         </div>
       )
     }
-
-    const league = this.props.rankingQuery.leagues[0]
-
     let topUsers = league.ranking.slice(0,3)
     let baseUsers = league.ranking.slice(3,league.ranking.length)
     let last = 0

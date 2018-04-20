@@ -14,7 +14,7 @@ class TeamsPage extends React.Component {
     if (this.props.teamsQuery.loading && !league) {
       return (
         <div className='aLoading'>
-          <img src={Spinner}/>
+          <img src={Spinner} alt='loading spinner'/>
         </div>
       )
     }

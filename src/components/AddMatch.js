@@ -49,10 +49,10 @@ class AddMatch extends React.Component {
     let preselectedPLayers2 = []
     if(props.league){
       preselectedPLayers1 = props.league.users.filter((user) => (
-        preSelected1.indexOf(parseInt(user.id)) > -1
+        preSelected1.indexOf(parseInt(user.id, 10)) > -1
       ))
       preselectedPLayers2 = props.league.users.filter((user) => (
-        preSelected2.indexOf(parseInt(user.id)) > -1
+        preSelected2.indexOf(parseInt(user.id, 10)) > -1
       ))
     }
     this.state = {

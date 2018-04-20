@@ -71,6 +71,10 @@ class HomePage extends React.Component {
 
   componentDidMount() {
     setTimeout(this.toggle, 200)
+    if(this.props.match.params.leagueSlug){
+      localStorage.setItem('slug', this.props.match.params.leagueSlug)
+      this.props.history.push('/')
+    }
   }
 
   componentWillMount(){
@@ -87,7 +91,7 @@ class HomePage extends React.Component {
     if (this.props.leagueQuery.loading || !league) {
       return (
         <div className='aLoading'>
-          <img src={Spinner}/>
+          <img src={Spinner} alt='loading spinner'/>
         </div>
       )
     }
@@ -101,19 +105,19 @@ class HomePage extends React.Component {
             <Link
               className='aHomeLink headlineFont'
               to={'/badges'}>
-              <img src={BadgeImage}/>
+              <img src={BadgeImage} alt=''/>
               Badges
             </Link>
             <Link
               className='aHomeLink headlineFont'
               to={'/player/new'}>
-              <img src={NewPlayerImage}/>
+              <img src={NewPlayerImage} alt=''/>
               New Player
             </Link>
             <Link
               className='aHomeLink headlineFont'
               to={'/settings'}>
-              <img src={SettingIcon}/>
+              <img src={SettingIcon} alt=''/>
               Settings
             </Link>
           </HomeLinks>

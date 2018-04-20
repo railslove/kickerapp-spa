@@ -28,10 +28,10 @@ const RankingTabs = (props) => {
 
   return (
     <Wrapper className='headlineFont'>
-      <Item className={props.active=='single' ? 'asActive' : ''}>
+      <Item className={props.active==='single' ? 'asActive' : ''}>
         <Link to='/ranking'>Single</Link>
       </Item>
-      <Item className={props.active=='teams' ? 'asActive' : ''}>
+      <Item className={props.active==='teams' ? 'asActive' : ''}>
         <Link to='/teams'>Teams</Link>
       </Item>
     </Wrapper>

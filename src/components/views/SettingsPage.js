@@ -6,6 +6,17 @@ import Spinner from '../../assets/rings.svg'
 
 class SettingsPage extends React.Component {
 
+  constructor (props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    if(this.props.match.params.leagueSlug){
+      localStorage.setItem('slug', this.props.match.params.leagueSlug)
+      this.props.history.push('/')
+    }
+  }
+
   selectLeague(league) {
     localStorage.setItem('slug', league.slug)
     this.props.history.push('/')
@@ -15,7 +26,7 @@ class SettingsPage extends React.Component {
     if (this.props.allLeaguesQuery.loading) {
       return (
         <div className='aLoading'>
-          <img src={Spinner}/>
+          <img src={Spinner} alt='loading spinner'/>
         </div>
       )
     }

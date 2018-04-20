@@ -11,7 +11,7 @@ class ShufflePage extends React.Component {
     if (this.props.shuffleQuery.loading) {
       return (
         <div className='aLoading'>
-          <img src={Spinner}/>
+          <img src={Spinner} alt='loading spinner'/>
         </div>
       )
     }
