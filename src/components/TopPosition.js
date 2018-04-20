@@ -47,14 +47,6 @@ const TopPosition = (props) => {
       max-height: 120px;
     }
   `
-  const Content = styled.div`
-    background: white;
-    padding: 2px 5px;
-    width: 25vw;
-    max-width: 120px;
-    text-align: center;
-    z-index: 1;
-  `
 
   const Name = styled.div`
     color: #4a4a4a;
@@ -72,9 +64,9 @@ const TopPosition = (props) => {
   `
 
   return (
-    <Item className={(props.index == 1) ? 'asFirst' : ''}>
+    <Item className={(props.index === 1) ? 'asFirst' : ''}>
       <Position className='headlineFont'>0{props.index}</Position>
-      <Image className={(props.index == 1) ? 'asFirst' : ''}>
+      <Image className={(props.index === 1) ? 'asFirst' : ''}>
       </Image>
       <Name>{props.user.name}</Name>
       <Quota className='headlineFont'>{props.user.quota}</Quota>

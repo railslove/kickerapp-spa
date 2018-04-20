@@ -6,10 +6,6 @@ import Spinner from '../../assets/rings.svg'
 
 class SettingsPage extends React.Component {
 
-  constructor (props) {
-    super(props)
-  }
-
   componentDidMount() {
     if(this.props.match.params.leagueSlug){
       localStorage.setItem('slug', this.props.match.params.leagueSlug)

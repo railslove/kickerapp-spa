@@ -104,7 +104,7 @@ class AddMatch extends React.Component {
   render() {
     let sets = []
     for (let step = 0; step < this.state.setCount; step++) {
-      sets.push(<Score index={step} score={this.setScore.bind(this)}/>)
+      sets.push(<Score key={step} index={step} score={this.setScore.bind(this)}/>)
     }
     return (
       <div>

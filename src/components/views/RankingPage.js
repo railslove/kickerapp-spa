@@ -70,7 +70,6 @@ class RankingPage extends React.Component {
         </div>
       )
     }
-    let topUsers = league.ranking.slice(0,3)
     let baseUsers = league.ranking.slice(3,league.ranking.length)
     let last = 0
     let userlist = baseUsers.map((user, index) => {
@@ -79,7 +78,6 @@ class RankingPage extends React.Component {
       return element
     })
 
-// <TopPositions topUsers={topUsers} pose={this.state.isOpen ? 'open' : 'close'}/>
     return (
       <div>
         <h1 className='aHeadline asGreen'>Ranking</h1>

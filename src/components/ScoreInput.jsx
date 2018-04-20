@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import styled from 'styled-components'
 import Crawl from '../assets/crawl.svg'
 
@@ -61,8 +60,8 @@ class ScoreInput extends React.Component {
 
   save(crawling){
     let goals = []
-    if(this.score1.value != '') goals.push(parseInt(this.score1.value))
-    if(this.score2.value != '') goals.push(parseInt(this.score2.value))
+    if(this.score1.value !== '') goals.push(parseInt(this.score1.value, 10))
+    if(this.score2.value !== '') goals.push(parseInt(this.score2.value, 10))
     if(goals.length > 1){
       this.props.score(this.props.index, goals, crawling)
     }
