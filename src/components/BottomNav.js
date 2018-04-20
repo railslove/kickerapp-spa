@@ -43,7 +43,7 @@ const BottomNav = (props) => {
   return (
     <Wrapper>
       <Link to={'/ranking'}>
-        <Item className={props.location.pathname === '/ranking' ? 'asActive' : ''}>
+        <Item className={(props.location.pathname === '/ranking' || props.location.pathname === '/teams') ? 'asActive' : ''}>
           <img src={Ranking} alt='Ranking'/>
         </Item>
       </Link>
