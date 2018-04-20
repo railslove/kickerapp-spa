@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlayerSelect from "./PlayerSelect"
 import Player from "./JustPlayer"
@@ -85,6 +86,13 @@ class PlayerSelectAndShow extends React.Component {
       </Wrapper>
     )
   }
+}
+
+PlayerSelectAndShow.propTypes = {
+  size: PropTypes.number.isRequired,
+  league: PropTypes.object.isRequired,
+  playersSelected: PropTypes.func.isRequired,
+  break: PropTypes.bool
 }
 
 export default PlayerSelectAndShow

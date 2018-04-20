@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import posed from 'react-pose'
 
@@ -77,6 +78,12 @@ const User = (props) => {
       {props.last !== 0 && <Last>{props.last - props.user.quota}</Last>}
     </Item>
   )
+}
+
+User.propTypes = {
+  index: PropTypes.number.isRequired,
+  user: PropTypes.object.isRequired,
+  last: PropTypes.number
 }
 
 export default User;

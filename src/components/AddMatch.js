@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
@@ -140,6 +141,13 @@ const addMatch = gql`
     }
   }
 `
+
+AddMatch.propTypes = {
+  league: PropTypes.object.isRequired,
+  gotoDayMatches: PropTypes.func.isRequired,
+  preTeam1: PropTypes.array,
+  preTeam2: PropTypes.array
+}
 
 const addMatchWithData = graphql(addMatch)(AddMatch)
 

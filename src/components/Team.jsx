@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import posed from 'react-pose'
 
 const teamProps = {
@@ -113,10 +114,10 @@ class Team extends React.Component {
             {this.props.team.position < 10 ? `0${this.props.team.position}` : this.props.team.position}
           </Position>
           <Image style={{backgroundImage: `url(${this.props.team.player1.image})`}}/>
-          <Image style={{backgroundImage: `url(${this.props.team.player2.image})`}}/>
+          { this.props.team.player2 && <Image style={{backgroundImage: `url(${this.props.team.player2.image})`}}/> }
           <Content>
             <Name>{this.props.team.player1.name}</Name>
-            <Name>{this.props.team.player2.name}</Name>
+            <Name>{this.props.team.player2 && this.props.team.player2.name}</Name>
           </Content>
           <Quota className='quota'>{this.props.team.score}</Quota>
         </Item>
@@ -140,5 +141,10 @@ class Team extends React.Component {
     )
   }
 }
+
+Team.propTypes = {
+  team: PropTypes.object.isRequired
+}
+
 
 export default Team

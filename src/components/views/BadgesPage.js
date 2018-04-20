@@ -6,7 +6,6 @@ import gql from 'graphql-tag'
 import styled from 'styled-components'
 
 const Badges = styled.div`
-  background: #eee;
   padding: 10px;
 `
 
@@ -27,6 +26,7 @@ class BadgesPage extends React.Component {
     const league = this.props.badgesQuery.leagues[0]
     return (
       <div>
+        <h1 className='aHeadline'>Badges</h1>
         <Badges>
           <Badge user={league.longest_winning_streak} name='Winning streak'/>
           <Badge user={league.longest_winning_streak_ever} name='Winning streak ever'/>

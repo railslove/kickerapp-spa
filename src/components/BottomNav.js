@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Home from '../assets/home.svg'
@@ -46,8 +47,8 @@ const BottomNav = (props) => {
           <img src={Ranking} alt='Ranking'/>
         </Item>
       </Link>
-      <Link to={'/day_matches'}>
-        <Item className={props.location.pathname === '/day_matches' ? 'asActive' : ''}>
+      <Link to={'/matches'}>
+        <Item className={props.location.pathname === '/matches' ? 'asActive' : ''}>
           <img src={Match} alt='Matches'/>
         </Item>
       </Link>
@@ -68,6 +69,10 @@ const BottomNav = (props) => {
       </Link>
     </Wrapper>
   )
+}
+
+BottomNav.propTypes = {
+  location: PropTypes.object.isRequired
 }
 
 export default BottomNav

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import { withRouter, Link } from 'react-router-dom'
 import gql from 'graphql-tag'
@@ -106,6 +107,10 @@ const shuffleQuery = gql`
     }
   }
 `
+
+Shuffle.propTypes = {
+  league: PropTypes.object.isRequired
+}
 
 const shuffleQueryWithData = graphql(shuffleQuery)(Shuffle)
 

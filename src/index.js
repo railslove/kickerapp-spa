@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import SettingsPage from './components/views/SettingsPage'
 import RankingPage from './components/views/RankingPage'
 import TeamsPage from './components/views/TeamsPage'
-import MatchesPage from './components/views/MatchesPage'
 import DayMatchesPage from './components/views/DayMatchesPage'
 import HomePage from './components/views/HomePage'
 import BadgesPage from './components/views/BadgesPage'
@@ -35,8 +34,7 @@ ReactDOM.render(
           <Route exact path='/settings/:leagueSlug?' component={SettingsPage} />
           <Route path='/teams' component={TeamsPage} />
           <Route path='/ranking' component={RankingPage} />
-          <Route path='/matches' component={MatchesPage} />
-          <Route path='/day_matches' component={DayMatchesPage} />
+          <Route path='/matches' component={DayMatchesPage} />
           <Route path='/player/new' component={NewUserPage} />
           <Route path='/match/new/:p1?/:p2?/:p3?/:p4?' component={NewMatchPage} />
           <Route path='/badges' component={BadgesPage} />

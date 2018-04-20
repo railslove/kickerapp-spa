@@ -4,16 +4,22 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 
+const Wrapper = styled.div`
+  padding: 10px;
+`
+
 const Button = styled.button`
-  background: #232323;
+  background: #62c69a;
+  border-radius: 30px;
   padding: 10px;
   width: 50vw;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
   font-size: 18px;
   color: white;
   display: block;
+  border: none;
 `
 
 const Error = styled.div`
@@ -57,10 +63,13 @@ class NewUserPage extends React.Component {
   render() {
     return (
       <div>
+        <h1 className='aHeadline'>New Player</h1>
         {this.state.error && <Error>Please fill out name and email</Error>}
-        <input required='true' type='text' placeholder='Name*' ref={(input) => { this.name = input }}/>
-        <input required='true' type='text' placeholder='Email*' ref={(input) => { this.email = input }}/>
-        <input type='text' placeholder='Image URL' ref={(input) => { this.image = input }}/>
+        <Wrapper>
+          <input required='true' type='text' placeholder='Name*' ref={(input) => { this.name = input }}/>
+          <input required='true' type='text' placeholder='Email*' ref={(input) => { this.email = input }}/>
+          <input type='text' placeholder='Image URL' ref={(input) => { this.image = input }}/>
+        </Wrapper>
         <Button onClick={()=> this.addUser()}>
           Add Player
         </Button>

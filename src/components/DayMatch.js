@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Set from './Set'
 import { Link } from 'react-router-dom'
@@ -103,6 +104,10 @@ const DayMatch = (props) => {
       </Link>
     </Wrapper>
   )
+}
+
+DayMatch.propTypes = {
+  match: PropTypes.object.isRequired
 }
 
 export default DayMatch

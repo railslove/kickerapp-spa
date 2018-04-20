@@ -29,7 +29,7 @@ class NewMatchPage extends React.Component {
   }
 
   gotoDayMatches(){
-    this.props.history.push('/day_matches')
+    this.props.history.push('/matches')
   }
 
   render() {

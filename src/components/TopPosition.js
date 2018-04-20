@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import posed from 'react-pose'
 
@@ -72,6 +73,11 @@ const TopPosition = (props) => {
       <Quota className='headlineFont'>{props.user.quota}</Quota>
     </Item>
   )
+}
+
+TopPosition.propTypes = {
+  user: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired
 }
 
 export default TopPosition;

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Set = (props) => {
@@ -39,11 +40,9 @@ const Set = (props) => {
 
   const scores = props.data.score.split(':')
 
-  // .map((s)=>(<div className={`score ${props.data.crawling ? 'withCrawling' : ''}`} key={s}>{s}</div>))
   if(!props.data){
     return null
   }
-  // <Difference>{props.data.difference}</Difference>
 
   return (
     <Wrapper className={props.data.crawling ? 'withCrawling' : ''}>
@@ -57,6 +56,11 @@ const Set = (props) => {
       </Point>
     </Wrapper>
   )
+}
+
+Set.propTypes = {
+  data: PropTypes.object.isRequired,
+  winner: PropTypes.bool.isRequired
 }
 
 export default Set

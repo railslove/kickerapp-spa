@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import TopPosition from "./TopPosition"
 
@@ -29,5 +30,11 @@ const TopPositions = (props) => {
     </TopPositionsWrapper>
   )
 }
+
+
+TopPositions.propTypes = {
+  topUsers: PropTypes.array.isRequired
+}
+
 
 export default TopPositions;

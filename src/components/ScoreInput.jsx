@@ -1,4 +1,5 @@
-import React from "react"
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Crawl from '../assets/crawl.svg'
 
@@ -80,6 +81,11 @@ class ScoreInput extends React.Component {
       </Wrapper>
     )
   }
+}
+
+ScoreInput.propTypes = {
+  index: PropTypes.number.isRequired,
+  score: PropTypes.func.isRequired
 }
 
 export default ScoreInput

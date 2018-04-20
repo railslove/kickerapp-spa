@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const League = (props) => {
@@ -19,6 +20,10 @@ const League = (props) => {
       </Wrapper>
     </div>
   )
+}
+
+League.propTypes = {
+  league: PropTypes.object.isRequired
 }
 
 export default League
