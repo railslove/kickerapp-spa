@@ -47,6 +47,8 @@ const TEAMS_QUERY = gql`
         id
         score
         percentage
+        number_of_wins
+        number_of_losses
         player1{
           id
           name

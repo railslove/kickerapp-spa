@@ -128,12 +128,12 @@ class Team extends React.Component {
 
           <MoreItem>
             <MoreItemLabel>Wins</MoreItemLabel>
-            {this.props.team.percentage}%
+            {this.props.team.number_of_wins}
           </MoreItem>
 
           <MoreItem>
             <MoreItemLabel>Loses</MoreItemLabel>
-            {this.props.team.percentage}%
+            {this.props.team.number_of_losses}
           </MoreItem>
         </More> }
       </Wrapper>
