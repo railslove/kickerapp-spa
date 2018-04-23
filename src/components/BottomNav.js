@@ -37,7 +37,7 @@ const BottomNav = (props) => {
     }
     &.asActive{
       border-top: 4px solid #62c69a;
-      height: 54px;
+      height: 74px;
     }
   `
   return (
