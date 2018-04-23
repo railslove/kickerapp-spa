@@ -28,7 +28,7 @@ const BottomNav = (props) => {
     border-top: 4px solid #101632;
     background: #101632;
     padding: 10px;
-    height: 50px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
