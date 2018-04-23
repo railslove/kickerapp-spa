@@ -40,7 +40,7 @@ const RankingUser = (props) => {
   const Image = styled.div`
     height: 66px;
     width: 66px;
-    background-color: #999;
+    background-color: #dedede;
     background-image: url(${props.user.image});
     background-position: center top;
     background-size: cover;
