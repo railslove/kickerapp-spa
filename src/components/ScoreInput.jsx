@@ -45,19 +45,6 @@ const Image = styled.img`
   }
 `
 
-const Input = styled.input`
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-  font-size: 16px;
-  border: 1px solid #9b9b9b;
-  padding: 10px;
-  margin-bottom: 10px;
-  &:focus{
-    outline: none
-  }
-`
-
 class ScoreInput extends React.Component {
 
   constructor (props) {
@@ -86,9 +73,9 @@ class ScoreInput extends React.Component {
       <Wrapper>
         <Number className='headlineFont'>0{this.props.index + 1}</Number>
         <InputWrapper>
-          <Input type='tel' onChange={() => this.save(this.state.crawling)} ref={(input) => { this.score1 = input }}/>
+          <input type='tel' onChange={() => this.save(this.state.crawling)} ref={(input) => { this.score1 = input }}/>
           -
-          <Input type='tel' onChange={() => this.save(this.state.crawling)} ref={(input) => { this.score2 = input }}/>
+          <input type='tel' onChange={() => this.save(this.state.crawling)} ref={(input) => { this.score2 = input }}/>
         </InputWrapper>
         <Image className={this.state.crawling ? 'asActive' : ''} src={Crawl} onClick={() => this.toggleCrawling()}/>
       </Wrapper>

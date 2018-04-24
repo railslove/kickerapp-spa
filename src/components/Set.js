@@ -21,7 +21,7 @@ const Set = (props) => {
     left: 0;
     width: 100%;
     text-align: center;
-    margin-top: -2px;
+    bottom: 0;
   `
 
   const Point = styled.div`
