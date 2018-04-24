@@ -99,9 +99,12 @@ const DayMatch = (props) => {
         { props.match.loser_team.player2 && <Image style={{backgroundImage: `url(${props.match.loser_team.player2.image})`}} /> }</Images>
       <Difference className='headlineFont asLost'>-{ props.match.difference }</Difference>
       </Team>
-      <Link to={`match/new/${props.match.winner_team.player1.id}/${props.match.loser_team.player1.id}/${props.match.winner_team.player2.id}/${props.match.loser_team.player2.id}`}>
+      { props.match.winner_team.player2 && <Link to={`match/new/${props.match.winner_team.player1.id}/${props.match.loser_team.player1.id}/${props.match.winner_team.player2.id}/${props.match.loser_team.player2.id}`}>
         <Rematch className='headlineFont'>+ Rematch</Rematch>
-      </Link>
+      </Link> }
+      { !props.match.winner_team.player2 && <Link to={`match/new/${props.match.winner_team.player1.id}/${props.match.loser_team.player1.id}}`}>
+        <Rematch className='headlineFont'>+ Rematch</Rematch>
+      </Link> }
     </Wrapper>
   )
 }
