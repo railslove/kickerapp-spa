@@ -3,6 +3,7 @@ import PlayerDetail from '../PlayerDetail'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Spinner from '../../assets/rings.svg'
+import Back from '../../assets/back.png'
 
 class PlayerPage extends React.Component {
 
@@ -19,7 +20,10 @@ class PlayerPage extends React.Component {
 
     return (
       <div className={'aWrapper'}>
-        <h1 className='aHeadline asGreen' onClick={this.props.history.goBack}>{player.name}</h1>
+        <h1 className='aHeadline asGreen' onClick={this.props.history.goBack}>
+        <img src={Back} alt='back'/>
+        {player.name}
+      </h1>
         <PlayerDetail player={player}/>
       </div>
     )

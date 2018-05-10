@@ -69,6 +69,12 @@ a{
   justify-content: center;
   margin: 0;
   color: #4a4a4a;
+  img{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 10px;
+  }
   .aHeadline-sub{
     font-size: 12px;
     color: #9b9b9b;

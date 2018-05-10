@@ -98,7 +98,6 @@ const PlayerDetail = (props) => {
 
   const games = props.player.number_of_wins + props.player.number_of_losses
   const percentage = props.player.number_of_wins / games * 100
-  console.log('PER', percentage)
   return (
     <Wrapper>
       <Header>
@@ -152,7 +151,7 @@ const PlayerDetail = (props) => {
             Wins
             <div className='headlineFont'>{props.player.number_of_wins}</div>
           </Fact>
-          <ProgressCircle percentage={parseInt(100 - percentage)} string={games.toString()}/>
+          <ProgressCircle percentage={parseInt(100 - percentage, 10)} string={games.toString()}/>
           <Fact className='asBordered'>
             Looses
             <div className='headlineFont'>{props.player.number_of_losses}</div>
