@@ -23,9 +23,9 @@ const TopPositions = (props) => {
   return (
     <TopPositionsWrapper>
       <TopPositionsElement>
-        <TopPosition user={props.topUsers[1]} index={2}/>
-        <TopPosition user={props.topUsers[0]} index={1}/>
-        <TopPosition user={props.topUsers[2]} index={3}/>
+        { props.topUsers[1] && <TopPosition user={props.topUsers[1]} index={2}/> }
+        { props.topUsers[0] && <TopPosition user={props.topUsers[0]} index={1}/> }
+        { props.topUsers[2] && <TopPosition user={props.topUsers[2]} index={3}/> }
       </TopPositionsElement>
     </TopPositionsWrapper>
   )

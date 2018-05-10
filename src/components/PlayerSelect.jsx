@@ -46,8 +46,8 @@ class PlayerSelect extends React.Component {
     let newState = {searchTerm: ''}
     if(this.props.onTeams){
       newState['active'] = false
-      newState['players'] = this.props.players
     }
+    newState['players'] = this.props.players
     this.setState(newState)
     this.props.filter(player)
 
