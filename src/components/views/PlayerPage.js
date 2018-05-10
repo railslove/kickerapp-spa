@@ -19,7 +19,7 @@ class PlayerPage extends React.Component {
 
     return (
       <div className={'aWrapper'}>
-        <h1 className='aHeadline asGreen'>{player.name}</h1>
+        <h1 className='aHeadline asGreen' onClick={this.props.history.goBack}>{player.name}</h1>
         <PlayerDetail player={player}/>
       </div>
     )

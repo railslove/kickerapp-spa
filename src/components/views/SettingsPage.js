@@ -29,7 +29,7 @@ class SettingsPage extends React.Component {
 
     return (
       <div className={'aWrapper'}>
-        <h1 className='aHeadline withoutBack'>Liga wählen</h1>
+        <h1 className='aHeadline'>Liga wählen</h1>
         <div className='aLeagueList'>
           {this.props.allLeaguesQuery.leagues && <Leagues leagues={this.props.allLeaguesQuery.leagues} selectLeague={this.selectLeague.bind(this)}/>}
         </div>

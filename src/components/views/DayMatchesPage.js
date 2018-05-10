@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  max-width: 768px;
+  max-width: 880px;
   margin: 0 auto;
 `
 
@@ -22,7 +22,7 @@ const Day = styled.div`
   color: #9b9b9b;
   border-bottom: 1px solid #9b9b9b;
   padding: 10px;
-  max-width: 768px;
+  max-width: 880px;
   margin: 0 auto;
   margin-top: 20px;
 `

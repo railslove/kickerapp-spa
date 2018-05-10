@@ -74,12 +74,6 @@ a{
     color: #9b9b9b;
     text-transform: uppercase;
   }
-  &.withoutBack{
-    a{
-      position: absolute;
-      right: 10px;
-    }
-  }
   &.asSmall{
     font: 400 14px/14px $headline-family;
     color: #4a4a4a;
@@ -102,9 +96,9 @@ a{
 }
 
 .aLoading{
-  width: 30vw;
-  height: 30vw;
-  margin: 25vw auto 0;
+  width: 30vh;
+  height: 30vh;
+  margin: 25vh auto 0;
   img{
     width: 100%;
     height: 100%;

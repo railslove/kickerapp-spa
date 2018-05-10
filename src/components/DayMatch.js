@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const DayMatch = (props) => {
 
   const Wrapper = styled.div`
-    max-width: 370px;
+    max-width: 425px;
     width: 100%;
     border-bottom: 1px solid #9b9b9b;
   `
