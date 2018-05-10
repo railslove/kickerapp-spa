@@ -38,6 +38,8 @@ const PLAYER_QUERY = gql`
       winning_streak
       highest_quota
       lowest_quota
+      number_of_wins
+      number_of_losses
       best_partner{
         image
         name

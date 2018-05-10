@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Player from './Player'
+import ProgressCircle from './ProgressCircle'
 import styled from 'styled-components'
 
 const PlayerDetail = (props) => {
@@ -19,7 +20,7 @@ const PlayerDetail = (props) => {
   `
 
   const Row = styled.div`
-    padding: 10px;
+    padding: 10px 20px;
     background: #f8f8f8;
     hr{
       border-color: #d3d3d3;
@@ -52,19 +53,29 @@ const PlayerDetail = (props) => {
     margin-bottom: 5px;
   `
 
-  const Streaks = styled.div`
+  const Facts = styled.div`
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
+    align-items: flex-end;
+    .asBordered{
+      flex: 1;
+    }
   `
 
-  const Streak = styled.div`
+  const Fact = styled.div`
     font-size: 11px;
     font-weight: 600;
     color: #4a4a4a;
     > div{
       font-size: 20px;
       color: #9b9b9b;
+    }
+    &.asBordered{
+      border-top: 1px solid #9b9b9b;
+      &:last-child{
+        text-align: right;
+      }
     }
   `
 
@@ -85,6 +96,9 @@ const PlayerDetail = (props) => {
     }
   `
 
+  const games = props.player.number_of_wins + props.player.number_of_losses
+  const percentage = props.player.number_of_wins / games * 100
+  console.log('PER', percentage)
   return (
     <Wrapper>
       <Header>
@@ -93,19 +107,19 @@ const PlayerDetail = (props) => {
         <Points className='headlineFont'>{props.player.quota}</Points>
       </Header>
       <h2 className='aHeadline asSmall'>Winning streaks</h2>
-      <Streaks>
-        <Streak>
+      <Facts>
+        <Fact>
           <div className='headlineFont'>{props.player.winning_streak}</div>
           current
-        </Streak>
-        <Streak>
+        </Fact>
+        <Fact>
           <div className='headlineFont'>{props.player.longest_winning_streak_games}</div>
           longest
-        </Streak>
-      </Streaks>
+        </Fact>
+      </Facts>
       <Row>
         <Partner>
-          <Player player={props.player.best_partner}/>
+          <Player playerClicked={()=>{}}player={props.player.best_partner}/>
           <div>
             <Name>{props.player.best_partner.name}</Name>
             is the best partner
@@ -113,7 +127,7 @@ const PlayerDetail = (props) => {
         </Partner>
         <hr/>
         <Partner>
-          <Player player={props.player.worst_partner}/>
+          <Player playerClicked={()=>{}}player={props.player.worst_partner}/>
           <div>
             <Name>{props.player.worst_partner.name}</Name>
             is the worst partner
@@ -121,18 +135,29 @@ const PlayerDetail = (props) => {
         </Partner>
       </Row>
       <h2 className='aHeadline asSmall'>History</h2>
-      <Streaks>
-        <Streak>
+      <Facts>
+        <Fact>
           <div className='headlineFont'>{props.player.lowest_quota}</div>
           Low points
-        </Streak>
-        <Streak>
+        </Fact>
+        <Fact>
           <div className='headlineFont'>{props.player.highest_quota}</div>
           High points
-        </Streak>
-      </Streaks>
+        </Fact>
+      </Facts>
       <Row>
         <h2 className='aHeadline asSmall'>Games</h2>
+        <Facts>
+          <Fact className='asBordered'>
+            Wins
+            <div className='headlineFont'>{props.player.number_of_wins}</div>
+          </Fact>
+          <ProgressCircle percentage={parseInt(100 - percentage)} string={games.toString()}/>
+          <Fact className='asBordered'>
+            Looses
+            <div className='headlineFont'>{props.player.number_of_losses}</div>
+          </Fact>
+        </Facts>
       </Row>
     </Wrapper>
   )

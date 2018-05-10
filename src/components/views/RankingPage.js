@@ -40,7 +40,8 @@ const UserList = styled(posed.div(listProps))`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  max-width: 450px;
+  margin: 0 auto;
 `
 
 class RankingPage extends React.Component {
