@@ -8,6 +8,17 @@ const Wrapper = styled.div`
   padding: 10px;
   max-width: 450px;
   margin: 0 auto;
+  input{
+    margin-bottom: 20px;
+  }
+
+`
+
+const Row = styled.div`
+  padding: 20px 0;
+  &.asGrey{
+    background: #f8f8f8;
+  }
 `
 
 const Button = styled.button`
@@ -34,6 +45,13 @@ const Error = styled.div`
   color: white;
   display: block;
   margin-bottom: 20px;
+`
+const Label = styled.label`
+  font-size: 11px;
+  font-weight: bold;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+  display: block;
 `
 
 class NewUserPage extends React.Component {
@@ -67,11 +85,19 @@ class NewUserPage extends React.Component {
       <div>
         <h1 className='aHeadline'>New Player</h1>
         {this.state.error && <Error>Please fill out name and email</Error>}
-        <Wrapper>
-          <input required='true' type='text' placeholder='Name*' ref={(input) => { this.name = input }}/>
-          <input required='true' type='text' placeholder='Email*' ref={(input) => { this.email = input }}/>
-          <input type='text' placeholder='Image URL' ref={(input) => { this.image = input }}/>
-        </Wrapper>
+        <Row>
+          <Wrapper>
+            <Label>Player infos</Label>
+            <input required='true' type='text' placeholder='Name*' ref={(input) => { this.name = input }}/>
+            <input required='true' type='text' placeholder='Email*' ref={(input) => { this.email = input }}/>
+          </Wrapper>
+        </Row>
+        <Row className='asGrey'>
+          <Wrapper>
+            <Label>Player image</Label>
+            <input type='text' placeholder='Image URL' ref={(input) => { this.image = input }}/>
+          </Wrapper>
+        </Row>
         <Button onClick={()=> this.addUser()}>
           Add Player
         </Button>

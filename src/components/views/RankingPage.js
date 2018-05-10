@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import RankingUser from '../RankingUser'
 import TopPositions from '../TopPositions'
 import RankingTabs from '../RankingTabs'
@@ -73,7 +73,7 @@ class RankingPage extends React.Component {
     let baseUsers = league.ranking.slice(3,league.ranking.length)
     let last = 0
     let userlist = baseUsers.map((user, index) => {
-      let element = <RankingUser key={user.name} index={index+4} user={user} last={last}/>
+      let element = <Link to={`/players/${user.id}`}><RankingUser key={user.name} index={index+4} user={user} last={last}/></Link>
       last = user.quota
       return element
     })
@@ -100,6 +100,7 @@ const RANKING_QUERY = gql`
       id
       name
       ranking{
+        id
         name
         quota
         image

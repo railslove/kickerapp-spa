@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import TopPosition from "./TopPosition"
+import { Link } from 'react-router-dom'
+import TopPosition from './TopPosition'
 
 const TopPositions = (props) => {
 
@@ -23,9 +24,9 @@ const TopPositions = (props) => {
   return (
     <TopPositionsWrapper>
       <TopPositionsElement>
-        { props.topUsers[1] && <TopPosition user={props.topUsers[1]} index={2}/> }
-        { props.topUsers[0] && <TopPosition user={props.topUsers[0]} index={1}/> }
-        { props.topUsers[2] && <TopPosition user={props.topUsers[2]} index={3}/> }
+        { props.topUsers[1] && <Link to={`/players/${props.topUsers[1].id}`}><TopPosition user={props.topUsers[1]} index={2}/></Link> }
+        { props.topUsers[0] && <Link to={`/players/${props.topUsers[0].id}`}><TopPosition user={props.topUsers[0]} index={1}/></Link> }
+        { props.topUsers[2] && <Link to={`/players/${props.topUsers[2].id}`}><TopPosition user={props.topUsers[2]} index={3}/></Link> }
       </TopPositionsElement>
     </TopPositionsWrapper>
   )
