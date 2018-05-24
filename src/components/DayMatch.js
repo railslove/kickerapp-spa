@@ -41,15 +41,17 @@ const DayMatch = (props) => {
     justify-content: space-between;
     position: relative;
     background: #f7f7f7;
-    padding: 10px
+    padding: 10px 0
   `
 
   const Sets = styled.div`
     display: flex;
+    flex-flow: wrap;
   `
   const Names = styled.div`
     flex: 1;
     color: #9b9b9b;
+
   `
   const TeamNames = styled.div`
     height: 60px;
@@ -61,6 +63,10 @@ const DayMatch = (props) => {
     &.first{
       border-bottom: 1px solid #d6d6d6;
     }
+  `
+  const PlayerName = styled.div`
+    line-height: 0.9rem;
+    margin: 5px 0
   `
 
   const Rematch = styled.div`
@@ -85,12 +91,12 @@ const DayMatch = (props) => {
       <Score>
         <Names>
           <TeamNames className='first'>
-            <div>{props.match.winner_team.player1.name}</div>
-            <div>{props.match.winner_team.player2 && props.match.winner_team.player2.name}</div>
+            <PlayerName>{props.match.winner_team.player1.name}</PlayerName>
+            <PlayerName>{props.match.winner_team.player2 && props.match.winner_team.player2.name}</PlayerName>
           </TeamNames>
           <TeamNames>
-            <div>{props.match.loser_team.player1.name}</div>
-            <div>{props.match.loser_team.player2 && props.match.loser_team.player2.name}</div>
+            <PlayerName>{props.match.loser_team.player1.name}</PlayerName>
+            <PlayerName>{props.match.loser_team.player2 && props.match.loser_team.player2.name}</PlayerName>
           </TeamNames>
         </Names>
         <Sets>{sets}</Sets>
