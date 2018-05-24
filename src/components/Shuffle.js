@@ -71,11 +71,12 @@ class Shuffle extends React.Component {
     return (
       <div>
         <HeaderWrapper>
-          <h1 className='aHeadline asLarge'>
-            Choose Players
-            <div className='aHeadline-sub'>Shuffle</div>
-          </h1>
-          <PlayerSelectAndShow size={4} league={this.props.league} playersSelected={this.playersSelected.bind(this)}/>
+          <PlayerSelectAndShow
+            size={4}
+            league={this.props.league}
+            playersSelected={this.playersSelected.bind(this)}
+            shuffle='true'
+          />
         </HeaderWrapper>
         {this.state.players.length >= 4 && this.state.teams.length !== 2 && <Button onClick={()=>this.shuffle()}>Shuffle</Button>}
         {

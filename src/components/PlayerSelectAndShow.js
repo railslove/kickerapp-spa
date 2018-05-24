@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import PlayerSelect from "./PlayerSelect"
-import Player from "./Player"
+import PlayerSelect from './PlayerSelect'
+import Player from './Player'
 
 const Wrapper = styled.div`
-  padding: 10px;
   max-width: 490px;
   margin: 0 auto;
   &.as1{
@@ -23,6 +22,15 @@ const Wrapper = styled.div`
       margin-bottom: 10px;
     }
   }
+`
+
+const Header = styled.div`
+  padding: 10px
+`
+
+const Body = styled.div`
+  padding: 40px 10px 20px;
+  min-height: 100vh
 `
 
 const Players = styled.div`
@@ -77,12 +85,24 @@ class PlayerSelectAndShow extends React.Component {
     }
     return (
       <Wrapper className={`as${this.props.size}`}>
-        <Players>
-          { players }
-        </Players>
-        { this.state.players.length < this.props.size && <PlayerSelect players={this.props.league.users}
-        active={this.state.selectActive}
-        filter={this.addPlayer.bind(this)}/> }
+        <Header className='shadowBox'>
+          <h1 className='aHeadline asLarge'>
+            {`${this.state.completed ? 'Lineup' : 'Choose Players'}`}
+            <div className='aHeadline-sub'>
+              {this.props.shuffle? 'Shuffle' : 'New game'}
+            </div>
+          </h1>
+          <Players>
+            { players }
+          </Players>
+        </Header>
+
+          { this.state.players.length < this.props.size &&
+            <Body>
+              <PlayerSelect players={this.props.league.users}
+                active={this.state.selectActive}
+                filter={this.addPlayer.bind(this)}/>
+            </Body>}
       </Wrapper>
     )
   }

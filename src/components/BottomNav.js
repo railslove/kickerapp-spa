@@ -23,7 +23,7 @@ const BottomNav = (props) => {
   const Item = styled.div`
     background: ${colors.secondary};
     padding: 10px;
-    height: 70px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;

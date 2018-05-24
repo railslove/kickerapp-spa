@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 const Players = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-top: 10px;
   padding: 10px 0;
   > div{

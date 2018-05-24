@@ -33,7 +33,9 @@ const topProps = {
 }
 
 const TopPositionsWrapper = styled(posed.div(topProps))`
-  display: block
+  display: block;
+  margin-bottom: 10px
+
 `
 
 const UserList = styled(posed.div(listProps))`
@@ -83,7 +85,7 @@ class RankingPage extends React.Component {
       <div>
         <h1 className='aHeadline asGreen'>Ranking</h1>
         <RankingTabs active='single'/>
-        <TopPositionsWrapper pose={ this.state.isOpen ? 'open' : 'close' }>
+        <TopPositionsWrapper className='shadowBox' pose={ this.state.isOpen ? 'open' : 'close' }>
           <TopPositions topUsers={league.ranking.slice(0,3)} isOpen={this.state.isOpen}/>
         </TopPositionsWrapper>
         <UserList pose={this.state.isOpen ? 'open' : 'close'}>
