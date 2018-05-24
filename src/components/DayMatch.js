@@ -8,6 +8,7 @@ const DayMatch = (props) => {
 
   const Wrapper = styled.div`
     max-width: 425px;
+    margin: 0 auto 40px auto;
     width: 100%;
     border-bottom: 1px solid #9b9b9b;
   `
