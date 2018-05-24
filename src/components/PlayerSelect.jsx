@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Player from "./Player"
+import Player from './Player'
 
 const Wrapper = styled.div`
   flex: 1;
@@ -71,7 +71,7 @@ class PlayerSelect extends React.Component {
   render () {
     return (
       <Wrapper>
-        <input className={this.props.onTeams ? 'spaceRight' : ''} type='text' placeholder='Filter by player name' onFocus={() => this.activate()} onChange={() => this.filter()} ref={(input) => { this.playerName = input; }}/>
+        <input className={this.props.onTeams ? 'spaceRight' : ''} type='text' placeholder='Filter by player name' onFocus={() => this.activate()} onChange={() => this.filter()} ref={(input) => { this.playerName = input }} />
         { this.playerList()}
       </Wrapper>
     )

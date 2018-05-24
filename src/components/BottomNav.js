@@ -1,13 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { RankingIcon, MatchIcon, HomeIcon, ShuffleIcon, NewGameIcon } from '../assets/icons'
 import styled from 'styled-components'
-import Home from '../assets/home.svg'
-import New from '../assets/plus.svg'
-import Match from '../assets/match.svg'
-import Ranking from '../assets/ranking.svg'
-import Shuffle from '../assets/shuffle.svg'
-
+import colors from '../assets/colors'
 
 const BottomNav = (props) => {
 
@@ -25,46 +21,43 @@ const BottomNav = (props) => {
     }
   `
   const Item = styled.div`
-    border-top: 4px solid #101632;
-    background: #101632;
+    background: ${colors.secondary};
     padding: 10px;
     height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
-    img{
-      height: 25px;
-    }
     &.asActive{
-      border-top: 4px solid #62c69a;
-      height: 74px;
+      path {
+        fill: ${colors.primary}
+      }
     }
   `
   return (
     <Wrapper>
       <Link to={'/ranking'}>
         <Item className={(props.location.pathname === '/ranking' || props.location.pathname === '/teams') ? 'asActive' : ''}>
-          <img src={Ranking} alt='Ranking'/>
+          <RankingIcon />
         </Item>
       </Link>
       <Link to={'/matches'}>
         <Item className={props.location.pathname === '/matches' ? 'asActive' : ''}>
-          <img src={Match} alt='Matches'/>
+          <MatchIcon />
         </Item>
       </Link>
       <Link to={'/'}>
         <Item className={props.location.pathname === '/' ? 'asActive' : ''}>
-          <img src={Home} alt='Home'/>
+          <HomeIcon />
         </Item>
       </Link>
       <Link to={'/shuffle'}>
         <Item className={props.location.pathname === '/shuffle' ? 'asActive' : ''}>
-          <img src={Shuffle} alt='Shuffle'/>
+          <ShuffleIcon />
         </Item>
       </Link>
       <Link to={'/match/new'}>
         <Item className={props.location.pathname === '/match/new' ? 'asActive' : ''}>
-          <img src={New} alt='New match'/>
+          <NewGameIcon />
         </Item>
       </Link>
     </Wrapper>

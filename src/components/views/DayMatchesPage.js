@@ -35,9 +35,9 @@ class DayMatchesPage extends React.Component {
       const key = keyGetter(item)
       const collection = map.get(key)
       if (!collection) {
-        map.set(key, [item])
+          map.set(key, [item])
       } else {
-        collection.push(item)
+          collection.push(item)
       }
     })
     return map

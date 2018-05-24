@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 import TopPositions from '../TopPositions'
 import DayMatch from '../DayMatch'
 import Spinner from '../../assets/rings.svg'
-// import BadgeImage from '../../assets/badges.svg'
-import NewPlayerImage from '../../assets/new.svg'
+import { NewPlayerIcon, SettingsIcon } from '../../assets/icons'
 import styled from 'styled-components'
 import posed from 'react-pose'
-import SettingIcon from '../../assets/settings.svg'
+
+import colors from '../../assets/colors'
 
 const topProps = {
   open: {
@@ -41,12 +41,14 @@ const MatchWrapper = styled.div`
   }
 `
 const Header = styled.div`
-  background: #101632;
+  background: ${colors.secondary};
   padding: 10px 0 20px;
   color: white;
-  h1{
-    margin: 0 0 20px 0;
+  h1 { margin: 0 0 20px 0; }
+  .aHeadline {
+    &.onDark { color: ${colors.header} }
   }
+
 `
 
 const HomeLinks = styled.div`
@@ -55,16 +57,16 @@ const HomeLinks = styled.div`
   max-width: 450px;
   margin: 0 auto;
   .aHomeLink{
-    color: #c0c0c0;
+    color: ${colors.header};
     font-size: 12px;
     padding: 0px 20px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    img{
-      height: 40px;
-    }
+    svg {padding: 4px; margin: auto }
   }
+
 `
 
 class HomePage extends React.Component {
@@ -118,13 +120,13 @@ class HomePage extends React.Component {
             <Link
               className='aHomeLink headlineFont'
               to={'/player/new'}>
-              <img src={NewPlayerImage} alt=''/>
+              <NewPlayerIcon />
               New Player
             </Link>
             <Link
               className='aHomeLink headlineFont'
               to={'/settings'}>
-              <img src={SettingIcon} alt=''/>
+              <SettingsIcon />
               Settings
             </Link>
           </HomeLinks>
