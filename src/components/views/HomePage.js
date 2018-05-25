@@ -34,7 +34,6 @@ const MatchWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  max-width: 768px;
   margin: 0 auto;
   h2{
     margin-bottom: 20px;
