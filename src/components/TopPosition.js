@@ -80,4 +80,4 @@ TopPosition.propTypes = {
   index: PropTypes.number.isRequired
 }
 
-export default TopPosition;
+export default TopPosition

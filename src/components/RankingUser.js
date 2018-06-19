@@ -61,7 +61,8 @@ const RankingUser = (props) => {
   `
 
   const Quota = styled.div`
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: normal;
     color: #9b9b9b;
   `
 
@@ -73,7 +74,7 @@ const RankingUser = (props) => {
       <Image/>
       <Content>
         <Name>{props.user.name}</Name>
-        <Quota>{props.user.quota}</Quota>
+        <Quota className='headlineFont'>{props.user.quota}</Quota>
       </Content>
       {props.last !== 0 && <Last>{props.last - props.user.quota}</Last>}
     </Item>
@@ -86,4 +87,4 @@ RankingUser.propTypes = {
   last: PropTypes.number
 }
 
-export default RankingUser;
+export default RankingUser

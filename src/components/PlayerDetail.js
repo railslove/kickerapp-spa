@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Player from './Player'
 import ProgressCircle from './ProgressCircle'
 import styled from 'styled-components'
-
+import { WinningStreak } from '../assets/icons'
 const PlayerDetail = (props) => {
 
   const Wrapper = styled.div`
@@ -78,6 +78,23 @@ const PlayerDetail = (props) => {
       }
     }
   `
+  const FactMain = styled.div`
+    display: flex;
+    flex-direction: row;
+    font-size: 11px;
+    font-weight: 600;
+    color: #4a4a4a;
+    > div{
+      font-size: 20px;
+      color: #9b9b9b;
+    }
+    &.asBordered{
+      border-top: 1px solid #9b9b9b;
+      &:last-child{
+        text-align: right;
+      }
+    }
+  `
 
   const Name = styled.div`
     font-size: 16px;
@@ -111,10 +128,17 @@ const PlayerDetail = (props) => {
           <div className='headlineFont'>{props.player.winning_streak}</div>
           current
         </Fact>
-        <Fact>
-          <div className='headlineFont'>{props.player.longest_winning_streak_games}</div>
-          longest
-        </Fact>
+        <FactMain>
+          <WinningStreak />
+          <Fact>
+            <div className='headlineFont'>
+              {props.player.longest_winning_streak_games}
+            </div>
+            <div>
+              longest
+            </div>
+          </Fact>
+        </FactMain>
       </Facts>
       <Row>
         <Partner>

@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Fjalla+One:400,700|Open+Sans:400,700);
 
-$font-family: 'Open Sans', 'Open Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
+$font-family: 'Open Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
 $headline-family: 'Fjalla One', 'Open Sans', 'Helvetica Neue', Helventica, Arial, sans-serif;
 
 
@@ -21,6 +21,7 @@ body, html{
 
 .headlineFont{
   font-family: $headline-family;
+  font-weight: normal;
 }
 
 select{

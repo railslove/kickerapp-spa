@@ -20,9 +20,10 @@ const TopPositions = (props) => {
     display: flex;
     justify-content: center;
   `
-
+  const {topUsers} = props
   return (
     <TopPositionsWrapper>
+      {console.log({topUsers})}
       <TopPositionsElement>
         { props.topUsers[1] && <Link to={`/players/${props.topUsers[1].id}`}><TopPosition user={props.topUsers[1]} index={2}/></Link> }
         { props.topUsers[0] && <Link to={`/players/${props.topUsers[0].id}`}><TopPosition user={props.topUsers[0]} index={1}/></Link> }
@@ -38,4 +39,4 @@ TopPositions.propTypes = {
 }
 
 
-export default TopPositions;
+export default TopPositions
