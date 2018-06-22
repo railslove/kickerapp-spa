@@ -39,6 +39,9 @@ const Set = (props) => {
     &.asWinner{
       color: #62c69a;
     }
+    &.asCrawling{
+      color: #D44D47;
+    }
   `
 
   const scores = props.data.score.split(':')
@@ -49,11 +52,11 @@ const Set = (props) => {
 
   return (
     <Wrapper className={props.data.crawling ? 'withCrawling' : ''}>
-      <Point className={`first headlineFont ${props.winner ? 'asWinner' : ''}`}>
+      <Point className={`first headlineFont ${props.winner ? 'asWinner' : (props.data.crawling ? 'asCrawling' : '')}`}>
         {props.winner ? scores[0] : scores[1]}
         { props.winner && <Difference>+{props.data.difference}</Difference> }
       </Point>
-      <Point className={`headlineFont ${props.winner ? '' : 'asWinner'}`}>
+      <Point className={`headlineFont ${props.winner ? (props.data.crawling ? 'asCrawling' : '') : 'asWinner'}`}>
         {props.winner ? scores[1] : scores[0]}
         { !props.winner && <Difference>+{props.data.difference}</Difference> }
       </Point>
