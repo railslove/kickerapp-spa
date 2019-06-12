@@ -15,5 +15,4 @@ blocks:
           commands:
             - sem-version node 10
             - cache restore build-$SEMAPHORE_WORKFLOW_ID
-            - npm i -g roadtrip-cli
-            - roadtrip project:deploy
+            - npx roadtrip-cli project:deploy
