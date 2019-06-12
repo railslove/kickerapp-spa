@@ -1,6 +1,7 @@
 {
   "name": "m.kicker.cool",
   "dir": "./build",
+  "cdn": false,
   "https": false,
   "indexFile": "index.html",
   "errorFile": "index.html",

@@ -1,0 +1,28 @@
+version: v1.0
+name: m.kicker.cool
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: 'Install dependencies & build'
+    task:
+      jobs:
+        - name: yarn
+          commands:
+            - checkout
+            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master-
+            - sem-version node 9
+            - yarn
+            - yarn build
+            - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock) node_modules
+            - cache store build-$SEMAPHORE_WORKFLOW_ID build
+
+promotions:
+  - name: Production deploy
+    pipeline_file: deploy-production.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - master

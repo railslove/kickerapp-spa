@@ -1,0 +1,19 @@
+version: v1.0
+name: Deploy to production
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Deploy
+    task:
+      secrets:
+        - name: roadtrip@aws-railslove
+      jobs:
+        - name: Production
+          commands:
+            - sem-version node 10
+            - cache restore build-$SEMAPHORE_WORKFLOW_ID
+            - npm i -g roadtrip-cli
+            - roadtrip project:deploy
