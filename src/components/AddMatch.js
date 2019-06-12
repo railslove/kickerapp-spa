@@ -83,6 +83,7 @@ class AddMatch extends React.Component {
   saveMatch(){
     let sets = []
 
+    // eslint-disable-next-line no-unused-vars
     for (var [index, set] of this.state.sets) {
       let localSet = {}
       localSet['score1'] = set.goals[0]

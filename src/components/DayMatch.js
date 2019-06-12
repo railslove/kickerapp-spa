@@ -77,8 +77,11 @@ const DayMatch = (props) => {
   `
 
   let sets = props.match.matches.map((set)=>{
-    return <Set key={set.id} data={set}
-      winner={set.winner_team_id == props.match.winner_team.id}/>
+    // Don't know why that's a == comparison and no === comparison. I'm just
+    // here to make the build work, but I don't want to break anything, so:
+    // eslint-disable-next-line
+    const winner = set.winner_team_id == props.match.winner_team.id
+    return <Set key={set.id} data={set} winner={winner}/>
   })
 
   return (
