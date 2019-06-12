@@ -13,6 +13,7 @@ blocks:
       jobs:
         - name: Production
           commands:
+            - checkout
             - sem-version node 10
             - cache restore build-$SEMAPHORE_WORKFLOW_ID
             - npx roadtrip-cli project:deploy
