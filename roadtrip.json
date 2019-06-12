@@ -1,0 +1,10 @@
+{
+  "name": "m.kicker.cool",
+  "dir": "./build",
+  "https": false,
+  "indexFile": "index.html",
+  "errorFile": "index.html",
+  "cacheControl": {
+    "**/static/**/*.{js,css,png,svg,jpg}": "public, max-age=31536000, immutable"
+  }
+}
